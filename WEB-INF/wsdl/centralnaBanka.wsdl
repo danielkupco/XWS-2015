@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CentralnaBanka" 
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ws="http://www.example.com/webservice"
+    
+    xmlns:mt103="http://xws/tim7/mt103"
+    xmlns:mt102="http://xws/tim7/mt102"
+    xmlns:mt900="http://xws/tim7/mt900"
+    xmlns:mt910="http://xws/tim7/mt910"
+    xmlns:glob="http://xws/tim7/globals"
+    xmlns:cb="http://xws/tim7/cb"
+    targetNamespace="http://xws/tim7/cb"
+    xmlns:utils="http:/www.ftn.uns.ac.rs/CBankaWSDLutils"
+>
+    <!-- scheme 
+    <wsdl:import namespace="http://xws/tim7/mt103" location="../scheme/RTGS_MT103.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt102" location="../scheme/Nalog_za_grupna_placanja_MT102.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt900" location="../scheme/Poruka_o_zaduzenju_MT900.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt910" location="../scheme/Poruka_o_odobrenju_MT910.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/globals" location="../scheme/Globals.xsd"></wsdl:import>
+    -->
+    <!-- [BEGIN] TYPES part -->
+    <wsdl:types>
+        <xs:schema targetNamespace="http:/www.ftn.uns.ac.rs/CBankaWSDLutils">
+            <xs:import namespace="http://xws/tim7/mt103" schemaLocation="../scheme/RTGS_MT103.xsd"/>    
+            <xs:import namespace="http://xws/tim7/mt102" schemaLocation="../scheme/Nalog_za_grupna_placanja_MT102.xsd"/>
+            <xs:import namespace="http://xws/tim7/mt900" schemaLocation="../scheme/Poruka_o_zaduzenju_MT900.xsd"/>     
+            <xs:import namespace="http://xws/tim7/mt910" schemaLocation="../scheme/Poruka_o_odobrenju_MT910.xsd"/>
+            <xs:import namespace="http://xws/tim7/globals" schemaLocation="../scheme/Globals.xsd"/>
+        </xs:schema>
+        
+    </wsdl:types>
+    <!-- [END] TYPES part -->
+    
+    <!-- [BEGIN] MESSAGE part -->
+    <!-- mt103 -->
+    <wsdl:message name="primiMT103">
+        <wsdl:part name="parameters" element="mt103:primiMT103"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiMT103Response">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    
+    <!-- mt102 -->
+    <wsdl:message name="primiMT102">
+        <wsdl:part name="parameters" element="mt102:primiMT102"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiMT102Response">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    
+    <!-- status -->
+    <wsdl:message name="statusMessage">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    <!-- [END] MESSAGE part -->
+    
+    
+    <!-- [BEGIN] PORT TYPE part -->
+    <wsdl:portType name="CentralnaBanka">
+        <wsdl:operation name="primiMT103">
+            <wsdl:input message="cb:primiMT103"/>
+            <wsdl:output message="cb:primiMT103Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="primiMT102">
+            <wsdl:input message="cb:primiMT102"/>
+            <wsdl:output message="cb:primiMT102Response"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <!-- [END] PORT TYPE part -->
+    
+    
+    <!-- [BEGIN] BINDING part -->
+    <wsdl:binding name="CBankaBinding" type="cb:CentralnaBanka">
+        <soap:binding style="document"
+            transport="http://schemas.xmlsoap.org/soap/http"/>
+        <!-- RTGS -->
+         <wsdl:operation name="primiMT103">
+             <soap:operation soapAction=""/>
+              <wsdl:input>
+                  <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output>
+                  <soap:body use="literal"/>
+              </wsdl:output>
+         </wsdl:operation>
+        <!-- Clearing -->
+        <wsdl:operation name="primiMT102">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+        
+    
+    <!-- [END] BINDING part -->
+    
+    <wsdl:service name="CentralnaBankaService">
+        <wsdl:port binding="cb:CBankaBinding" name="CentralnaBankaPort">
+            <soap:address
+                location="http://localhost:8080/CentralnaBanka"/>
+        </wsdl:port>
+    </wsdl:service>
+    
+</wsdl:definitions>

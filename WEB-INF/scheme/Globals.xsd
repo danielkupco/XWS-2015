@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xws/tim7/globals" xmlns="http://xws/tim7/globals">
+
+    <xs:simpleType name="TOznakaValute">
+        <xs:restriction base="xs:string">
+            <xs:length value="3"/>
+            <xs:pattern value="[A-Z]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TBrojRacuna">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{3}-\d{13}-\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TBrojModela">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:pattern value="\d{2}"/>
+            <xs:totalDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TPozivNaBroj">
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="RacunType">
+        <xs:sequence>
+            <xs:element name="broj_racuna" type="TBrojRacuna"/>
+            <xs:element name="model" type="TBrojModela"/>
+            <xs:element name="poziv_na_broj">
+                <xs:simpleType>
+                    <xs:restriction base="TPozivNaBroj"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TIDPoruke">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TSWIFTKod">
+        <xs:restriction base="xs:string">
+            <xs:length value="8"/>
+            <xs:pattern value="[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TDecimal15_2">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="15"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TString255">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="OsnovaNalogaZaPlacanjeType">
+        <xs:sequence>
+            <xs:element name="duznik_nalogodavac" type="TString255"> </xs:element>
+            <xs:element name="poverilac_primalac" type="TString255"> </xs:element>
+            <xs:element name="svrha_placanja" type="TString255"> </xs:element>
+            <xs:element name="racun_duznika" type="RacunType"/>
+            <xs:element form="qualified" name="racun_poverioca" type="RacunType"/>
+            <xs:element name="iznos" type="TDecimal15_2"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MT9XXType">
+        <xs:sequence>
+            <xs:element name="ID_poruke" type="TIDPoruke"> </xs:element>
+            <xs:element name="SWIFT_kod_banke" type="TSWIFTKod"> </xs:element>
+            <xs:element name="obracunski_racun_banke" type="TBrojRacuna"/>
+            <xs:element name="ID_poruke_naloga" type="TIDPoruke"> </xs:element>
+            <xs:element name="datum_valute" type="xs:date"/>
+            <xs:element name="iznos" type="TDecimal15_2"> </xs:element>
+            <xs:element name="sifra_valute" type="TOznakaValute"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusType">
+        <xs:sequence>
+            <xs:element name="status_kod" type="xs:positiveInteger"/>
+            <xs:element name="poruka" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="return_status">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="StatusType"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

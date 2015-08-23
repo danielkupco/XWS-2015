@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BankaService"
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ws="http://www.example.com/webservice"
+    
+    xmlns:ban="http://xws/tim7/banka" 
+    targetNamespace="http://xws/tim7/banka"
+    xmlns:utils="http:/xws/tim7/BankaWSDLutils"
+    xmlns:presek="http://xws/tim7/presek"
+    xmlns:izvod="http://xws/tim7/zahtevZaIzvod"
+    xmlns:glob="http://xws/tim7/globals"
+    xmlns:nzp="http://xws/tim7/nalogZaPlacanje"
+    xmlns:mt102="http://xws/tim7/mt102"
+    xmlns:mt103="http://xws/tim7/mt103"
+    xmlns:mt910="http://xws/tim7/mt910"
+    xmlns:mt900="http://xws/tim7/mt900"
+    >
+    
+    <!-- scheme 
+    <wsdl:import namespace="http://xws/tim7/zahtevZaDobijanjeIzvoda" location="../scheme/Zahtev_za_dobijanje_izvoda.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/presek" location="../scheme/Presek.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/globals" location="../scheme/Globals.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/nalogZaPlacanje" location="../scheme/Nalog_za_placanje.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt102" location="../scheme/Nalog_za_grupna_placanja_MT102.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt103" location="../scheme/RTGS_MT103.xsd"></wsdl:import>
+    <wsdl:import namespace="http://xws/tim7/mt910" location="../scheme/Poruka_o_odobrenju_MT910.xsd"></wsdl:import>
+    -->
+    <!-- types -->
+    <wsdl:types>
+        <xs:schema targetNamespace="http:/xws/tim7/BankaWSDLutils">
+            <!--
+            <xs:element name="Void">
+                <xs:complexType>
+                    <xs:sequence>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            -->
+            <xs:import schemaLocation="../scheme/Zahtev_za_dobijanje_izvoda.xsd" namespace="http://xws/tim7/zahtevZaIzvod"></xs:import>
+            <xs:import schemaLocation="../scheme/Presek.xsd" namespace="http://xws/tim7/presek"></xs:import>
+            <xs:import schemaLocation="../scheme/Globals.xsd" namespace="http://xws/tim7/globals"></xs:import>
+            <xs:import schemaLocation="../scheme/Nalog_za_placanje.xsd" namespace="http://xws/tim7/nalogZaPlacanje"></xs:import>
+            <xs:import schemaLocation="../scheme/Nalog_za_grupna_placanja_MT102.xsd" namespace="http://xws/tim7/mt102"></xs:import>
+            <xs:import schemaLocation="../scheme/RTGS_MT103.xsd" namespace="http://xws/tim7/mt103"></xs:import>
+            <xs:import schemaLocation="../scheme/Poruka_o_odobrenju_MT910.xsd" namespace="http://xws/tim7/mt910"></xs:import>
+            <xs:import schemaLocation="../scheme/Poruka_o_zaduzenju_MT900.xsd" namespace="http://xws/tim7/mt900"></xs:import>
+        </xs:schema>
+    </wsdl:types>
+    
+    <!-- poruke -->
+    <!-- izvod -->
+    <wsdl:message name="primiZahtevZaIzvod">
+        <wsdl:part name="parameters" element="izvod:primiZahtevZaIzvod"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiZahtevZaIzvodResponse">
+        <wsdl:part name="parameters" element="presek:return_presek"></wsdl:part>
+    </wsdl:message>
+    <!-- nalog -->
+    <wsdl:message name="primiNalogZaPlacanje">
+        <wsdl:part name="parameters" element="nzp:primiNalogZaPlacanje"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiNalogZaPlacanjeResponse">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    <!-- mt102 -->
+    <wsdl:message name="primiMT102">
+        <wsdl:part name="parameters" element="mt102:primiMT102"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiMT102Response">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    <!-- mt103 -->
+    <wsdl:message name="primiMT103">
+        <wsdl:part name="parameters" element="mt103:primiMT103"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiMT103Response">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    <!-- mt910 -->
+    <wsdl:message name="primiMT910">
+        <wsdl:part name="parameters" element="mt910:primiMT910"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="primiMT910Response">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    
+    <!-- mt900 -->
+    <wsdl:message name="primiMT900">
+        <wsdl:part name="parameters" element="mt900:primiMT900"/>
+    </wsdl:message>
+    <wsdl:message name="primiMT900Response">
+        <wsdl:part name="parameters" element="glob:return_status"/>
+    </wsdl:message>
+    
+    <!-- status -->
+    <wsdl:message name="statusMessage">
+        <wsdl:part name="parameters" element="glob:return_status"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="VoidParameter">
+    </wsdl:message>
+    
+    <!-- port -->
+    <wsdl:portType name="Banka">
+        <wsdl:operation name="primiZahtevZaIzvod">
+            <wsdl:input message="ban:primiZahtevZaIzvod"/>
+            <wsdl:output message="ban:primiZahtevZaIzvodResponse"/>
+            <wsdl:fault name="status" message="ban:statusMessage"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="primiNalogZaPlacanje">
+            <wsdl:input message="ban:primiNalogZaPlacanje"/>
+            <wsdl:output message="ban:primiNalogZaPlacanjeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="primiMT102">
+            <wsdl:input message="ban:primiMT102"/>
+            <wsdl:output message="ban:primiMT102Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="primiMT103">
+            <wsdl:input message="ban:primiMT103"/>
+            <wsdl:output message="ban:primiMT103Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="primiMT910">
+            <wsdl:input message="ban:primiMT910"/>
+            <wsdl:output message="ban:primiMT910Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="primiMT900">
+            <wsdl:input message="ban:primiMT900"/>
+            <wsdl:output message="ban:primiMT900Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="obaviClearing">
+            <wsdl:input message="ban:VoidParameter"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <!-- binding -->
+    <wsdl:binding name="BankaServiceSoapBinding" type="ban:Banka">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <!-- izvod -->
+        <wsdl:operation name="primiZahtevZaIzvod">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- nalog -->
+        <wsdl:operation name="primiNalogZaPlacanje">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- mt102 -->
+        <wsdl:operation name="primiMT102">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- mt103 -->
+        <wsdl:operation name="primiMT103">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- mt910 -->
+        <wsdl:operation name="primiMT910">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- mt900 -->
+        <wsdl:operation name="primiMT900">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- obavi clearing -->
+        <wsdl:operation name="obaviClearing">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    
+    <!-- service -->
+    <wsdl:service name="BankaService">
+        <wsdl:port name="BankaPort" binding="ban:BankaServiceSoapBinding">
+            <soap:address location="http://localhost:8080/Banka"/>
+        </wsdl:port>
+    </wsdl:service>
+    
+</wsdl:definitions>
