@@ -1,4 +1,4 @@
-package xws.rest.sessionbeans.common;
+package xws.tim7.sessionbeans.common;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,8 +8,8 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-import xws.rest.entities.Identifiable;
-import xws.rest.xmldb.EntityManagerBaseX;
+import xws.tim7.entities.Identifiable;
+import xws.tim7.xmldb.EntityManagerBaseX;
 
 public abstract class GenericDao<T extends Identifiable, ID extends Serializable> implements GenericDaoLocal<T, ID> {
 	

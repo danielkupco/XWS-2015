@@ -1,4 +1,4 @@
-package xws.rest.entities;
+package xws.tim7.entities;
 
 /**
  * Olaksava implementaciju generickog data access object bean-a. 

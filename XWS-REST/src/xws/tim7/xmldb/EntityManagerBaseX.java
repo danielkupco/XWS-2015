@@ -1,4 +1,4 @@
-package xws.rest.xmldb;
+package xws.tim7.xmldb;
 
 import java.io.BufferedReader;
 import java.io.IOException;

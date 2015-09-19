@@ -1,4 +1,4 @@
-package xws.rest.util;
+package xws.tim7.util;
 
 import java.io.File;
 import java.io.IOException;

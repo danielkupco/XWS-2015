@@ -1,4 +1,4 @@
-package xws.rest.sessionbeans.common;
+package xws.tim7.sessionbeans.common;
 
 import java.io.IOException;
 import java.io.InputStream;

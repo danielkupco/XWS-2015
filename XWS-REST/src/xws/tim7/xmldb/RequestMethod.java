@@ -1,4 +1,4 @@
-package xws.rest.xmldb;
+package xws.tim7.xmldb;
 
 public class RequestMethod {
 
