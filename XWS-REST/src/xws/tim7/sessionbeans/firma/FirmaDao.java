@@ -1,4 +1,4 @@
-package xws.tim7.sessionbans.firma;
+package xws.tim7.sessionbeans.firma;
 
 import java.io.IOException;
 import java.util.List;
