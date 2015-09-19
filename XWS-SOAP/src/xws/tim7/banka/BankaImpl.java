@@ -28,7 +28,7 @@ import javax.xml.ws.ResponseWrapper;
                       serviceName = "BankaService",
                       portName = "BankaPort",
                       targetNamespace = "http://xws/tim7/banka",
-                      wsdlLocation = "file:/D:/Programiranje/Eclipse workspaces/XWS/XWS_Tim7/WEB-INF/wsdl/banka.wsdl",
+                      wsdlLocation = "file:/home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/banka.wsdl",
                       endpointInterface = "xws.tim7.banka.Banka")
                       
 public class BankaImpl implements Banka {

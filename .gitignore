@@ -1,7 +1,8 @@
-.settings
-bin
-gen
-lib
-dist
-tcp_monitor
-ant.properties
+*/.settings
+*/bin
+*/gen
+*/lib
+*/dist
+*/tcp_monitor
+*/ant.properties
+*/.classpath

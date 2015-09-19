@@ -26,7 +26,7 @@ import javax.xml.ws.ResponseWrapper;
                       serviceName = "CentralnaBankaService",
                       portName = "CentralnaBankaPort",
                       targetNamespace = "http://xws/tim7/cb",
-                      wsdlLocation = "file:/D:/Programiranje/Eclipse workspaces/XWS/XWS_Tim7/WEB-INF/wsdl/centralnaBanka.wsdl",
+                      wsdlLocation = "file://home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/centralnaBanka.wsdl",
                       endpointInterface = "xws.tim7.cb.CentralnaBanka")
                       
 public class CentralnaBankaImpl implements CentralnaBanka {
