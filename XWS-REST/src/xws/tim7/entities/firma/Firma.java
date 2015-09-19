@@ -61,13 +61,10 @@ public class Firma extends Identifiable {
     protected String url;
     @XmlElement(name = "Partneri", required = true)
     protected TPartneri partneri;
-<<<<<<< HEAD
     @XmlElement(name = "PIB", required = true)
     protected String pib;
     @XmlElement(name = "Racuni", required = true)
     protected TRacuni racuni;
-=======
->>>>>>> 457db5011f81b6fc72082c1bcece84874dd11a62
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -205,30 +202,6 @@ public class Firma extends Identifiable {
      */
     public void setRacuni(TRacuni value) {
         this.racuni = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
     }
 
     /**

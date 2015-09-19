@@ -69,7 +69,7 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 		List<Firma> firme = findAll();
 		
 		for(Firma f : firme){
-			if(f.getSajt().equals(url))
+			if(f.getUrl().equals(url))
 				return f;
 		}
 		
