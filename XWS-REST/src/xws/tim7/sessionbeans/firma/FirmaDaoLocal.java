@@ -16,4 +16,6 @@ public interface FirmaDaoLocal extends GenericDaoLocal<Firma, Long> {
 	
 	public boolean isPartnerWith(Long firmId, Long partnerId) throws IOException, JAXBException;
 	
+	public Firma findByURL(String url) throws IOException, JAXBException;
+	
 }

@@ -63,6 +63,19 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 		return false;
 	}
 
+	@Override
+	public Firma findByURL(String url) throws IOException, JAXBException {
+		
+		List<Firma> firme = findAll();
+		
+		for(Firma f : firme){
+			if(f.getSajt().equals(url))
+				return f;
+		}
+		
+		return null;
+	}
+
 	
 	
 	
