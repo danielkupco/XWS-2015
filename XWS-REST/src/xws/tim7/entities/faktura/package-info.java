@@ -5,5 +5,5 @@
 // Generated on: 2015.09.19 at 07:39:18 PM CEST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://xws/tim7/firma", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package xws.tim7.entities.firma;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://xws/tim7/faktura", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package xws.tim7.entities.faktura;

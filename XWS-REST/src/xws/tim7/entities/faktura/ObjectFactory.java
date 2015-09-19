@@ -6,7 +6,7 @@
 //
 
 
-package xws.tim7.entities.firma;
+package xws.tim7.entities.faktura;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the xws.tim7.firma package. 
+ * generated in the xws.tim7.faktura package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,34 +30,42 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: xws.tim7.firma
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: xws.tim7.faktura
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link Firma }
+     * Create an instance of {@link Faktura }
      * 
      */
-    public Firma createFirma() {
-        return new Firma();
+    public Faktura createFaktura() {
+        return new Faktura();
     }
 
     /**
-     * Create an instance of {@link TPartneri }
+     * Create an instance of {@link Faktura.Zaglavlje }
      * 
      */
-    public TPartneri createTPartneri() {
-        return new TPartneri();
+    public Faktura.Zaglavlje createFakturaZaglavlje() {
+        return new Faktura.Zaglavlje();
     }
 
     /**
-     * Create an instance of {@link TRacuni }
+     * Create an instance of {@link Stavka }
      * 
      */
-    public TRacuni createTRacuni() {
-        return new TRacuni();
+    public Stavka createStavka() {
+        return new Stavka();
+    }
+
+    /**
+     * Create an instance of {@link TFirma }
+     * 
+     */
+    public TFirma createTFirma() {
+        return new TFirma();
     }
 
 }
