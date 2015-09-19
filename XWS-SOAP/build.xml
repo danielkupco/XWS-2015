@@ -112,6 +112,7 @@
 	<target name="generate-classes">
 		<xjc schema="${scheme.dir}/Firma.xsd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/Faktura.xsd" destdir="${gen.dir}" />
+
 		<!--
 		<xjc schema="${scheme.dir}/Globals.xsd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/Nalog_za_grupna_placanja_MT102.xsd" destdir="${gen.dir}" />
@@ -120,7 +121,6 @@
 		<xjc schema="${scheme.dir}/Poruka_o_zaduzenju_MT900.xsd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/Presek.xszd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/RTGS_MT103.xsd" destdir="${gen.dir}" />
-		<xjc schema="${scheme.dir}/Faktura.xsd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/Zahtev_za_dobijanje_izvoda.xsd" destdir="${gen.dir}" /> -->
 	</target>
 	
