@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xws/tim7/presek" xmlns:presek="http://xws/tim7/presek"
+    xmlns:glob="http://xws/tim7/globals">
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="return_presek">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="presek" type="presek:PresekType"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="PresekType">
+        <xs:sequence>
+            <xs:element name="zaglavlje_preseka">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="broj_racuna" type="glob:TBrojRacuna"> </xs:element>
+                        <xs:element name="datum_naloga" type="xs:date"/>
+                        <xs:element name="broj_preseka">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:positiveInteger">
+                                    <xs:totalDigits value="2"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="prethodno_stanje" type="glob:TDecimal15_2"> </xs:element>
+                        <xs:element name="broj_promena_u_korist">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:positiveInteger">
+                                    <xs:totalDigits value="6"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ukupno_u_korist" type="glob:TDecimal15_2"> </xs:element>
+                        <xs:element name="broj_promena_na_teret">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:positiveInteger">
+                                    <xs:totalDigits value="6"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ukupno_na_teret" type="glob:TDecimal15_2"> </xs:element>
+                        <xs:element name="novo_stanje" type="glob:TDecimal15_2"> </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stavka_preseka">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="1" name="osnova_naloga_za_placanje"
+                            type="glob:OsnovaNalogaZaPlacanjeType"> </xs:element>
+                        <xs:element name="datum_naloga" type="xs:date"/>
+                        <xs:element name="datum_valute" type="xs:date"/>
+                        <xs:element name="smer">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:length value="1"/>
+                                    <xs:whiteSpace value="preserve"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xws/tim7/mt900"
+    targetNamespace="http://xws/tim7/mt900" elementFormDefault="qualified"
+    xmlns:glob="http://xws/tim7/globals">
+
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="primiMT900">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="poruka_o_zaduzenju_MT900" type="glob:MT9XXType"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

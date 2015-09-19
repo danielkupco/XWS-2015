@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:frm="http://xws/tim7/firma"
+    targetNamespace="http://xws/tim7/firma" elementFormDefault="qualified">
+
+    <xs:element name="Firma">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ID_firme" type="xs:long"/>
+                <xs:element name="Naziv_firme" type="xs:string"/>
+                <xs:element name="Adresa" type="xs:string"/>
+                <xs:element name="Sajt" type="xs:string"/>
+                <xs:element name="Partneri" type="frm:TPartneri"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TPartneri">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="frm:Firma"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
