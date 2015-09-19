@@ -4,9 +4,10 @@ import java.io.IOException;
 import javax.xml.bind.JAXBException;
 
 import xws.tim7.entities.faktura.Stavka;
+import xws.tim7.sessionbeans.common.GenericDaoLocal;
 import xws.tim7.entities.faktura.Faktura;
 
-public interface FakturaDaoLocal {
+public interface FakturaDaoLocal extends GenericDaoLocal<Faktura, Long> {
 	
 	public Stavka findItemInFaktura(Long fakturaId, Long stavkaId) throws IOException, JAXBException;
 	
