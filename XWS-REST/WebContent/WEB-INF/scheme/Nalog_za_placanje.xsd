@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1" targetNamespace="http://xws/tim7/nalogZaPlacanje"
+    xmlns:nzp="http://xws/tim7/nalogZaPlacanje" xmlns:glob="http://xws/tim7/globals">
+
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="primiNalogZaPlacanje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nalog_za_placanje" type="nzp:NalogZaPlacanjeType"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="NalogZaPlacanjeType">
+        <xs:sequence>
+            <xs:element name="ID_poruke" type="glob:TIDPoruke"/>
+            <xs:element name="osnova_naloga_za_placanje" minOccurs="1"
+                type="glob:OsnovaNalogaZaPlacanjeType"> </xs:element>
+            <xs:element minOccurs="1" name="oznaka_valute" type="glob:TOznakaValute"> </xs:element>
+            <xs:element name="datum_naloga" type="xs:date"/>
+            <xs:element name="datum_valute" type="xs:date"/>
+            <xs:element name="hitno" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

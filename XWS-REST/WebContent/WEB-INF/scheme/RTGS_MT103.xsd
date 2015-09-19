@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xws/tim7/mt103"
+    targetNamespace="http://xws/tim7/mt103" elementFormDefault="qualified"
+    xmlns:glob="http://xws/tim7/globals">
+
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="primiMT103">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RTGS_MT103" type="MT103Type"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="MT103Type">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="ID_poruke" type="glob:TIDPoruke"/>
+            <xs:element maxOccurs="1" name="SWIFT_kod_banke_duznika" type="glob:TSWIFTKod"/>
+            <xs:element maxOccurs="1" name="obracunski_racun_banke_duznika" type="glob:TBrojRacuna"/>
+            <xs:element maxOccurs="1" name="SWIFT_kod_banke_poverioca" type="glob:TSWIFTKod"/>
+            <xs:element maxOccurs="1" name="obracunski_racun_banke_poverioca"
+                type="glob:TBrojRacuna"> </xs:element>
+            <xs:element minOccurs="1" name="osnova_naloga_za_placanje"
+                type="glob:OsnovaNalogaZaPlacanjeType"> </xs:element>
+            <xs:element name="datum_naloga" type="xs:date"/>
+            <xs:element name="datum_valute" type="xs:date"/>
+            <xs:element name="sifra_valute" type="glob:TOznakaValute"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xws/tim7/zahtevZaIzvod" xmlns="http://xws/tim7/zahtevZaIzvod">
+    <xs:element name="primiZahtevZaIzvod">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zahtev_za_izvod" type="ZahtevZaIzvodType"> </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="BrojRacunaType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{3}-\d{13}-\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ZahtevZaIzvodType">
+        <xs:sequence>
+            <xs:element name="broj_racuna" type="BrojRacunaType"> </xs:element>
+            <xs:element name="datum" type="xs:date"/>
+            <xs:element name="redni_broj_preseka">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:totalDigits value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
