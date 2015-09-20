@@ -76,6 +76,19 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 		return null;
 	}
 
+	@Override
+	public Firma findByPIB(String pib) throws IOException, JAXBException {
+		
+		List<Firma> firme = findAll();
+		
+		for(Firma f : firme){
+			if(f.getPIB().equals(pib))
+				return f;
+		}
+		
+		return null;
+	}
+
 	
 	
 	

@@ -18,4 +18,6 @@ public interface FirmaDaoLocal extends GenericDaoLocal<Firma, Long> {
 	
 	public Firma findByURL(String url) throws IOException, JAXBException;
 	
+	public Firma findByPIB(String pib) throws IOException, JAXBException;
+	
 }
