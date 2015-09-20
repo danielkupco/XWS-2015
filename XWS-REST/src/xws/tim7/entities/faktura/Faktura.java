@@ -21,7 +21,6 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import xws.tim7.entities.Identifiable;
-import xws.tim7.entities.firma.TFirma;
 
 /**
  * <p>Java class for anonymous complex type.

@@ -44,14 +44,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TFirma }
-     * 
-     */
-    public TFirma createTFirma() {
-        return new TFirma();
-    }
-
-    /**
      * Create an instance of {@link TPartneri }
      * 
      */
