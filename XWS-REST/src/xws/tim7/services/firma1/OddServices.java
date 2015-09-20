@@ -1,6 +1,7 @@
 package xws.tim7.services.firma1;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -17,13 +18,13 @@ import javax.xml.bind.JAXBException;
 import org.apache.openejb.server.httpd.HttpResponse;
 
 import xws.tim7.entities.faktura.Faktura;
+import xws.tim7.entities.faktura.Faktura.Zaglavlje;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.sessionbeans.faktura.FakturaDao;
 import xws.tim7.sessionbeans.firma.FirmaDao;
 
 
-@Path("/")
 public class OddServices {
 	
 	@EJB
@@ -33,6 +34,11 @@ public class OddServices {
 	private FakturaDao fakturaDao;
 	
 	
+	public OddServices() {
+		init();
+	}
+	
+	//1
 	@POST
 	@Path("/{url_kupca}/partneri/{id_dob}/fakture")
 	public Response posaljiFakturu(
@@ -71,7 +77,7 @@ public class OddServices {
 		
 	}
 	
-	
+	//3
 	@GET
 	@Path("/{url}/partneri/{id_dob}/fakture/{id_fakture}")
 	@Produces("application/xml")
@@ -79,15 +85,16 @@ public class OddServices {
 			@PathParam("url") String url,
 			@PathParam("id_dob") String pib,
 			@PathParam("id_fakture") Long idFakture){
-		
+
 		Firma kupac;
 		Firma dobavljac;
 		try {
 			kupac = firmaDao.findByURL(url);
 			dobavljac = firmaDao.findByPIB(pib);
+			Faktura faktura = fakturaDao.findById(idFakture);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
-				return Response.ok().type("application/xml").entity(fakturaDao.findById(idFakture)).build();
+			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId()) && (faktura != null)){
+				return Response.ok().type("application/xml").entity(faktura).build();
 			}
 			
 		} catch (IOException e) {
@@ -154,7 +161,7 @@ public class OddServices {
 	
 	
 	@PUT
-	@Path("{url}/partneri/{id_dob}/fakture/{id_fak}/stavke/{rbr_stav}")
+	@Path("/{url}/partneri/{id_dob}/fakture/{id_fak}/stavke/{rbr_stav}")
 	public Response izmeniStavku(
 			@PathParam("url") String url,
 			@PathParam("id_dob") String pib,
@@ -195,9 +202,39 @@ public class OddServices {
 			e.printStackTrace();
 			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		}
-		
-		
+
 		return null;
+	}
+	
+	
+	private void init(){
+		Firma fr1 = new Firma();
+		fr1.setUrl("f1");
+		Firma fr2 = new Firma();
+		fr2.setPIB("f2");
+		
+		fr1.getPartneri().getFirma().add(fr2);
+		
+		
+		
+		Faktura f1 = new Faktura();
+		Zaglavlje z1 = new Zaglavlje();
+		
+		f1.setId((long) 150);
+		f1.setZaglavlje(z1);
+		
+		try {
+			firmaDao.persist(fr1);
+			firmaDao.persist(fr2);
+			fakturaDao.persist(f1);
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

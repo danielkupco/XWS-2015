@@ -30,8 +30,7 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 		
 		Firma frm = findById(firmId);
 		return frm.getPartneri().getFirma();
-		
-		
+
 	}
 
 	@Override
