@@ -1,6 +1,5 @@
 package xws.tim7.services.firma;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,10 +8,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.StatusType;
 
 import org.apache.log4j.Logger;
 
@@ -39,9 +35,7 @@ public class RisticService {
 	Response getInvoicesByBuyerForProvider(@PathParam("urlKupca") String urlKupca,
 			@PathParam("dobavljacId") Long dobavljacId) {
 		try {
-			// IZMENI SVE OVO KORISTI firmaDao.isPartnerWith(..);
 			Firma kupac = firmaDao.findByURL(urlKupca);
-			Firma partner = firmaDao.findPartnerById(kupac.getId(), dobavljacId);
 
 			// 200 OK + Lista
 			if (firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
@@ -64,9 +58,7 @@ public class RisticService {
 			@PathParam("idFakture") Long idFakture)
 	{
 		try {
-			// IZMENI SVE OVO KORISTI firmaDao.isPartnerWith(..);
 			Firma kupac = firmaDao.findByURL(urlKupca);
-			Firma partner = firmaDao.findPartnerById(kupac.getId(), dobavljacId);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
@@ -91,9 +83,7 @@ public class RisticService {
 			@PathParam("redniBroj") int redniBroj)
 	{
 		try {
-			// IZMENI SVE OVO KORISTI firmaDao.isPartnerWith(..);
 			Firma kupac = firmaDao.findByURL(urlKupca);
-			Firma partner = firmaDao.findPartnerById(kupac.getId(), dobavljacId);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
@@ -121,13 +111,10 @@ public class RisticService {
 			@PathParam("redniBroj") int redniBroj)
 	{
 		try {
-			// IZMENI SVE OVO KORISTI firmaDao.isPartnerWith(..);
 			Firma kupac = firmaDao.findByURL(urlKupca);
-			Firma partner = firmaDao.findPartnerById(kupac.getId(), dobavljacId);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
-				List<Stavka> stavke = faktura.getStavka();
 				for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 				    Stavka item = iter.next();
 				    if(item.getRedniBroj().equals(redniBroj)) {
