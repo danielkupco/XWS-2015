@@ -11,8 +11,8 @@ import xws.tim7.sessionbeans.common.GenericDao;
 
 public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.faktura.faktura";
-	public static final String schemaName = "Faktura";
+	public static final String contextPath = "xws.tim7.entities.faktura";
+	public static final String schemaName = "faktura";
 	
 	public FakturaDao() {
 		super(contextPath, schemaName);

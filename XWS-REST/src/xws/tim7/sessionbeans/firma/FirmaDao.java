@@ -18,7 +18,7 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 	
 	public static final String contextPath = "xws.tim7.entities.firma";
 	
-	public static final String schemaName = "Firma";
+	public static final String schemaName = "firma";
 	
 	public FirmaDao() {
 		super(contextPath, schemaName);
