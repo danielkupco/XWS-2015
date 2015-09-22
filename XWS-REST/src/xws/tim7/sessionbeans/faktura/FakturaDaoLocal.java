@@ -19,6 +19,6 @@ public interface FakturaDaoLocal extends GenericDaoLocal<Faktura, Long> {
 
 	public Faktura updateStavka(Long FakturaId, Stavka item) throws IOException, JAXBException;
 	
-	public List<Faktura> getFaktureByBuyerAndSeller(Long buyerId, Long sellerId) throws IOException, JAXBException;
+	public List<Faktura> getFaktureByBuyerAndSeller(String buyerPIB, String sellerPIB) throws IOException, JAXBException;
 
 }

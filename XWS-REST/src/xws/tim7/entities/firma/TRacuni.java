@@ -10,6 +10,7 @@ package xws.tim7.entities.firma;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -73,4 +74,8 @@ public class TRacuni {
         return this.racun;
     }
 
+    public void setRacun(List<String> racuni) {
+        this.racun = racuni;
+    }
+    
 }

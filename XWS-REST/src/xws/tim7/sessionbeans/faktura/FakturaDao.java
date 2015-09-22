@@ -1,10 +1,12 @@
 package xws.tim7.sessionbeans.faktura;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
+
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.sessionbeans.common.GenericDao;
@@ -79,10 +81,16 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	}
 
 	@Override
-	public List<Faktura> getFaktureByBuyerAndSeller(Long buyerId, Long sellerId) throws IOException, JAXBException {
+	public List<Faktura> getFaktureByBuyerAndSeller(String buyerPIB, String sellerPIB) throws IOException, JAXBException {
 		// TODO Auto-generated method stub
 		// pokupis fakturu, proveris u zaglavlju kupca/dobavljaca pa dodas u retList
-		return null;
+		List<Faktura> retVal = new ArrayList();
+		List<Faktura> fakture = findAll();
+		for(Faktura f : fakture) {
+			if(f.getZaglavlje().getDobavljac().getPIB().equals(sellerPIB) && f.getZaglavlje().getKupac().getPIB().equals(buyerPIB))
+				retVal.add(f);
+		}
+		return retVal;
 	}
 
 }

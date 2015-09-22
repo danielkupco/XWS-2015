@@ -10,7 +10,7 @@ import xws.tim7.sessionbeans.common.GenericDaoLocal;
 
 public interface FirmaDaoLocal extends GenericDaoLocal<Firma, Long> {
 	
-	public boolean isPartnerWith(Long firmId, Long partnerPIB) throws IOException, JAXBException;
+	public boolean isPartnerWith(Long firmId, String partnerPIB) throws IOException, JAXBException;
 	
 	public Firma findByURL(String url) throws IOException, JAXBException;
 	

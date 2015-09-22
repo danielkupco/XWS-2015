@@ -7,7 +7,11 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
+import org.apache.log4j.Logger;
+import org.apache.openjpa.lib.log.Log;
+
 import xws.tim7.entities.firma.Firma;
+import xws.tim7.interceptors.AuthenticationInterceptor;
 import xws.tim7.sessionbeans.common.GenericDao;
 
 
@@ -15,6 +19,7 @@ import xws.tim7.sessionbeans.common.GenericDao;
 @Local(FirmaDaoLocal.class)
 public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 
+	private static Logger log = Logger.getLogger(FirmaDao.class);
 	
 	public static final String contextPath = "xws.tim7.entities.firma";
 	
@@ -26,14 +31,18 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 
 
 	@Override
-	public boolean isPartnerWith(Long firmId, Long partnerPIB)
+	public boolean isPartnerWith(Long firmId, String partnerPIB)
 			throws IOException, JAXBException {
-		
+		log.info("is partner...");
 		Firma frm = findById(firmId);
-		
+		log.info("found " + frm.getIDFirme() + " - " + frm.getNazivFirme());
+		log.info("pibs:");
 		for(String pib : frm.getPartneri().getPib()) {
-			if(pib.equals(partnerPIB))
+			log.info(pib);
+			if(pib.equals(partnerPIB)) {
+				log.info("partner with");
 				return true;
+			}
 		}
 		
 		return false;

@@ -340,6 +340,10 @@ public class Firma extends Identifiable {
             }
             return this.pib;
         }
+        
+        public void setPib(List<String> pibs) {
+            this.pib = pibs;
+        }
 
     }
 

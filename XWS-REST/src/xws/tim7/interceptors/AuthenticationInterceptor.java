@@ -35,7 +35,7 @@ public class AuthenticationInterceptor {
 //		if (user == null) {
 //			throw new ServiceException("Not logged in", Status.UNAUTHORIZED);
 //		}	
-//		
+		
 		Object result = context.proceed();
 		return result;
 	}

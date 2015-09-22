@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,9 +29,9 @@ import org.apache.openejb.server.httpd.HttpResponse;
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
-import xws.tim7.entities.user.User;
-import xws.tim7.sessionbeans.faktura.FakturaDao;
-import xws.tim7.sessionbeans.firma.FirmaDao;
+import xws.tim7.entities.firma.TRacuni;
+import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
+import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
 import xws.tim7.util.Authenticate;
 
 @Path("/firma")
@@ -39,10 +40,10 @@ public class FirmaService {
 	private static Logger log = Logger.getLogger(FirmaService.class);
 
 	@EJB
-	private FirmaDao firmaDao;
+	private FirmaDaoLocal firmaDao;
 	
 	@EJB
-	private FakturaDao fakturaDao;
+	private FakturaDaoLocal fakturaDao;
 	
 	
 	public FirmaService() {
@@ -52,9 +53,9 @@ public class FirmaService {
 	/////////// test metode ///////////
 	
 	@GET
-	@Path("/test")
-	public Response test() {
-		log.info("calling -> [firma] test");
+	@Path("/{broj}/test")
+	public Response test(@PathParam("broj") Long broj) {
+		log.info("calling -> [firma] test, broj = " + broj);
 		return Response.ok().build();
 	}
 		
@@ -76,32 +77,74 @@ public class FirmaService {
 		
 		JAXBContext context;
 		try {
-			context = JAXBContext.newInstance("xws.tim7.entities.firma");
-			Unmarshaller unmarshaller = context.createUnmarshaller();
+//			context = JAXBContext.newInstance("xws.tim7.entities.firma");
+//			Unmarshaller unmarshaller = context.createUnmarshaller();
+//			
+//			log.info("creating firma 1...");
+//			Firma firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma1.xml"));
+//			
+//			log.info(firma.toString());
+//			log.info(firma.getId() + " - " + firma.getNazivFirme());
+//			log.info("firma 1 created...");
+//			firmaDao.persist(firma);
+//			log.info("firma 1 persisted...");
+//			
+//			log.info("creating firma 2...");
+//			firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma2.xml"));
+//
+//			log.info(firma.getId() + " - " + firma.getNazivFirme());
+//			log.info("firma 2 created...");
+//			firmaDao.persist(firma);
+//			log.info("firma 2 persisted...");
 			
-			log.info("creating firma 1...");
-			Firma firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma1.xml"));
+			log.info("firmaDao " + firmaDao);
 			
-			log.info(firma.toString());
-			log.info(firma.getId() + " - " + firma.getNazivFirme());
-			log.info("firma 1 created...");
+			Firma firma = new Firma();
+			firma.setId(new Long(1));
+			firma.setIDFirme(1);
+			firma.setNazivFirme("Firma 1");
+			firma.setAdresa("Adresa firme 1");
+			firma.setUrl("firma1");
+			firma.setPIB("11111222223");
+			Firma.Partneri fp = new Firma.Partneri();
+			List<String> l = new ArrayList<String>();
+			l.add("44444555556");
+			fp.setPib(l);
+			firma.setPartneri(fp);
+			TRacuni tr = new TRacuni();
+			l = new ArrayList<String>();
+			l.add("111-2222222222222-33");
+			firma.setRacuni(tr);
+			
 			firmaDao.persist(firma);
-			log.info("firma 1 persisted...");
 			
-			log.info("creating firma 2...");
-			firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma2.xml"));
-
-			log.info(firma.getId() + " - " + firma.getNazivFirme());
-			log.info("firma 2 created...");
+			firma = new Firma();
+			firma.setId(new Long(2));
+			firma.setIDFirme(2);
+			firma.setNazivFirme("Firma 2");
+			firma.setAdresa("Adresa firme 2");
+			firma.setUrl("firma2");
+			firma.setPIB("44444555556");
+			Firma.Partneri fp2 = new Firma.Partneri();
+			List<String> l2 = new ArrayList<String>();
+			l2.add("11111222223");
+			fp2.setPib(l);
+			firma.setPartneri(fp2);
+			TRacuni tr2 = new TRacuni();
+			l2 = new ArrayList<String>();
+			l2.add("444-5555555555555-66");
+			firma.setRacuni(tr2);
+			
 			firmaDao.persist(firma);
-			log.info("firma 2 persisted...");
 
 			return Response.ok().entity("Firme uspesno kreirane...").build();
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+//		} catch (JAXBException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return Response.serverError().entity("Doslo je do greske...").build();
@@ -137,19 +180,19 @@ public class FirmaService {
 	
 	// #1
 	@POST
-	@Path("/{url_kupca}/partneri/{id_dob}/fakture")
+	@Path("/{url_kupca}/partneri/{pib_dob}/fakture")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Authenticate
 	public Response posaljiFakturu(
 			@PathParam("url_kupca") String url, 
-			@PathParam("id_dob") String pib,
+			@PathParam("pib_dob") String pib,
 			Faktura faktura){
 
 		try {
 			Firma kupac = firmaDao.findByURL(url);
-			Firma dobavljac = firmaDao.findByPIB(pib);
+			//Firma dobavljac = firmaDao.findByPIB(pib);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
+			if(firmaDao.isPartnerWith(kupac.getId(), pib)){
 				fakturaDao.persist(faktura);
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId())).build();
 			} else {
@@ -174,17 +217,21 @@ public class FirmaService {
 	
 	// #2
 	@GET
-	@Path("{urlKupca}/partneri/{dobavljacId}/fakture")
-	@Authenticate
-	Response getInvoicesByBuyerForProvider(@PathParam("urlKupca") String urlKupca,
-			@PathParam("dobavljacId") Long dobavljacId) {
+	@Path("/{urlKupca}/partneri/{pib_dob}/fakture")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getInvoicesByBuyerForProvider(@PathParam("urlKupca") String urlKupca,
+			@PathParam("pib_dob") String pib_dob) {
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
-
+			log.info("urlKupca " + urlKupca);
+			log.info("kupac " + kupac);
+			log.info("pib " + pib_dob);
+			log.info("firmaDao " + firmaDao);
 			// 200 OK + Lista
-			if (firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
-				List<Faktura> fakture = fakturaDao.getFaktureByBuyerAndSeller(kupac.getId(), dobavljacId);
-				return Response.ok().type("application/xml").entity(fakture).build();
+			if (firmaDao.isPartnerWith(kupac.getId(), pib_dob)) {
+				List<Faktura> fakture = fakturaDao.getFaktureByBuyerAndSeller(kupac.getPIB(), pib_dob);
+				
+				return Response.ok().entity(fakture).build();
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
@@ -195,22 +242,22 @@ public class FirmaService {
 		
 	// #3
 	@GET
-	@Path("/{url}/partneri/{id_dob}/fakture/{id_fakture}")
+	@Path("/{url}/partneri/{pib_dob}/fakture/{id_fakture}")
 	@Produces("application/xml")
 	@Authenticate
 	public Response getFaktura(
 			@PathParam("url") String url,
-			@PathParam("id_dob") String pib,
+			@PathParam("pib_dob") String pib,
 			@PathParam("id_fakture") Long idFakture){
 
 		Firma kupac;
-		Firma dobavljac;
+		//Firma dobavljac;
 		try {
 			kupac = firmaDao.findByURL(url);
-			dobavljac = firmaDao.findByPIB(pib);
+			//dobavljac = firmaDao.findByPIB(pib);
 			Faktura faktura = fakturaDao.findById(idFakture);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId()) && (faktura != null)){
+			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura != null)){
 				return Response.ok().type("application/xml").entity(faktura).build();
 			}
 			
@@ -228,17 +275,17 @@ public class FirmaService {
 	
 	// #4
 	@GET
-	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke")
+	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke")
 	@Authenticate
 	Response getInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
-			@PathParam("dobavljacId") Long dobavljacId,
+			@PathParam("pib_dob") String pib_dob,
 			@PathParam("idFakture") Long idFakture)
 	{
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
+			if(firmaDao.isPartnerWith(kupac.getId(), pib_dob)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
 				return Response.ok().type("application/xml").entity(faktura.getStavka()).build();
 			}
@@ -253,11 +300,11 @@ public class FirmaService {
 		
 	// #5
 	@POST
-	@Path("/{url}/partneri/{id_dob}/fakture/{id_fak}/stavke")
+	@Path("/{url}/partneri/{pib_dob}/fakture/{id_fak}/stavke")
 	@Authenticate
 	public Response dodajStavkuFakture(
 			@PathParam("url") String url,
-			@PathParam("id_dob") String pib,
+			@PathParam("pib_dob") String pib,
 			@PathParam("id_fak") Long idFakture,
 			Stavka stavka){
 		
@@ -271,12 +318,12 @@ public class FirmaService {
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId()) && (faktura!=null)){
+			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura!=null)){
 				faktura.getStavka().add(stavka);
 				fakturaDao.persist(faktura);
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getId())).build();
 			}
-			if(!firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
+			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
 				return Response.status(HttpResponse.SC_FORBIDDEN).build();
 			}
 			if(faktura == null){
@@ -303,18 +350,18 @@ public class FirmaService {
 		
 	// #6
 	@GET
-	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
 	@Authenticate
 	Response getNthInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
-			@PathParam("dobavljacId") Long dobavljacId,
+			@PathParam("pib_dob") String pib,
 			@PathParam("idFakture") Long idFakture,
 			@PathParam("redniBroj") int redniBroj)
 	{
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
+			if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
 				List<Stavka> stavke = faktura.getStavka();
 				for(Stavka stavka : stavke) {
@@ -350,13 +397,13 @@ public class FirmaService {
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())
+			if(firmaDao.isPartnerWith(kupac.getId(), pib)
 					&& (fakturaDao.findItemInFaktura(idFakture, rbrStavke) != null)){
 				fakturaDao.updateStavka(idFakture, stavka);
 				return Response.ok().build();
 			}
 			
-			if(!firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
+			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
 				return Response.status(HttpResponse.SC_FORBIDDEN).build();
 			}
 			
@@ -380,18 +427,18 @@ public class FirmaService {
 	
 	// #8
 	@DELETE
-	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
 	@Authenticate
 	Response deleteNthInvoiceItembyBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
-			@PathParam("dobavljacId") Long dobavljacId,
+			@PathParam("pib_dob") String pib,
 			@PathParam("idFakture") Long idFakture,
 			@PathParam("redniBroj") int redniBroj)
 	{
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), dobavljacId)) {
+			if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
 				Faktura faktura = fakturaDao.findById(idFakture);
 				for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 				    Stavka item = iter.next();
