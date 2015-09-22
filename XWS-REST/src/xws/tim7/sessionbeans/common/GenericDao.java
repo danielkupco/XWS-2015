@@ -44,8 +44,10 @@ public abstract class GenericDao<T extends Identifiable, ID extends Serializable
 	}
 
 	public InputStream findBy(String xQuery, boolean wrap) throws IOException {
+		System.out.println("find by " + xQuery);
 		InputStream result;
 		result = em.executeQuery(xQuery, wrap);
+		System.out.println(result.toString());
 		return result;
 	}
 	

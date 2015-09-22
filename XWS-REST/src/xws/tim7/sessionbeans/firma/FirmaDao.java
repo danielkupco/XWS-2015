@@ -24,38 +24,15 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 		super(contextPath, schemaName);
 	}
 
-	@Override
-	public List<Firma> getPartners(Long firmId) throws IOException,
-			JAXBException {
-		
-		Firma frm = findById(firmId);
-		return frm.getPartneri().getFirma();
-
-	}
 
 	@Override
-	public Firma findPartnerById(Long firmId, Long partnerId)
+	public boolean isPartnerWith(Long firmId, Long partnerPIB)
 			throws IOException, JAXBException {
 		
 		Firma frm = findById(firmId);
 		
-		for(Firma f : frm.getPartneri().getFirma()){
-			if(f.getId().equals(partnerId))
-				return f;
-		}
-		
-		return null;
-		
-	}
-
-	@Override
-	public boolean isPartnerWith(Long firmId, Long partnerId)
-			throws IOException, JAXBException {
-		
-		Firma frm = findById(firmId);
-		
-		for(Firma f : frm.getPartneri().getFirma()){
-			if(f.getId().equals(partnerId))
+		for(String pib : frm.getPartneri().getPib()) {
+			if(pib.equals(partnerPIB))
 				return true;
 		}
 		

@@ -15,6 +15,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import xws.tim7.entities.Identifiable;
 
 
@@ -49,6 +52,7 @@ import xws.tim7.entities.Identifiable;
     "lastname"
 })
 @XmlRootElement(name = "user")
+@JsonInclude(Include.NON_NULL)
 public class User extends Identifiable {
 
     @XmlElement(required = true)
@@ -181,5 +185,12 @@ public class User extends Identifiable {
     public void setId(Long value) {
         this.id = value;
     }
+    
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password
+				+ ", firstname=" + firstname + ", lastname=" + lastname + "]";
+	}
+    
 
 }

@@ -133,14 +133,14 @@
             <xs:element name="Naziv">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:length value="255"/>
+                        <xs:maxLength value="255"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="Adresa">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:length value="255"/>
+                        <xs:maxLength value="255"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

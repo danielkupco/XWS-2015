@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 import javax.xml.bind.JAXBException;
@@ -14,7 +15,9 @@ import javax.xml.bind.JAXBException;
 import org.apache.log4j.Logger;
 
 import xws.tim7.entities.user.User;
+import xws.tim7.interceptors.AuthenticationInterceptor;
 import xws.tim7.sessionbeans.common.GenericDao;
+import xws.tim7.util.Authenticate;
 
 @Stateless
 @Local(UserDaoLocal.class)
@@ -37,8 +40,8 @@ public class UserDao extends GenericDao<User, Long> implements UserDaoLocal {
 	@Override
 	public User login(String username, String password) throws NoSuchAlgorithmException, IOException, JAXBException {
 		log.info("logovanje...");
-		log.info("username: "+username);
-		log.info("password: "+password);
+		log.info("username: " + username);
+		log.info("password: " + password);
 
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		md.update(password.getBytes("UTF-8"));
@@ -48,27 +51,36 @@ public class UserDao extends GenericDao<User, Long> implements UserDaoLocal {
 			sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 		}
 		password = sb.toString();
-		log.info("password: "+password);
+		log.info("password: " + password);
 		
 		
-		if(username.equals("admin") && password.equals("21232f297a57a5a743894a0e4a801fc3")) {
-			log.info("logovanje uspesno!");
-			User u = new User();
-			u.setId(new Long(123));
-			u.setUsername(username);
-			u.setPassword(password);
-			u.setFirstname("Admin");
-			u.setLastname("Adminovic");
-			return u;
-		}
-			
-//		List<User> users = findAll();
-//		for(User u : users) {
-//			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {
-//				log.info("logovanje uspesno!");
-//				return u;
-//			}
+//		if(username.equals("admin") && password.equals("21232f297a57a5a743894a0e4a801fc3")) {
+//			log.info("logovanje uspesno!");
+//			User u = new User();
+//			u.setId(new Long(123));
+//			u.setUsername(username);
+//			u.setPassword(password);
+//			u.setFirstname("Admin");
+//			u.setLastname("Adminovic");
+//			return u;
 //		}
+
+//		InputStream input = findBy("//user[@username='pera']", true);
+//		BufferedReader br = new BufferedReader(new InputStreamReader(input));
+//		String line = null;
+//		while ((line = br.readLine()) != null) {
+//			System.out.println(line);
+//		}
+		
+		List<User> users = findAll();
+		for(User u : users) {
+			log.info(u.getUsername() + " - " + u.getPassword());
+			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {
+				log.info("logovanje uspesno!");
+				request.getSession().setAttribute("user", u);
+				return u;
+			}
+		}
 			
 		return null;
 		

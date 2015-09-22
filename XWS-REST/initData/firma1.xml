@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frm:Firma xmlns:frm="http://xws/tim7/firma"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xws/tim7/firma Firma.xsd" id="1">
+    <frm:ID_firme>1</frm:ID_firme>
+    <frm:Naziv_firme>Firma 1</frm:Naziv_firme>
+    <frm:Adresa>Adresa firme 1</frm:Adresa>
+    <frm:Url>api/firma1</frm:Url>
+    <frm:Partneri>
+    	<frm:pib>44444555556</frm:pib>
+    </frm:Partneri>
+    <frm:PIB>11111222223</frm:PIB>
+    <frm:Racuni>
+    	<frm:Racun>111-2222222222222-33</frm:Racun>
+    </frm:Racuni>
+</frm:Firma>

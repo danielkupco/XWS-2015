@@ -17,11 +17,11 @@ import xws.tim7.util.ServiceException;
 @Authenticate
 public class AuthenticationInterceptor {
 
+	private static Logger log = Logger.getLogger(AuthenticationInterceptor.class);
+	
 	public AuthenticationInterceptor() {
 		super();
 	}
-
-	private static Logger log = Logger.getLogger(AuthenticationInterceptor.class);
 
 	@Context
 	private HttpServletRequest request;
@@ -30,12 +30,12 @@ public class AuthenticationInterceptor {
 	public Object intercept(InvocationContext context) throws Exception{
 		log.info("Authentication interceptor invoked!");
 		
-		User user = (User) request.getSession().getAttribute("user");
-		log.info("user: "+user);
-		if (user == null) {
-			throw new ServiceException("Not logged in", Status.UNAUTHORIZED);
-		}	
-		
+//		User user = (User) request.getSession().getAttribute("user");
+//		log.info("user: " + user);
+//		if (user == null) {
+//			throw new ServiceException("Not logged in", Status.UNAUTHORIZED);
+//		}	
+//		
 		Object result = context.proceed();
 		return result;
 	}

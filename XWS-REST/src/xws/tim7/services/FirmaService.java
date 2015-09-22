@@ -1,5 +1,6 @@
 package xws.tim7.services;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,7 +18,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 import org.apache.openejb.server.httpd.HttpResponse;
@@ -25,8 +28,10 @@ import org.apache.openejb.server.httpd.HttpResponse;
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
+import xws.tim7.entities.user.User;
 import xws.tim7.sessionbeans.faktura.FakturaDao;
 import xws.tim7.sessionbeans.firma.FirmaDao;
+import xws.tim7.util.Authenticate;
 
 @Path("/firma")
 public class FirmaService {
@@ -64,9 +69,77 @@ public class FirmaService {
 	
 	///////////////////////////////////
 	
+	@GET
+    @Path("initFirme")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response initializeFirme() {
+		
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance("xws.tim7.entities.firma");
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			
+			log.info("creating firma 1...");
+			Firma firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma1.xml"));
+			
+			log.info(firma.toString());
+			log.info(firma.getId() + " - " + firma.getNazivFirme());
+			log.info("firma 1 created...");
+			firmaDao.persist(firma);
+			log.info("firma 1 persisted...");
+			
+			log.info("creating firma 2...");
+			firma = (Firma) unmarshaller.unmarshal(new File("../webapps/initData/firma2.xml"));
+
+			log.info(firma.getId() + " - " + firma.getNazivFirme());
+			log.info("firma 2 created...");
+			firmaDao.persist(firma);
+			log.info("firma 2 persisted...");
+
+			return Response.ok().entity("Firme uspesno kreirane...").build();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return Response.serverError().entity("Doslo je do greske...").build();
+    }
+	
+	@GET
+    @Path("initFakture")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response initializeFakture() {
+		
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance("xws.tim7.entities.faktura");
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			
+			log.info("creating faktura 1...");
+			Faktura faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura1.xml"));
+			
+			log.info("faktura 1 created...");
+			fakturaDao.persist(faktura);
+			log.info("faktura 1 persisted...");
+
+			return Response.ok().entity("Fakture uspesno kreirane...").build();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return Response.serverError().entity("Doslo je do greske...").build();
+    }
+	
 	// #1
 	@POST
 	@Path("/{url_kupca}/partneri/{id_dob}/fakture")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Authenticate
 	public Response posaljiFakturu(
 			@PathParam("url_kupca") String url, 
 			@PathParam("id_dob") String pib,
@@ -79,7 +152,7 @@ public class FirmaService {
 			if(firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
 				fakturaDao.persist(faktura);
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId())).build();
-			}else if(!firmaDao.isPartnerWith(kupac.getId(), dobavljac.getId())){
+			} else {
 				return Response.status(HttpResponse.SC_FORBIDDEN).build();
 			}
 			
@@ -89,23 +162,20 @@ public class FirmaService {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (JAXBException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		}
-		
-		
-		return null;
+
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		
 	}
 	
 	// #2
 	@GET
 	@Path("{urlKupca}/partneri/{dobavljacId}/fakture")
+	@Authenticate
 	Response getInvoicesByBuyerForProvider(@PathParam("urlKupca") String urlKupca,
 			@PathParam("dobavljacId") Long dobavljacId) {
 		try {
@@ -127,6 +197,7 @@ public class FirmaService {
 	@GET
 	@Path("/{url}/partneri/{id_dob}/fakture/{id_fakture}")
 	@Produces("application/xml")
+	@Authenticate
 	public Response getFaktura(
 			@PathParam("url") String url,
 			@PathParam("id_dob") String pib,
@@ -158,6 +229,7 @@ public class FirmaService {
 	// #4
 	@GET
 	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke")
+	@Authenticate
 	Response getInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("dobavljacId") Long dobavljacId,
@@ -182,6 +254,7 @@ public class FirmaService {
 	// #5
 	@POST
 	@Path("/{url}/partneri/{id_dob}/fakture/{id_fak}/stavke")
+	@Authenticate
 	public Response dodajStavkuFakture(
 			@PathParam("url") String url,
 			@PathParam("id_dob") String pib,
@@ -231,6 +304,7 @@ public class FirmaService {
 	// #6
 	@GET
 	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Authenticate
 	Response getNthInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("dobavljacId") Long dobavljacId,
@@ -259,6 +333,7 @@ public class FirmaService {
 	// #7
 	@PUT
 	@Path("/{url}/partneri/{id_dob}/fakture/{id_fak}/stavke/{rbr_stav}")
+	@Authenticate
 	public Response izmeniStavku(
 			@PathParam("url") String url,
 			@PathParam("id_dob") String pib,
@@ -306,6 +381,7 @@ public class FirmaService {
 	// #8
 	@DELETE
 	@Path("{urlKupca}/partneri/{dobavljacId}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Authenticate
 	Response deleteNthInvoiceItembyBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("dobavljacId") Long dobavljacId,
