@@ -5,14 +5,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
+
+import org.apache.log4j.Logger;
+import org.apache.openjpa.lib.log.Log;
 
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
+import xws.tim7.services.FirmaService;
 import xws.tim7.sessionbeans.common.GenericDao;
 
+@Stateless
+@Local(FakturaDaoLocal.class)
 public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoLocal {
 
+	private static Logger log = Logger.getLogger(FakturaDaoLocal.class);
+	
 	public static final String contextPath = "xws.tim7.entities.faktura";
 	public static final String schemaName = "faktura";
 	
@@ -84,10 +94,15 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	public List<Faktura> getFaktureByBuyerAndSeller(String buyerPIB, String sellerPIB) throws IOException, JAXBException {
 		// TODO Auto-generated method stub
 		// pokupis fakturu, proveris u zaglavlju kupca/dobavljaca pa dodas u retList
-		List<Faktura> retVal = new ArrayList();
+		List<Faktura> retVal = new ArrayList<Faktura>();
 		List<Faktura> fakture = findAll();
+		log.info("sve fakture: " + fakture.size());
 		for(Faktura f : fakture) {
-			if(f.getZaglavlje().getDobavljac().getPIB().equals(sellerPIB) && f.getZaglavlje().getKupac().getPIB().equals(buyerPIB))
+			log.info("buyerPIB: " + buyerPIB);
+			log.info("f kupac PIB: " + f.getZaglavlje().getKupac().getPIB());
+			log.info("sellerPIB: " + sellerPIB);
+			log.info("f dobavljac PIB: " + f.getZaglavlje().getDobavljac().getPIB());
+			if(f.getZaglavlje().getKupac().getPIB().equals(buyerPIB) && f.getZaglavlje().getDobavljac().getPIB().equals(sellerPIB))
 				retVal.add(f);
 		}
 		return retVal;

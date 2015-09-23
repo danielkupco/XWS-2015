@@ -70,6 +70,8 @@ public class FirmaService {
 	
 	///////////////////////////////////
 	
+	/////////// init metode ///////////
+	
 	@GET
     @Path("initFirme")
     @Produces(MediaType.TEXT_PLAIN)
@@ -166,6 +168,13 @@ public class FirmaService {
 			log.info("faktura 1 created...");
 			fakturaDao.persist(faktura);
 			log.info("faktura 1 persisted...");
+			
+			log.info("creating faktura 2...");
+			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura2.xml"));
+			
+			log.info("faktura 2 created...");
+			fakturaDao.persist(faktura);
+			log.info("faktura 2 persisted...");
 
 			return Response.ok().entity("Fakture uspesno kreirane...").build();
 		} catch (JAXBException e) {
@@ -177,6 +186,8 @@ public class FirmaService {
 		}
 		return Response.serverError().entity("Doslo je do greske...").build();
     }
+	
+	/////////////////////////////////////
 	
 	// #1
 	@POST
@@ -217,6 +228,7 @@ public class FirmaService {
 	
 	// #2
 	@GET
+	@Authenticate
 	@Path("/{urlKupca}/partneri/{pib_dob}/fakture")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getInvoicesByBuyerForProvider(@PathParam("urlKupca") String urlKupca,
@@ -227,10 +239,11 @@ public class FirmaService {
 			log.info("kupac " + kupac);
 			log.info("pib " + pib_dob);
 			log.info("firmaDao " + firmaDao);
+			log.info("fakturaDao " + fakturaDao);
 			// 200 OK + Lista
 			if (firmaDao.isPartnerWith(kupac.getId(), pib_dob)) {
 				List<Faktura> fakture = fakturaDao.getFaktureByBuyerAndSeller(kupac.getPIB(), pib_dob);
-				
+				log.info("fakture za json: " + fakture.size());
 				return Response.ok().entity(fakture).build();
 			}
 		} catch (Exception e) {

@@ -22,6 +22,9 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import xws.tim7.entities.Identifiable;
 
 
@@ -84,6 +87,7 @@ import xws.tim7.entities.Identifiable;
     "stavka"
 })
 @XmlRootElement(name = "Faktura")
+@JsonInclude(Include.NON_NULL)
 public class Faktura extends Identifiable {
 
     @XmlElement(name = "Zaglavlje", required = true)
@@ -227,6 +231,7 @@ public class Faktura extends Identifiable {
         "uplataNaRacun",
         "datumValute"
     })
+    @JsonInclude(Include.NON_NULL)
     public static class Zaglavlje {
 
         @XmlElement(name = "ID_poruke", required = true)

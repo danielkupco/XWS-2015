@@ -13,6 +13,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 
 /**
  * <p>Java class for TFirma complex type.
@@ -59,6 +62,7 @@ import javax.xml.bind.annotation.XmlType;
     "adresa",
     "pib"
 })
+@JsonInclude(Include.NON_NULL)
 public class TFirma {
 
     @XmlElement(name = "Naziv", required = true)

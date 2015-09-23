@@ -10,12 +10,16 @@ package xws.tim7.entities.faktura;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 /**
@@ -130,6 +134,7 @@ import javax.xml.bind.annotation.XmlType;
     "ukupanPorez"
 })
 @XmlRootElement(name = "Stavka")
+@JsonInclude(Include.NON_NULL)
 public class Stavka {
 
     @XmlElement(name = "Redni_broj", required = true)
