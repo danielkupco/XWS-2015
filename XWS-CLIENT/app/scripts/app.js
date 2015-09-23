@@ -18,24 +18,34 @@
   'ngTouch',
   'main',
   'about',
-  'invoices',
-  'invoice',
+  'fakture',
+  'faktura',
+  'stavka',
+  'stavke',
   'user',
   'resource.user'
   ])
  .config(function ($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'views/invoice-list.html',
-    controller: 'invoicesListCtrl'
+    templateUrl: 'views/fakture.html',
+    controller: 'faktureCtrl'
   })
-  .when('/invoice-list', {
-    templateUrl: 'views/invoice-list.html',
-    controller: 'invoicesListCtrl'
+  .when('/fakture', {
+    templateUrl: 'views/fakture.html',
+    controller: 'faktureCtrl'
   })
-  .when('/invoice/:invoiceId', {
-    templateUrl: 'views/invoice.html',
-    controller: 'invoiceCtrl'
+  .when('/fakture/:fakturaId', {
+    templateUrl: 'views/faktura.html',
+    controller: 'fakturaCtrl'
+  })
+  .when('/fakture/:fakturaId/stavke', {
+    templateUrl: 'views/stavke.html',
+    controller: 'stavkeCtrl'
+  })
+  .when('/fakture/:fakturaId/stavke/:stavkaId', {
+    templateUrl: 'views/stavka.html',
+    controller: 'stavkaCtrl'
   })
   .when('/login', {
     templateUrl: 'views/login.html',
