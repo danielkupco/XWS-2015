@@ -3,7 +3,7 @@
  angular.module('invoices', ['resource.invoice',
  	'angular-md5'])
 
- .controller('invoicesListCtrl', function (Invoice, $scope, $location, md5, $log) {
+ .controller('invoicesListCtrl', function (Invoice, $scope, $location, md5, $log, $rootScope) {
  	//postavljanje niza invoices u kodu
  	/*$scope.invoices = [
  	{
@@ -59,15 +59,16 @@
  		]
  	}
  	];*/
+
  	//preuzimanje niza faktura sa servera
-/* 	Invoice.query().$promise.then(function (data) {
+ 	Invoice.query({url_kupca: $rootScope.url_kupca, pib_dob: $rootScope.pib_dob}).$promise.then(function (data) {
  		$scope.invoices = data;
  	}, function (error) {
  		console.log(error);
  	});
-*/
-	$scope.invoices = Invoice.query();
-	$log.info($scope.invoices.length);//0
+
+	//$scope.invoices = Invoice.query();
+	//$log.info($scope.invoices.length);//0
 	//kada smo kliknuli na red u tabeli prelazimo na stranicu za editovanje fakture sa zadatim id-om
  	$scope.insertOrEditInvoice = function (invoice) {
  		if(invoice){

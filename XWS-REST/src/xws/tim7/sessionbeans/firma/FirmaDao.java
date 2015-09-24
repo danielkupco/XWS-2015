@@ -8,7 +8,6 @@ import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
-import org.apache.openjpa.lib.log.Log;
 
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.interceptors.AuthenticationInterceptor;

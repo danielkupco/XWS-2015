@@ -12,4 +12,11 @@
 			<button class="btn btn-default" ng-click="login()">login</button>
 		</div>
 	</form>
+
+	<div class="form-group" ng-controller="firmeCtrl">
+		<label >firma:</label>
+		<select class="form-control" ng-model="firma" ng-change="firmaSelected(firma)" ng-init="firma = firme[0]" ng-options="firma.Naziv_firme for firma in firme">
+			<!-- option ng-repeat="firma in firme" value="{{firma.Url}}">{{firma.Naziv_firme}}</option -->
+		</select>
+	</div>
 </div>

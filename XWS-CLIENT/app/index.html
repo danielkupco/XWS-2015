@@ -27,13 +27,16 @@
           <li  ng-if="!isLoginPage()" ><a ng-href="#/">Home</a></li>
           <li><a ng-if="!isLoginPage()" ng-click="logout()">Logout</a></li>
         </ul>
-        <h3 class="text-muted">Invoice application</h3>
+        <h3 class="text-muted">XWS client&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.firstname}} {{user.lastname}}</h3>
+        <!-- <h2 ng-hide="isUserNull()">Hi {{user.firstname}} {{user.lastname}}</h3> -->
+        <h5>Url kupca: {{url_kupca}}</h5>
+        <h5>PIB dobavljaca: {{pib_dob}}</h5>
       </div>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span> Milan Segedinac 2015</p>
+        <p><span class="glyphicon glyphicon-copyright-mark"></span> Tim 7 2015</p>
         <p>Ovaj program se distribuira BEZ IKAKVE GARANCIJE</p>
       </div>
     </div>
@@ -85,6 +88,10 @@
     <script src="scripts/factories/invoiceFactory.js"></script>
     <script src="scripts/factories/invoiceItemFactory.js"></script>
     <script src="scripts/factories/userFactory.js"></script>
+
+    <!-- ovde importovati nase skripte -->
+    <script src="scripts/controllers/firme.js"></script>
+    <script src="scripts/factories/firmaFactory.js"></script>
     <!-- endbuild -->
 
 

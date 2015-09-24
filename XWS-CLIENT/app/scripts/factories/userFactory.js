@@ -1,5 +1,5 @@
 angular.module('resource.user', ['angular-md5'])
-.factory('User', function ($http, md5, $q, $log, $location) {
+.factory('User', function ($http, md5, $q, $log, $location, $rootScope) {
 	var service = {
 		login : function  (user) {
 			var deferred = $q.defer();
@@ -13,11 +13,13 @@ angular.module('resource.user', ['angular-md5'])
 			});
 			return deferred.promise;
 		},
+		
 		logout : function () {
 			$http({
 				url: "http://localhost:8080/xws/api/user/logout",
 				method: "GET",
 			}).success(function () {
+				$rootScope.user = {};
 				$location.path("login");
 			});
 		}

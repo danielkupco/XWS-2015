@@ -18,6 +18,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import xws.tim7.entities.Identifiable;
 
 
@@ -74,6 +77,7 @@ import xws.tim7.entities.Identifiable;
     "racuni"
 })
 @XmlRootElement(name = "Firma")
+@JsonInclude(Include.NON_NULL)
 public class Firma extends Identifiable {
 
     @XmlElement(name = "ID_firme")

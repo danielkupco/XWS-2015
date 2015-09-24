@@ -1,6 +1,12 @@
 angular.module('resource.invoice', ['ngResource'])
-	.factory('Invoice', function ($resource) {
-	return $resource('http://localhost:8080/xws/api/invoice/:invoiceId',null, {
-        'update': { method:'PUT' }
-    });
+	.factory('Invoice', function ($resource, $rootScope) {
+
+		return $resource('http://localhost:8080/xws/api/firma/:url_kupca/partneri/:pib_dob/fakture/:invoiceId', {}, {
+	        'update': { method:'PUT' },
+	        'query': {
+	        	method: 'GET',
+	        	isArray: true,
+	        	params: { url_kupca: '@url_kupca', pib_dob: '@pib_dob' }
+	        }
+        });
 })

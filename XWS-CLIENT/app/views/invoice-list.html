@@ -1,14 +1,20 @@
 <div>
+	<div class="form-group" ng-controller="firmeCtrl">
+		<label >kupac:</label>
+		<select class="form-control" ng-model="kupac" ng-change="kupacSelected(kupac)" ng-init="kupac = firme[0]" ng-options="kupac.Naziv_firme for kupac in firme">
+			<!-- option ng-repeat="kupac in firme" value="{{kupac.Url}}">{{kupac.Naziv_firme}}</option -->
+		</select>
+	</div>
 	<table class="table table-striped table-bordered table-condensed table-hover">
 		<tr>
-			<th>suplier name</th>
-			<th>suplier address</th>
-			<th>total amount</th>
+			<th>Naziv dobavljaca</th>
+			<th>Adresa dobavljaca</th>
+			<th>Ukupan iznos</th>
 		</tr>
 		<tr ng-repeat="invoice in invoices" ng-click="insertOrEditInvoice(invoice)">
-			<td>{{invoice.suplierName}}</td>
-			<td>{{invoice.suplierAddress}}</td>
-			<td>{{invoice.totalAmount}}</td>
+			<td>{{invoice.Zaglavlje.Dobavljac.Naziv}}</td>
+			<td>{{invoice.Zaglavlje.Dobavljac.Adresa}}</td>
+			<td>{{invoice.Zaglavlje.Iznos_za_uplatu}}</td>
 		</tr>
 	</table>
 	<div>

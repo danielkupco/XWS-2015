@@ -18,34 +18,27 @@
   'ngTouch',
   'main',
   'about',
-  'fakture',
-  'faktura',
-  'stavka',
-  'stavke',
+  'invoices',
+  'invoice',
   'user',
-  'resource.user'
+  'resource.user',
+  /* ovde dodati dependencije na nase controllere i resurse*/
+  'firme',
+  'resource.firma'
   ])
  .config(function ($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'views/fakture.html',
-    controller: 'faktureCtrl'
+    templateUrl: 'views/invoice-list.html',
+    controller: 'invoicesListCtrl'
   })
-  .when('/fakture', {
-    templateUrl: 'views/fakture.html',
-    controller: 'faktureCtrl'
+  .when('/invoice-list', {
+    templateUrl: 'views/invoice-list.html',
+    controller: 'invoicesListCtrl'
   })
-  .when('/fakture/:fakturaId', {
-    templateUrl: 'views/faktura.html',
-    controller: 'fakturaCtrl'
-  })
-  .when('/fakture/:fakturaId/stavke', {
-    templateUrl: 'views/stavke.html',
-    controller: 'stavkeCtrl'
-  })
-  .when('/fakture/:fakturaId/stavke/:stavkaId', {
-    templateUrl: 'views/stavka.html',
-    controller: 'stavkaCtrl'
+  .when('/invoice/:invoiceId', {
+    templateUrl: 'views/invoice.html',
+    controller: 'invoiceCtrl'
   })
   .when('/login', {
     templateUrl: 'views/login.html',
@@ -97,10 +90,13 @@
     $http.defaults.transformResponse.unshift(parseResponse);//ovu funkciju stavimo na pocetak niza transformer funkcija
   }
   ])
- .controller('appCtrl', function($scope, User, $log, $location, $modal){
+ .controller('appCtrl', function($scope, User, $log, $location, $modal, $rootScope){
   $scope.logout = User.logout;
   $scope.isLoginPage = function () {
     return $location.path() === '/login';
+  };
+  $scope.isUserNull = function () {
+    return typeof $rootScope === 'undefined' || typeof $rootScope.user === 'undefined'; 
   };
   $scope.about = function (size) {
     var modalInstance = $modal.open({
@@ -109,4 +105,6 @@
       size: size,
     });
   };
+  $rootScope.url_kupca = "firma1";
+  $rootScope.pib_dob = "44444555556";
 });

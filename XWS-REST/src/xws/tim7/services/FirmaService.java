@@ -109,13 +109,13 @@ public class FirmaService {
 			firma.setUrl("firma1");
 			firma.setPIB("11111222223");
 			Firma.Partneri fp = new Firma.Partneri();
-			List<String> l = new ArrayList<String>();
-			l.add("44444555556");
-			fp.setPib(l);
+			List<String> l1 = new ArrayList<String>();
+			l1.add("44444555556");
+			fp.setPib(l1);
 			firma.setPartneri(fp);
 			TRacuni tr = new TRacuni();
-			l = new ArrayList<String>();
-			l.add("111-2222222222222-33");
+			List<String> l2 = new ArrayList<String>();
+			l2.add("111-2222222222222-33");
 			firma.setRacuni(tr);
 			
 			firmaDao.persist(firma);
@@ -128,13 +128,13 @@ public class FirmaService {
 			firma.setUrl("firma2");
 			firma.setPIB("44444555556");
 			Firma.Partneri fp2 = new Firma.Partneri();
-			List<String> l2 = new ArrayList<String>();
-			l2.add("11111222223");
-			fp2.setPib(l);
+			List<String> l3 = new ArrayList<String>();
+			l3.add("11111222223");
+			fp2.setPib(l3);
 			firma.setPartneri(fp2);
 			TRacuni tr2 = new TRacuni();
-			l2 = new ArrayList<String>();
-			l2.add("444-5555555555555-66");
+			List<String> l4 = new ArrayList<String>();
+			l4.add("444-5555555555555-66");
 			firma.setRacuni(tr2);
 			
 			firmaDao.persist(firma);
@@ -187,7 +187,30 @@ public class FirmaService {
 		return Response.serverError().entity("Doslo je do greske...").build();
     }
 	
-	/////////////////////////////////////
+	/////////////////////////////////////////
+	
+	/////////////// custom get metode ///////////////
+	
+	@GET
+	@Path("/firme")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Firma> getFirme() {
+		log.info("get firme...");
+		List<Firma> firme = new ArrayList<Firma>();
+		try {
+			firme = firmaDao.findAll();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.info("ukupno " + firme.size());
+		return firme;
+	}
+		
+	///////////////////////////////////////////
 	
 	// #1
 	@POST

@@ -5,7 +5,7 @@
     <frm:ID_firme>1</frm:ID_firme>
     <frm:Naziv_firme>Firma 1</frm:Naziv_firme>
     <frm:Adresa>Adresa firme 1</frm:Adresa>
-    <frm:Url>api/firma1</frm:Url>
+    <frm:Url>firma1</frm:Url>
     <frm:Partneri>
     	<frm:pib>44444555556</frm:pib>
     </frm:Partneri>
