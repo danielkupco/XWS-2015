@@ -2,6 +2,7 @@ package xws.tim7.services;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -312,7 +313,7 @@ public class FirmaService {
 	@GET
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke")
 	@Authenticate
-	Response getInvoiceItemsByBuyerForProvider(
+	public Response getInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("pib_dob") String pib_dob,
 			@PathParam("idFakture") Long idFakture)
@@ -353,10 +354,14 @@ public class FirmaService {
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			
+			stavka.setRedniBroj(BigInteger.valueOf(faktura.getStavka().size()+1));
+			
+			log.info("***NOVA STAVKA**** ---->"+stavka.getNazivRobeIliUsluge());
+			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura!=null)){
 				faktura.getStavka().add(stavka);
-				fakturaDao.persist(faktura);
-				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getId())).build();
+				fakturaDao.merge(faktura, idFakture);
+				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj())).build();
 			}
 			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
 				return Response.status(HttpResponse.SC_FORBIDDEN).build();
@@ -431,20 +436,10 @@ public class FirmaService {
 		Firma dobavljac;
 		Faktura faktura;
 		
-		log.info("*********POGODJENA METODA izmeniStavku[PUT]********");
-		
 		try {
 			kupac = firmaDao.findByURL(url);
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
-			
-			log.info("KUPAC: "+kupac.getNazivFirme());
-			log.info("DOBAVLJAC: "+dobavljac.getNazivFirme());
-			log.info("FAKTURA: [kupac: "+faktura.getZaglavlje().getKupac().getNaziv()+", dobavljac: "+faktura.getZaglavlje().getDobavljac().getNaziv());
-			log.info("PARTNERI? : "+firmaDao.isPartnerWith(kupac.getId(), pib));
-			log.info("***STAVKA: nazivRobeIliUsluge="+stavka.getNazivRobeIliUsluge());
-			
-			log.info("***************************************");
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib)
 					&& (fakturaDao.findItemInFaktura(idFakture, rbrStavke) != null)){
@@ -453,13 +448,11 @@ public class FirmaService {
 			}
 			
 			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
-				//return Response.status(HttpResponse.SC_FORBIDDEN).build();
-				return Response.ok("not found").build();
+				return Response.status(HttpResponse.SC_FORBIDDEN).build();
 			}
 			
 			if( (faktura == null) || (fakturaDao.findItemInFaktura(idFakture, rbrStavke) == null)){
-				//return Response.status(HttpResponse.SC_NOT_FOUND).build();
-				return Response.ok("not found").build();
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			}
 			
 			//TODO : u slucaju neispravne stavke HTTP 400 Bad Request.
