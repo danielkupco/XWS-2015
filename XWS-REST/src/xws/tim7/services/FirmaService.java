@@ -215,7 +215,7 @@ public class FirmaService {
 	// #1
 	@POST
 	@Path("/{url_kupca}/partneri/{pib_dob}/fakture")
-	@Consumes(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Authenticate
 	public Response posaljiFakturu(
 			@PathParam("url_kupca") String url, 
@@ -279,9 +279,9 @@ public class FirmaService {
 	// #3
 	@GET
 	@Path("/{url}/partneri/{pib_dob}/fakture/{id_fakture}")
-	@Produces("application/xml")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
-	public Response getFaktura(
+	public Faktura getFaktura(
 			@PathParam("url") String url,
 			@PathParam("pib_dob") String pib,
 			@PathParam("id_fakture") Long idFakture){
@@ -294,18 +294,17 @@ public class FirmaService {
 			Faktura faktura = fakturaDao.findById(idFakture);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura != null)){
-				return Response.ok().type("application/xml").entity(faktura).build();
+				//return Response.ok().entity(faktura).build();
+				return faktura;
 			}
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (JAXBException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		}
 		
-		return Response.status(HttpResponse.SC_NOT_FOUND).build();
+		return null;
 		
 	}
 	
@@ -387,8 +386,9 @@ public class FirmaService {
 	// #6
 	@GET
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
-	Response getNthInvoiceItemsByBuyerForProvider(
+	public Stavka getNthInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("pib_dob") String pib,
 			@PathParam("idFakture") Long idFakture,
@@ -402,7 +402,8 @@ public class FirmaService {
 				List<Stavka> stavke = faktura.getStavka();
 				for(Stavka stavka : stavke) {
 					if(stavka.getRedniBroj().equals(redniBroj)) {
-						return Response.ok().type("application/xml").entity(stavka).build();
+						//return Response.ok().type("application/xml").entity(stavka).build();
+						return stavka;
 					}
 				}	
 			}
@@ -410,12 +411,14 @@ public class FirmaService {
 			log.error(e.getMessage(), e);
 		}
 		
-		return Response.status(404).build();
+		//return Response.status(404).build();
+		return null;
 	}
 		
 	// #7
 	@PUT
 	@Path("/{url}/partneri/{id_dob}/fakture/{id_fak}/stavke/{rbr_stav}")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Authenticate
 	public Response izmeniStavku(
 			@PathParam("url") String url,
@@ -428,10 +431,20 @@ public class FirmaService {
 		Firma dobavljac;
 		Faktura faktura;
 		
+		log.info("*********POGODJENA METODA izmeniStavku[PUT]********");
+		
 		try {
 			kupac = firmaDao.findByURL(url);
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
+			
+			log.info("KUPAC: "+kupac.getNazivFirme());
+			log.info("DOBAVLJAC: "+dobavljac.getNazivFirme());
+			log.info("FAKTURA: [kupac: "+faktura.getZaglavlje().getKupac().getNaziv()+", dobavljac: "+faktura.getZaglavlje().getDobavljac().getNaziv());
+			log.info("PARTNERI? : "+firmaDao.isPartnerWith(kupac.getId(), pib));
+			log.info("***STAVKA: nazivRobeIliUsluge="+stavka.getNazivRobeIliUsluge());
+			
+			log.info("***************************************");
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib)
 					&& (fakturaDao.findItemInFaktura(idFakture, rbrStavke) != null)){
@@ -440,11 +453,13 @@ public class FirmaService {
 			}
 			
 			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
-				return Response.status(HttpResponse.SC_FORBIDDEN).build();
+				//return Response.status(HttpResponse.SC_FORBIDDEN).build();
+				return Response.ok("not found").build();
 			}
 			
 			if( (faktura == null) || (fakturaDao.findItemInFaktura(idFakture, rbrStavke) == null)){
-				return Response.status(HttpResponse.SC_NOT_FOUND).build();
+				//return Response.status(HttpResponse.SC_NOT_FOUND).build();
+				return Response.ok("not found").build();
 			}
 			
 			//TODO : u slucaju neispravne stavke HTTP 400 Bad Request.

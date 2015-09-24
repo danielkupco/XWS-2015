@@ -86,6 +86,7 @@ public class UserService {
 		u1.setFirstname("Admin");
 		u1.setLastname("Adminovic");
 		
+		
 		User u2 = new User();
 		u2.setId(new Long(222));
 		u2.setUsername("pera");

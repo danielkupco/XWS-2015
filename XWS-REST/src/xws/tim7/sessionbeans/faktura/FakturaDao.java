@@ -36,7 +36,7 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 		
 		if (faktura instanceof Faktura) {
 			for (Stavka item : faktura.getStavka()) {
-				if(stavkaId.equals(item.getId())) {
+				if(stavkaId.equals(item.getRedniBroj())) {
 					return item;
 				}
 			}
@@ -77,14 +77,23 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	public Faktura updateStavka(Long FakturaId, Stavka item) throws IOException, JAXBException {
 		Faktura faktura = findById(FakturaId);
 		
-		if(faktura instanceof Faktura) {
+		/*if(faktura instanceof Faktura) {
 			for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 			    Stavka stavka = iter.next();
-			    if (stavka.getId().equals(item.getId())) {
+			    if (stavka.getRedniBroj().equals(item.getRedniBroj())) {
 			        iter.remove();
 			    }
 			}
 			faktura.getStavka().add(item);
+		}*/
+		
+		
+		for(Stavka stavka : faktura.getStavka()){
+			if(stavka.getRedniBroj().equals(item.getRedniBroj())){
+				faktura.getStavka().remove(faktura.getStavka().indexOf(stavka));
+				faktura.getStavka().add(item);
+			}
+			
 		}
 		
 		return merge(faktura, FakturaId);
