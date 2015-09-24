@@ -1,87 +1,101 @@
 <div>
 	<form>
 		<div class="form-group">
-			<label >suplier name:</label>
-			<input class="form-control" ng-model="invoice.suplierName"></input>
+			<label >ID poruke:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.ID_poruke"></input>
 		</div>
 		<div class="form-group">
-			<label>suplier address:</label>
-			<input class="form-control" ng-model="invoice.suplierAddress"></input>
+			<label>Kupac:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Kupac.Naziv"></input>
 		</div>
 		<div class="form-group">
-			<label>supplier pib:</label>
-			<input class="form-control" ng-model="invoice.supplierPib"></input>
+			<label>Adresa kupca:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Kupac.Adresa"></input>
 		</div>
 		<div class="form-group">
-			<label>buyer name:</label>
-			<input class="form-control" ng-model="invoice.buyerName"></input>
+			<label>PIB kupca:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Kupac.PIB"></input>
+		</div>
+
+		<div class="form-group">
+			<label>Dobavljac:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Dobavljac.Naziv"></input>
 		</div>
 		<div class="form-group">
-			<label>buyer address:</label>
-			<input class="form-control" ng-model="invoice.buyerAddress"></input>
+			<label>Adresa dobavljaca:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Dobavljac.Adresa"></input>
 		</div>
 		<div class="form-group">
-			<label>acount number:</label>
-			<input class="form-control" ng-model="invoice.acountNumber"></input>
+			<label>PIB dobavljaca:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Dobavljac.PIB"></input>
 		</div>
 		<div class="form-group">
-			<label>date:</label>
+			<label>Broj racuna:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Broj_racuna"></input>
+		</div>
+		<div class="form-group">
+			<label>Datum racuna:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" datepicker-popup="dd.MM.yyyy." ng-model="invoice.date" is-open="dateOpened" close-text="Close" />
+				<input type="text" class="form-control" datepicker-popup="dd.MM.yyyy." ng-model="invoice.Zaglavlje.Datum_racuna" is-open="dateOpened" close-text="Close" />
 				<span class="input-group-btn">
 					<button type="button" class="btn btn-default" ng-click="openDatepicker($event, 'dateOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
 				</span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label >total goods value:</label>
-			<input class="form-control" ng-model="invoice.totalGoodsValue"></input>
+			<label>Vrednost robe:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Vrednost_robe"></input>
 		</div>
 		<div class="form-group">
-			<label>total service value:</label>
-			<input class="form-control" ng-model="invoice.totalServiceValue"></input>
+			<label>Vrednost usluga:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Vrednost_usluga"></input>
+		</div>
+		
+		<div class="form-group">
+			<label >Ukupno roba i usluga:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Ukupno_roba_i_usluge"></input>
 		</div>
 		<div class="form-group">
-			<label>total value:</label>
-			<input class="form-control" ng-model="invoice.totalValue"></input>
+			<label>Ukupan rabat:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Ukupan_rabat"></input>
 		</div>
 		<div class="form-group">
-			<label>total rabate:</label>
-			<input class="form-control" ng-model="invoice.totalRabate"></input>
+			<label>Ukupan porez:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Ukupan_porez"></input>
 		</div>
 		<div class="form-group">
-			<label>total tax:</label>
-			<input class="form-control" ng-model="invoice.totalTax"></input>
+			<label>Oznaka valute:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Oznaka_valute"></input>
 		</div>
 		<div class="form-group">
-			<label>currency:</label>
-			<input class="form-control" ng-model="invoice.currency"></input>
+			<label>Iznos za uplatu:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Iznos_za_uplatu"></input>
 		</div>
 		<div class="form-group">
-			<label>total amount:</label>
-			<input class="form-control" ng-model="invoice.totalAmount"></input>
+			<label>Uplata na racun:</label>
+			<input class="form-control" ng-model="invoice.Zaglavlje.Uplata_na_racun"></input>
 		</div>
 		<div class="form-group">
-			<label>currency date:</label>
+			<label>Datum valute:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" datepicker-popup="dd.MM.yyyy." ng-model="invoice.currencyDate" is-open="currencyDateOpened" close-text="Close" />
+				<input type="text" class="form-control" datepicker-popup="dd.MM.yyyy." ng-model="invoice.Zaglavlje.Datum_valute" is-open="currencyDateOpened" close-text="Close" />
 				<span class="input-group-btn">
 					<button type="button" class="btn btn-default" ng-click="openDatepicker($event, 'currencyDateOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
 				</span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label>items:</label>
+			<label>Stavke:</label>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<tr>
-					<th>goods name</th>
-					<th>quantity</th>
-					<th>price</th>
+					<th>Naziv robe ili usluge</th>
+					<th>Kolicina</th>
+					<th>Cena</th>
 				</tr>
-				<tr ng-repeat="item in invoice.invoiceItems" ng-click="openModal(item)">
-					<td>{{item.goodsName}}</td>
-					<td>{{item.quantity}} {{item.measureUnit}}</td>
-					<td>{{item.quantity*item.pricePerUnit}}</td>
+				<tr ng-repeat="stavka in invoice.Stavka track by $index" ng-click="openModal(stavka)">
+					<td>{{stavka.Naziv_robe_ili_usluge}}</td>
+					<td>{{stavka.Kolicina}} {{stavka.Jedinica_mere}}</td>
+					<td>{{stavka.Kolicina*stavka.Jedinicna_cena}}</td>
 				</tr>
 			</table>
 		</div>

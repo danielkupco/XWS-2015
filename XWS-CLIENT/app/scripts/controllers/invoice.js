@@ -13,8 +13,13 @@ angular.module('invoice', [
 		var invoiceId = $routeParams.invoiceId;
 		
 		//preuzimanje fakure sa servera. Posto smo u Invoice factory rutu definisali kao '...invoice/:invoiceId' invoiceId ce se proslediti kao parametar rute na server 
-		Invoice.get({'invoiceId':invoiceId}).$promise.then(function (data) {
+		Invoice.get({'invoiceId':invoiceId, 'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}).$promise.then(function (data) {
 			$scope.invoice = data;
+			if(data.Stavka){
+				$scope.invoice.Stavka = data.Stavka;
+			}else{
+				$scope.invoice.Stavka = [];
+			}
 		});
 	}
 	//ako kreiramo novu fakutru
@@ -77,6 +82,40 @@ angular.module('invoice', [
 		}
 		$log.info("save");
 	}
+
+
+	//by nemcha
+	
+	// $scope.save = function () {
+	// 	if($scope.invoice.id){
+	// 		//zbog cega redirekcija ide na callback?
+	// 		angular.forEach($scope.invoice.Stavka, function(value, key) {
+ //  				console.log(key + ': ' + value);
+ //  				console.log(value);
+ //  				if(value.Redni_broj){
+ //  					InvoiceItem.save(value).update(
+	// 					{invoiceId:$scope.invoice.id},
+	// 					{Redni_broj:value.Redni_broj}
+	// 					//{stavka:value}
+	// 					);
+ //  				}
+ //  				else{
+ //  				}
+	// 		});
+
+	// 		/*$scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
+	// 			$location.path('/invoiceList');
+	// 		});*/
+	// 	}
+	// 	else{
+	// 		$scope.invoice.$save(function () {
+	// 			$location.path('/invoiceList');
+	// 		});
+	// 	}
+	// 	$log.info("save");
+	// }
+
+
 
 	$scope.delete = function () {
 		if($scope.invoice.id){
