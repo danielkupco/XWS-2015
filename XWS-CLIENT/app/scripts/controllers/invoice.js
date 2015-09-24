@@ -6,7 +6,7 @@ angular.module('invoice', [
 	'invoiceItem',
 	'resource.invoiceItem'])
 
-.controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $modal, $log, $location, InvoiceItem) {
+.controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem, $route) {
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -25,7 +25,7 @@ angular.module('invoice', [
 	//ako kreiramo novu fakutru
 	else{
 		$scope.invoice = new Invoice();
-		$scope.invoice.invoiceItems = [];
+		$scope.invoice.Stavka = [];
 	}
 	//funkcija koja otvara datepicker
 	$scope.openDatepicker = function($event, opened) {
@@ -51,12 +51,12 @@ angular.module('invoice', [
 			var invoiceItem = data.invoiceItem;
 			//ako stavka fakture nema id i ako je akcija 'save' znaci da je nova i dodaje se u listu. ako ima, svakako se manja u listi
 			if(!invoiceItem.id && data.action==='save'){
-				$scope.invoice.invoiceItems.push(invoiceItem);				
+				$scope.invoice.Stavka.push(invoiceItem);				
 			}
 			//ako stavka treba da se obrise izbaci se iz niza
 			if(data.action==='delete'){
-				var index = $scope.invoice.invoiceItems.indexOf(invoiceItem);
-				$scope.invoice.invoiceItems.splice(index, 1);
+				var index = $scope.invoice.Stavka.indexOf(invoiceItem);
+				$scope.invoice.Stavka.splice(index, 1);
 				//ako je stavka imala i id, treba da se obrise i na serveru (da li je to dobro?)
 				if(invoiceItem.id){
 					InvoiceItem.delete({invoiceItemId:invoiceItem.id});
@@ -71,9 +71,27 @@ angular.module('invoice', [
 	$scope.save = function () {
 		if($scope.invoice.id){
 			//zbog cega redirekcija ide na callback?
-			$scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
-				$location.path('/invoiceList');
+			angular.forEach($scope.invoice.Stavka, function(value, key) {
+  				console.log(key + ': ' + value);
+  				console.log(value);
+
+  				//var temp = angular.toJson(value);
+
+  				if(value.Redni_broj){
+  					InvoiceItem.update({invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
+  					});
+  				}
+  				else{
+  					InvoiceItem.save({invoiceId:$scope.invoice.id}, value, function(){
+  					});
+  				}
 			});
+
+			$location.path('/invoice/'+$scope.invoice.id);
+
+			/*$scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
+				$location.path('/invoiceList');
+			});*/
 		}
 		else{
 			$scope.invoice.$save(function () {
@@ -82,40 +100,6 @@ angular.module('invoice', [
 		}
 		$log.info("save");
 	}
-
-
-	//by nemcha
-	
-	// $scope.save = function () {
-	// 	if($scope.invoice.id){
-	// 		//zbog cega redirekcija ide na callback?
-	// 		angular.forEach($scope.invoice.Stavka, function(value, key) {
- //  				console.log(key + ': ' + value);
- //  				console.log(value);
- //  				if(value.Redni_broj){
- //  					InvoiceItem.save(value).update(
-	// 					{invoiceId:$scope.invoice.id},
-	// 					{Redni_broj:value.Redni_broj}
-	// 					//{stavka:value}
-	// 					);
- //  				}
- //  				else{
- //  				}
-	// 		});
-
-	// 		/*$scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
-	// 			$location.path('/invoiceList');
-	// 		});*/
-	// 	}
-	// 	else{
-	// 		$scope.invoice.$save(function () {
-	// 			$location.path('/invoiceList');
-	// 		});
-	// 	}
-	// 	$log.info("save");
-	// }
-
-
 
 	$scope.delete = function () {
 		if($scope.invoice.id){
