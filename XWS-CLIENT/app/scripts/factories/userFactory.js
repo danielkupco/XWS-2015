@@ -13,7 +13,6 @@ angular.module('resource.user', ['angular-md5'])
 			});
 			return deferred.promise;
 		},
-		
 		logout : function () {
 			$http({
 				url: "http://localhost:8080/xws/api/user/logout",
@@ -24,6 +23,5 @@ angular.module('resource.user', ['angular-md5'])
 			});
 		}
 	};
-
 	return service;
 })

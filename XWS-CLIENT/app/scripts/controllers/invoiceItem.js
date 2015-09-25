@@ -2,7 +2,7 @@
 
 angular.module('invoiceItem', ['resource.invoiceItem'])
 
-.controller('invoiceItemCtrl', function (InvoiceItem, $scope, $rootScope, $modalInstance, invoiceItem) {
+.controller('invoiceItemCtrl', function (InvoiceItem, $scope, $rootScope, $routeParams, $modalInstance, invoiceItem) {
 	if(invoiceItem){
 		$scope.invoiceItem = invoiceItem;
 	}
@@ -22,5 +22,9 @@ angular.module('invoiceItem', ['resource.invoiceItem'])
 	$scope.delete = function () {
 		$modalInstance.close({'invoiceItem':$scope.invoiceItem,
 								'action':'delete'});
+
+		if(invoiceItem){
+			InvoiceItem.delete({'pib_dob':$rootScope.pib_dob, 'url_kupca':$rootScope.url_kupca, 'invoiceId':$routeParams.invoiceId, 'Redni_broj':$scope.invoiceItem.Redni_broj});
+		}
 	};
 });
