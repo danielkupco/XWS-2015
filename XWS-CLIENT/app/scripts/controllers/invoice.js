@@ -118,4 +118,25 @@ angular.module('invoice', [
 		$scope.itemPredicate = predicate;
 	};
 
+	$scope.lowerComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual < expected;
+		}
+		else return true;
+	}
+
+	$scope.equalComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual == expected;
+		}
+		else return true;
+	}
+
+	$scope.greaterComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual > expected;
+		}
+		else return true;
+	}
+
 });

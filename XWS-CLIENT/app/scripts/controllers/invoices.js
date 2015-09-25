@@ -78,4 +78,13 @@
 			$location.path('/invoice/new');
  		}
  	}
+
+	// invoice order by
+	$scope.invoicePredicate = 'Zaglavlje.Dobavljac.Naziv';
+	$scope.invoiceReverse = true;
+	$scope.invoiceOrder = function(predicate) {
+		$scope.invoiceReverse = ($scope.invoicePredicate == predicate) ? !$scope.invoiceReverse : false;
+		$scope.invoicePredicate = predicate;
+	};
+
  });
