@@ -4,12 +4,15 @@ package xws.tim7.mt102;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
+import xws.tim7.Identifiable;
 import xws.tim7.globals.RacunType;
 import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
 
@@ -55,7 +58,7 @@ import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
     "datumValute",
     "nalogZaPlacanje"
 })
-public class MT102Type {
+public class MT102Type extends Identifiable {
 
     @XmlElement(name = "SWIFT_kod_banke_duznika", required = true)
     protected String swiftKodBankeDuznika;
@@ -298,5 +301,18 @@ public class MT102Type {
         }
         return this.nalogZaPlacanje;
     }
+    
+    
+	private Long Id;
+
+	@Override
+	public Long getId() {
+		return Id;
+	}
+
+	@Override
+	public void setId(Long value) {
+		this.Id = value;
+	}
 
 }

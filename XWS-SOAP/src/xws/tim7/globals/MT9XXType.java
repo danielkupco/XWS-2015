@@ -9,12 +9,15 @@
 package xws.tim7.globals;
 
 import java.math.BigDecimal;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
+import xws.tim7.Identifiable;
 
 
 /**
@@ -52,7 +55,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "iznos",
     "sifraValute"
 })
-public class MT9XXType {
+public class MT9XXType extends Identifiable {
 
     @XmlElement(name = "ID_poruke", required = true)
     protected String idPoruke;
@@ -237,5 +240,14 @@ public class MT9XXType {
     public void setSifraValute(String value) {
         this.sifraValute = value;
     }
-
+    
+    private Long Id;
+    @Override
+    public Long getId() {
+    	return Id;
+    }
+    @Override
+    public void setId(Long value) {
+    	Id = value;
+    }
 }

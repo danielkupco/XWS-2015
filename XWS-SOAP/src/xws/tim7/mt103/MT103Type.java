@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
+import xws.tim7.Identifiable;
 import xws.tim7.globals.OsnovaNalogaZaPlacanjeType;
 
 
@@ -49,7 +51,7 @@ import xws.tim7.globals.OsnovaNalogaZaPlacanjeType;
     "datumValute",
     "sifraValute"
 })
-public class MT103Type {
+public class MT103Type extends Identifiable {
 
     @XmlElement(name = "ID_poruke", required = true)
     protected String idPoruke;
@@ -288,4 +290,15 @@ public class MT103Type {
         this.sifraValute = value;
     }
 
+    private Long Id;
+    
+    @Override
+    public Long getId() {
+    	return Id;
+    }
+    
+    @Override
+    public void setId(Long value) {
+    	Id = value;
+    }
 }
