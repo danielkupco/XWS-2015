@@ -22,6 +22,9 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
+        <ul class="nav nav-pills pull-left">
+          <li class="active"><a ng-click="goBack()">Back</a></li>
+        </ul>
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-click="about()">About</a></li>
           <li  ng-if="!isLoginPage()" ><a ng-href="#/">Home</a></li>

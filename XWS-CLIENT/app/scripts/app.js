@@ -95,9 +95,6 @@
   $scope.isLoginPage = function () {
     return $location.path() === '/login';
   };
-  $scope.isUserNull = function () {
-    return typeof $rootScope === 'undefined' || typeof $rootScope.user === 'undefined'; 
-  };
   $scope.about = function (size) {
     var modalInstance = $modal.open({
       templateUrl: 'views/about.html',
@@ -105,6 +102,21 @@
       size: size,
     });
   };
+
+  // tim 7
+   
   $rootScope.url_kupca = "firma1";
-  $rootScope.pib_dob = "44444555556";
+  $rootScope.pib_dob = "11111222223";
+  
+  $scope.goBack = function () {
+    var path = $location.path();
+    console.log(path);
+    if(path.indexOf('/invoice/') == 0) { // starts with '/invoice/'
+      $location.path('/invoice-list');
+    }
+  };
+  $scope.isUserNull = function () {
+    return typeof $rootScope === 'undefined' || typeof $rootScope.user === 'undefined'; 
+  };
+  
 });

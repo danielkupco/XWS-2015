@@ -7,6 +7,7 @@ angular.module('invoice', [
 	'resource.invoiceItem'])
 
 .controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem, $route) {
+
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -59,7 +60,7 @@ angular.module('invoice', [
 				$scope.invoice.Stavka.splice(index, 1);
 				//ako je stavka imala i id, treba da se obrise i na serveru (da li je to dobro?)
 				if(invoiceItem.id){
-					InvoiceItem.delete({invoiceItemId:invoiceItem.id});
+					InvoiceItem.delete({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceItemId:invoiceItem.id});
 				}
 			}
 		}, function () {
@@ -78,7 +79,7 @@ angular.module('invoice', [
   				//var temp = angular.toJson(value);
 
   				if(value.Redni_broj){
-  					InvoiceItem.update({invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
+  					InvoiceItem.update({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
   					});
   				}
   				else{
@@ -103,10 +104,18 @@ angular.module('invoice', [
 
 	$scope.delete = function () {
 		if($scope.invoice.id){
-			$scope.invoice.$delete({invoiceId:$scope.invoice.id}, function () {
+			$scope.invoice.$delete({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id}, function () {
 				$location.path('invoiceList');
 			});
 		}
-	}
+	};
+
+	// item order by
+	$scope.itemPredicate = 'Vrednost';
+	$scope.itemReverse = true;
+	$scope.itemOrder = function(predicate) {
+		$scope.itemReverse = ($scope.itemPredicate == predicate) ? !$scope.itemReverse : false;
+		$scope.itemPredicate = predicate;
+	};
 
 });

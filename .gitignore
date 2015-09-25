@@ -5,3 +5,4 @@
 */dist
 */tcp_monitor
 */ant.properties
+*/**/*.log

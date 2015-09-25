@@ -11897,3 +11897,1768 @@ java.lang.NullPointerException
 2015-09-24 17:14:03 INFO  UserDao:91 - LOGOUT
 2015-09-24 17:14:03 INFO  FirmaService:198 - get firme...
 2015-09-24 17:14:03 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:20 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:20 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:27 INFO  UserDao:42 - logovanje...
+2015-09-24 18:34:27 INFO  UserDao:43 - username: admin
+2015-09-24 18:34:27 INFO  UserDao:44 - password: admin
+2015-09-24 18:34:27 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:34:27 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:34:27 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:34:27 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:27 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:30 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:30 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:31 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:32 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:33 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:33 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:36 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:36 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:37 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:37 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:38 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:38 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:41 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:41 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:42 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:42 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:43 INFO  UserDao:91 - LOGOUT
+2015-09-24 18:34:43 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:43 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:46 INFO  UserDao:42 - logovanje...
+2015-09-24 18:34:46 INFO  UserDao:43 - username: admin
+2015-09-24 18:34:46 INFO  UserDao:44 - password: admin
+2015-09-24 18:34:46 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:34:46 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:34:46 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:34:46 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:46 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:48 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:48 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:34:49 INFO  FirmaService:198 - get firme...
+2015-09-24 18:34:49 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:35:55 INFO  FirmaService:198 - get firme...
+2015-09-24 18:35:55 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:36:00 INFO  FirmaService:198 - get firme...
+2015-09-24 18:36:00 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:36:01 INFO  UserDao:91 - LOGOUT
+2015-09-24 18:36:01 INFO  FirmaService:198 - get firme...
+2015-09-24 18:36:01 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:36:06 INFO  UserDao:42 - logovanje...
+2015-09-24 18:36:06 INFO  UserDao:43 - username: admin
+2015-09-24 18:36:06 INFO  UserDao:44 - password: admin
+2015-09-24 18:36:06 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:36:06 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:36:06 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:36:06 INFO  FirmaService:198 - get firme...
+2015-09-24 18:36:06 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:36:09 INFO  FirmaService:198 - get firme...
+2015-09-24 18:36:09 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:36:10 INFO  FirmaService:198 - get firme...
+2015-09-24 18:36:10 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:37:48 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:37:48 INFO  FirmaService:198 - get firme...
+2015-09-24 18:37:48 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:37:48 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:37:48 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@2af83d7c
+2015-09-24 18:37:48 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:37:48 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:37:48 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:37:48 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:37:48 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:37:48 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:37:48 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:37:48 INFO  FirmaDao:42 - partner with
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:37:48 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:37:48 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:37:50 INFO  UserDao:91 - LOGOUT
+2015-09-24 18:37:50 INFO  FirmaService:198 - get firme...
+2015-09-24 18:37:50 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:20 INFO  UserDao:42 - logovanje...
+2015-09-24 18:38:20 INFO  UserDao:43 - username: admin
+2015-09-24 18:38:20 INFO  UserDao:44 - password: admin
+2015-09-24 18:38:20 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:38:20 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:38:20 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:38:20 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:38:20 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:20 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:38:20 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@e5c2dc9
+2015-09-24 18:38:20 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:38:20 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:38:20 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:38:20 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:38:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:38:20 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:38:20 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:38:20 INFO  FirmaDao:42 - partner with
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:38:20 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:38:20 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:38:22 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:38:22 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:22 INFO  FirmaService:261 - urlKupca firma2
+2015-09-24 18:38:22 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@73f57e87
+2015-09-24 18:38:22 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:38:22 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:38:22 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:38:22 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:38:22 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:22 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-24 18:38:22 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:38:22 INFO  FirmaDao:40 - 11111222223
+2015-09-24 18:38:23 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:38:23 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:23 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:38:23 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:23 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@2dec5f18
+2015-09-24 18:38:23 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:38:23 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:38:23 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:38:23 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:38:23 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:38:23 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:38:23 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:38:23 INFO  FirmaDao:42 - partner with
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:38:23 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:38:23 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:38:35 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:38:35 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:35 INFO  FirmaService:261 - urlKupca firma2
+2015-09-24 18:38:35 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@48e66e50
+2015-09-24 18:38:35 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:38:35 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:38:35 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:38:35 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:38:35 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:35 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-24 18:38:35 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:38:35 INFO  FirmaDao:40 - 11111222223
+2015-09-24 18:38:51 INFO  UserDao:91 - LOGOUT
+2015-09-24 18:38:51 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:51 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:38:55 INFO  FirmaService:198 - get firme...
+2015-09-24 18:38:55 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:39:38 INFO  UserDao:42 - logovanje...
+2015-09-24 18:39:38 INFO  UserDao:43 - username: admin
+2015-09-24 18:39:38 INFO  UserDao:44 - password: admin
+2015-09-24 18:39:38 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:39:38 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:39:38 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:39:38 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:39:38 INFO  FirmaService:198 - get firme...
+2015-09-24 18:39:38 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:39:38 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:39:38 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@166a7d49
+2015-09-24 18:39:38 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:39:38 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:39:38 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:39:38 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:39:38 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:39:38 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:39:38 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:39:38 INFO  FirmaDao:42 - partner with
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:39:38 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:39:38 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:39:43 INFO  FirmaService:198 - get firme...
+2015-09-24 18:39:43 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:41:16 INFO  FirmaService:198 - get firme...
+2015-09-24 18:41:16 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:41:20 INFO  UserDao:42 - logovanje...
+2015-09-24 18:41:20 INFO  UserDao:43 - username: admin
+2015-09-24 18:41:20 INFO  UserDao:44 - password: admin
+2015-09-24 18:41:20 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:41:20 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:41:20 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:41:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:41:20 INFO  FirmaService:198 - get firme...
+2015-09-24 18:41:20 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:41:20 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:41:20 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@301e461a
+2015-09-24 18:41:20 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:41:20 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:41:20 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:41:20 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:41:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:41:20 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:41:20 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:41:20 INFO  FirmaDao:42 - partner with
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:41:20 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:41:20 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:41:25 INFO  FirmaService:198 - get firme...
+2015-09-24 18:41:25 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:41:34 INFO  UserDao:42 - logovanje...
+2015-09-24 18:41:34 INFO  UserDao:43 - username: admin
+2015-09-24 18:41:34 INFO  UserDao:44 - password: admin
+2015-09-24 18:41:34 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:41:34 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:41:34 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:41:34 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:41:34 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:41:34 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@5b4b5eb5
+2015-09-24 18:41:34 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:41:34 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:41:34 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:41:34 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:41:34 INFO  FirmaService:198 - get firme...
+2015-09-24 18:41:34 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:41:34 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:41:34 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:41:34 INFO  FirmaDao:42 - partner with
+2015-09-24 18:41:34 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:41:34 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:41:34 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:44:16 INFO  FirmaService:198 - get firme...
+2015-09-24 18:44:16 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:44:33 INFO  UserDao:42 - logovanje...
+2015-09-24 18:44:33 INFO  UserDao:43 - username: admin
+2015-09-24 18:44:33 INFO  UserDao:44 - password: admin
+2015-09-24 18:44:33 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:44:33 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:44:33 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:44:33 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:44:33 INFO  FirmaService:198 - get firme...
+2015-09-24 18:44:33 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:44:33 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:44:33 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@479da3f9
+2015-09-24 18:44:33 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:44:33 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:44:33 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:44:33 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:44:33 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:44:33 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:44:33 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:44:33 INFO  FirmaDao:42 - partner with
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:44:33 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:44:33 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:44:34 INFO  UserDao:91 - LOGOUT
+2015-09-24 18:44:35 INFO  FirmaService:198 - get firme...
+2015-09-24 18:44:35 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:44:38 INFO  UserDao:42 - logovanje...
+2015-09-24 18:44:38 INFO  UserDao:43 - username: admin
+2015-09-24 18:44:38 INFO  UserDao:44 - password: admin
+2015-09-24 18:44:38 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:44:38 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:44:38 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:44:38 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:44:38 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:44:38 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@38ec3461
+2015-09-24 18:44:38 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 18:44:38 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:44:38 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:44:38 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:44:38 INFO  FirmaService:198 - get firme...
+2015-09-24 18:44:38 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:44:38 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:44:38 INFO  FirmaDao:40 - 44444555556
+2015-09-24 18:44:38 INFO  FirmaDao:42 - partner with
+2015-09-24 18:44:38 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 18:44:38 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 18:44:38 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 18:44:41 INFO  FirmaService:198 - get firme...
+2015-09-24 18:44:41 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:48:16 INFO  UserDao:42 - logovanje...
+2015-09-24 18:48:16 INFO  UserDao:43 - username: admin
+2015-09-24 18:48:16 INFO  UserDao:44 - password: admin
+2015-09-24 18:48:16 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:48:16 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 18:48:16 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 18:48:16 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 18:48:16 INFO  FirmaService:198 - get firme...
+2015-09-24 18:48:16 INFO  FirmaService:209 - ukupno 2
+2015-09-24 18:48:16 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 18:48:16 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@43365d62
+2015-09-24 18:48:16 INFO  FirmaService:263 - pib 11111222223
+2015-09-24 18:48:16 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 18:48:16 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 18:48:16 INFO  FirmaDao:35 - is partner...
+2015-09-24 18:48:16 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 18:48:16 INFO  FirmaDao:38 - pibs:
+2015-09-24 18:48:16 INFO  FirmaDao:40 - 44444555556
+2015-09-24 19:21:36 INFO  FirmaService:198 - get firme...
+2015-09-24 19:21:36 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 19:21:36 INFO  FirmaService:209 - ukupno 2
+2015-09-24 19:21:36 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 19:21:36 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@1115d0d
+2015-09-24 19:21:36 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 19:21:36 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 19:21:36 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 19:21:36 INFO  FirmaDao:35 - is partner...
+2015-09-24 19:21:37 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 19:21:37 INFO  FirmaDao:38 - pibs:
+2015-09-24 19:21:37 INFO  FirmaDao:40 - 44444555556
+2015-09-24 19:21:37 INFO  FirmaDao:42 - partner with
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:21:37 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 19:21:37 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 19:38:35 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 19:38:35 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 19:38:35 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@34980f75
+2015-09-24 19:38:35 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 19:38:35 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 19:38:35 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 19:38:35 INFO  FirmaService:198 - get firme...
+2015-09-24 19:38:35 INFO  FirmaDao:35 - is partner...
+2015-09-24 19:38:35 INFO  FirmaService:209 - ukupno 2
+2015-09-24 19:38:35 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 19:38:35 INFO  FirmaDao:38 - pibs:
+2015-09-24 19:38:35 INFO  FirmaDao:40 - 44444555556
+2015-09-24 19:38:35 INFO  FirmaDao:42 - partner with
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:38:35 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 19:38:35 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 19:49:21 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 19:49:21 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 19:49:21 INFO  FirmaService:198 - get firme...
+2015-09-24 19:49:21 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@47cad064
+2015-09-24 19:49:21 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 19:49:21 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 19:49:21 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 19:49:21 INFO  FirmaDao:35 - is partner...
+2015-09-24 19:49:21 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 19:49:21 INFO  FirmaDao:38 - pibs:
+2015-09-24 19:49:21 INFO  FirmaDao:40 - 44444555556
+2015-09-24 19:49:21 INFO  FirmaDao:42 - partner with
+2015-09-24 19:49:21 INFO  FirmaService:209 - ukupno 2
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 19:49:21 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 19:49:21 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:02:06 INFO  FirmaService:198 - get firme...
+2015-09-24 20:02:06 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:02:06 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:02:06 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:02:06 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@2bbc65a0
+2015-09-24 20:02:06 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:02:06 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:02:06 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:02:06 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:02:06 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:02:06 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:02:06 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:02:06 INFO  FirmaDao:42 - partner with
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:02:06 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:02:06 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:22:39 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:22:39 INFO  FirmaService:198 - get firme...
+2015-09-24 20:22:39 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:22:39 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@7c5598a6
+2015-09-24 20:22:39 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:22:39 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:22:39 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:22:39 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:22:39 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:22:39 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:22:39 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:22:39 INFO  FirmaDao:42 - partner with
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:22:39 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:22:39 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:22:39 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:23:03 INFO  UserDao:91 - LOGOUT
+2015-09-24 20:23:03 INFO  FirmaService:198 - get firme...
+2015-09-24 20:23:03 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:23:08 INFO  UserDao:42 - logovanje...
+2015-09-24 20:23:08 INFO  UserDao:43 - username: admin
+2015-09-24 20:23:08 INFO  UserDao:44 - password: admin
+2015-09-24 20:23:08 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:23:08 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:23:08 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 20:23:08 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:23:08 INFO  FirmaService:198 - get firme...
+2015-09-24 20:23:08 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:23:08 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@1839f66f
+2015-09-24 20:23:08 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:23:08 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:23:08 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:23:08 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:23:08 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:23:08 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:23:08 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:23:08 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:23:08 INFO  FirmaDao:42 - partner with
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:23:08 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:23:08 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:28:22 INFO  UserDao:91 - LOGOUT
+2015-09-24 20:28:22 INFO  FirmaService:198 - get firme...
+2015-09-24 20:28:22 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:28:27 INFO  UserDao:42 - logovanje...
+2015-09-24 20:28:27 INFO  UserDao:43 - username: admin
+2015-09-24 20:28:27 INFO  UserDao:44 - password: admin
+2015-09-24 20:28:27 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:28:27 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:28:27 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 20:28:27 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:28:27 INFO  FirmaService:198 - get firme...
+2015-09-24 20:28:27 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:28:27 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:28:27 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@6d52718
+2015-09-24 20:28:27 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:28:27 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:28:27 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:28:27 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:28:27 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:28:27 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:28:27 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:28:27 INFO  FirmaDao:42 - partner with
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:28:27 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:28:27 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:32:51 INFO  UserDao:91 - LOGOUT
+2015-09-24 20:32:51 INFO  FirmaService:198 - get firme...
+2015-09-24 20:32:51 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:32:57 INFO  UserDao:42 - logovanje...
+2015-09-24 20:32:57 INFO  UserDao:43 - username: admin
+2015-09-24 20:32:57 INFO  UserDao:44 - password: admin
+2015-09-24 20:32:57 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:32:57 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:32:57 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 20:32:57 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:32:57 INFO  FirmaService:198 - get firme...
+2015-09-24 20:32:57 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:32:57 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@40fa1ab
+2015-09-24 20:32:57 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:32:57 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:32:57 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:32:57 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:32:57 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:32:57 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:32:57 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:32:57 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:32:57 INFO  FirmaDao:42 - partner with
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:32:57 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:32:57 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:34:48 INFO  UserDao:91 - LOGOUT
+2015-09-24 20:34:49 INFO  FirmaService:198 - get firme...
+2015-09-24 20:34:49 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:34:54 INFO  UserDao:42 - logovanje...
+2015-09-24 20:34:54 INFO  UserDao:43 - username: admin
+2015-09-24 20:34:54 INFO  UserDao:44 - password: admin
+2015-09-24 20:34:54 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:34:54 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:34:54 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 20:34:54 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:34:54 INFO  FirmaService:198 - get firme...
+2015-09-24 20:34:54 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:34:54 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@2aff1ef1
+2015-09-24 20:34:54 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:34:54 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:34:54 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:34:54 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:34:54 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:34:54 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:34:54 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:34:54 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:34:54 INFO  FirmaDao:42 - partner with
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:34:54 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:34:54 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 20:36:09 INFO  UserDao:91 - LOGOUT
+2015-09-24 20:36:09 INFO  FirmaService:198 - get firme...
+2015-09-24 20:36:09 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:36:14 INFO  UserDao:42 - logovanje...
+2015-09-24 20:36:14 INFO  UserDao:43 - username: admin
+2015-09-24 20:36:14 INFO  UserDao:44 - password: admin
+2015-09-24 20:36:14 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:36:14 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-24 20:36:14 INFO  UserDao:79 - logovanje uspesno!
+2015-09-24 20:36:14 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 20:36:14 INFO  FirmaService:261 - urlKupca firma1
+2015-09-24 20:36:14 INFO  FirmaService:262 - kupac xws.tim7.entities.firma.Firma@5adf8c46
+2015-09-24 20:36:14 INFO  FirmaService:263 - pib 44444555556
+2015-09-24 20:36:14 INFO  FirmaService:264 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 20:36:14 INFO  FirmaService:265 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 20:36:14 INFO  FirmaDao:35 - is partner...
+2015-09-24 20:36:14 INFO  FirmaService:198 - get firme...
+2015-09-24 20:36:14 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 20:36:14 INFO  FirmaDao:38 - pibs:
+2015-09-24 20:36:14 INFO  FirmaDao:40 - 44444555556
+2015-09-24 20:36:14 INFO  FirmaDao:42 - partner with
+2015-09-24 20:36:14 INFO  FirmaService:209 - ukupno 2
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:99 - sve fakture: 2
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:102 - f kupac PIB: 44444555556
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 11111222223
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:101 - buyerPIB: 11111222223
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:102 - f kupac PIB: 11111222223
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:103 - sellerPIB: 44444555556
+2015-09-24 20:36:14 INFO  FakturaDaoLocal:104 - f dobavljac PIB: 44444555556
+2015-09-24 20:36:14 INFO  FirmaService:269 - fakture za json: 1
+2015-09-24 23:10:43 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-09-24 23:10:43 INFO  Version:41 - HHH000412: Hibernate Core {4.1.4.Final}
+2015-09-24 23:10:43 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-09-24 23:10:43 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-09-24 23:10:43 INFO  Ejb3Configuration:527 - HHH000204: Processing PersistenceUnitInfo [
+	name: xws
+	...]
+2015-09-24 23:10:43 WARN  Ejb3Configuration:1312 - HHH000059: Defining hibernate.transaction.flush_before_completion=true ignored in HEM
+2015-09-24 23:10:44 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-09-24 23:10:44 INFO  Dialect:122 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-09-24 23:10:44 WARN  JtaPlatformInitiator:98 - HHH000427: Using deprecated org.hibernate.transaction.TransactionManagerLookup strategy [hibernate.transaction.manager_lookup_class], use newer org.hibernate.service.jta.platform.spi.JtaPlatform strategy instead [hibernate.transaction.jta.platform]
+2015-09-24 23:10:44 INFO  JtaPlatformInitiator:114 - HHH000428: Encountered legacy TransactionManagerLookup specified; convert to newer org.hibernate.service.jta.platform.spi.JtaPlatform contract specified via hibernate.transaction.jta.platform setting
+2015-09-24 23:10:44 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+2015-09-24 23:10:44 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-09-24 23:10:44 INFO  Version:27 - HV000001: Hibernate Validator 4.3.0.Final
+2015-09-24 23:10:45 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-09-24 23:10:45 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-09-24 23:54:32 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 23:54:32 INFO  FirmaService:199 - get firme...
+2015-09-24 23:54:33 INFO  FirmaService:210 - ukupno 2
+2015-09-24 23:54:33 INFO  FirmaService:262 - urlKupca firma1
+2015-09-24 23:54:33 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@570d7c46
+2015-09-24 23:54:33 INFO  FirmaService:264 - pib 44444555556
+2015-09-24 23:54:33 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 23:54:33 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 23:54:33 INFO  FirmaDao:35 - is partner...
+2015-09-24 23:54:33 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 23:54:33 INFO  FirmaDao:38 - pibs:
+2015-09-24 23:54:33 INFO  FirmaDao:40 - 44444555556
+2015-09-24 23:54:33 INFO  FirmaDao:42 - partner with
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-24 23:54:33 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-24 23:54:33 INFO  FirmaService:270 - fakture za json: 1
+2015-09-24 23:54:38 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-24 23:54:38 INFO  FirmaService:199 - get firme...
+2015-09-24 23:54:38 INFO  FirmaService:262 - urlKupca firma1
+2015-09-24 23:54:38 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@ffcedf4
+2015-09-24 23:54:38 INFO  FirmaService:264 - pib 44444555556
+2015-09-24 23:54:38 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-24 23:54:38 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-24 23:54:38 INFO  FirmaDao:35 - is partner...
+2015-09-24 23:54:38 INFO  FirmaService:210 - ukupno 2
+2015-09-24 23:54:38 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-24 23:54:38 INFO  FirmaDao:38 - pibs:
+2015-09-24 23:54:38 INFO  FirmaDao:40 - 44444555556
+2015-09-24 23:54:38 INFO  FirmaDao:42 - partner with
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-24 23:54:38 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-24 23:54:38 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:19:34 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:19:34 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:19:34 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:19:34 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:19:34 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:19:34 INFO  FirmaDao:42 - partner with
+2015-09-25 00:20:32 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:20:32 INFO  FirmaService:199 - get firme...
+2015-09-25 00:20:32 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:20:32 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:20:32 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@49c96851
+2015-09-25 00:20:32 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:20:32 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:20:32 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:20:32 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:20:32 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:20:32 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:20:32 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:20:32 INFO  FirmaDao:42 - partner with
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:20:33 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:20:33 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:20:34 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:20:34 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:20:35 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:20:35 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:20:35 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:20:35 INFO  FirmaDao:42 - partner with
+2015-09-25 00:20:50 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:20:50 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:20:50 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:20:50 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:20:50 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:20:50 INFO  FirmaDao:42 - partner with
+2015-09-25 00:20:57 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:20:58 INFO  FirmaService:199 - get firme...
+2015-09-25 00:20:58 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:20:58 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@774c197b
+2015-09-25 00:20:58 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:20:58 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:20:58 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:20:58 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:20:58 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:20:58 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:20:58 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:20:58 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:20:58 INFO  FirmaDao:42 - partner with
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:20:58 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:20:58 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:21:03 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:21:03 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:21:03 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:21:03 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:21:03 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:21:03 INFO  FirmaDao:42 - partner with
+2015-09-25 00:21:05 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:21:05 INFO  FirmaService:199 - get firme...
+2015-09-25 00:21:05 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:21:05 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@6c10be75
+2015-09-25 00:21:05 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:21:05 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:21:05 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:21:05 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:21:05 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:21:05 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:21:05 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:21:05 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:21:05 INFO  FirmaDao:42 - partner with
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:21:05 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:21:05 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:23:19 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:23:19 INFO  FirmaService:199 - get firme...
+2015-09-25 00:23:19 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:23:19 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:23:19 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@3bb00f29
+2015-09-25 00:23:19 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:23:19 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:23:19 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:23:19 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:23:19 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:23:19 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:23:19 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:23:19 INFO  FirmaDao:42 - partner with
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:23:19 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:23:19 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:23:30 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:23:30 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:23:30 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:23:30 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:23:30 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:23:30 INFO  FirmaDao:42 - partner with
+2015-09-25 00:23:32 INFO  FirmaService:199 - get firme...
+2015-09-25 00:23:32 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:23:32 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:23:32 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:23:32 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@1dc3dfc2
+2015-09-25 00:23:32 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:23:32 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:23:32 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:23:32 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:23:32 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:23:32 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:23:32 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:23:32 INFO  FirmaDao:42 - partner with
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:23:32 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:23:32 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:32:04 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:32:04 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:32:04 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:32:04 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:32:04 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:32:04 INFO  FirmaDao:42 - partner with
+2015-09-25 00:32:09 INFO  FirmaService:199 - get firme...
+2015-09-25 00:32:09 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:32:09 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:32:09 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@326779e9
+2015-09-25 00:32:09 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:32:09 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:32:09 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:32:09 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:32:09 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:32:09 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:32:09 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:32:09 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:32:09 INFO  FirmaDao:42 - partner with
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:32:09 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:32:09 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:36:16 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:36:16 INFO  FirmaService:199 - get firme...
+2015-09-25 00:36:16 INFO  FirmaService:210 - ukupno 2
+2015-09-25 00:36:16 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 00:36:16 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@2902e093
+2015-09-25 00:36:16 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 00:36:16 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 00:36:16 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 00:36:16 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:36:16 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:36:16 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:36:16 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:36:16 INFO  FirmaDao:42 - partner with
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 00:36:16 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 00:36:16 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 00:39:27 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 00:39:27 INFO  FirmaDao:35 - is partner...
+2015-09-25 00:39:27 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 00:39:27 INFO  FirmaDao:38 - pibs:
+2015-09-25 00:39:27 INFO  FirmaDao:40 - 44444555556
+2015-09-25 00:39:27 INFO  FirmaDao:42 - partner with
+2015-09-25 01:14:24 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:14:24 INFO  FirmaService:199 - get firme...
+2015-09-25 01:14:24 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 01:14:24 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@61902bbf
+2015-09-25 01:14:24 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 01:14:24 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 01:14:24 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 01:14:24 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:14:24 INFO  FirmaService:210 - ukupno 2
+2015-09-25 01:14:24 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:14:24 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:14:24 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:14:24 INFO  FirmaDao:42 - partner with
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 01:14:24 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 01:14:24 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 01:14:27 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:14:27 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:14:27 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:14:27 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:14:27 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:14:27 INFO  FirmaDao:42 - partner with
+2015-09-25 01:16:16 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:16:16 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:16:16 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:16:16 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:16:16 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:16:16 INFO  FirmaDao:42 - partner with
+2015-09-25 01:17:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:17:20 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:17:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:17:20 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:17:20 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:17:20 INFO  FirmaDao:42 - partner with
+2015-09-25 01:17:22 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:17:23 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:17:23 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:17:23 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:17:23 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:17:23 INFO  FirmaDao:42 - partner with
+2015-09-25 01:17:37 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:17:37 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:17:37 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:17:37 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:17:37 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:17:37 INFO  FirmaDao:42 - partner with
+2015-09-25 01:18:44 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:18:44 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:18:44 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:18:44 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:18:44 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:18:44 INFO  FirmaDao:42 - partner with
+2015-09-25 01:21:54 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:21:54 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:21:54 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:21:54 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:21:54 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:21:54 INFO  FirmaDao:42 - partner with
+2015-09-25 01:25:09 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:25:09 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:25:09 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:25:09 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:25:09 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:25:09 INFO  FirmaDao:42 - partner with
+2015-09-25 01:26:44 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 01:26:44 INFO  FirmaDao:35 - is partner...
+2015-09-25 01:26:44 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 01:26:44 INFO  FirmaDao:38 - pibs:
+2015-09-25 01:26:44 INFO  FirmaDao:40 - 44444555556
+2015-09-25 01:26:44 INFO  FirmaDao:42 - partner with
+2015-09-25 13:09:25 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-09-25 13:09:25 INFO  Version:41 - HHH000412: Hibernate Core {4.1.4.Final}
+2015-09-25 13:09:25 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-09-25 13:09:25 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-09-25 13:09:25 INFO  Ejb3Configuration:527 - HHH000204: Processing PersistenceUnitInfo [
+	name: xws
+	...]
+2015-09-25 13:09:25 WARN  Ejb3Configuration:1312 - HHH000059: Defining hibernate.transaction.flush_before_completion=true ignored in HEM
+2015-09-25 13:09:25 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-09-25 13:09:26 INFO  Dialect:122 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-09-25 13:09:26 WARN  JtaPlatformInitiator:98 - HHH000427: Using deprecated org.hibernate.transaction.TransactionManagerLookup strategy [hibernate.transaction.manager_lookup_class], use newer org.hibernate.service.jta.platform.spi.JtaPlatform strategy instead [hibernate.transaction.jta.platform]
+2015-09-25 13:09:26 INFO  JtaPlatformInitiator:114 - HHH000428: Encountered legacy TransactionManagerLookup specified; convert to newer org.hibernate.service.jta.platform.spi.JtaPlatform contract specified via hibernate.transaction.jta.platform setting
+2015-09-25 13:09:26 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+2015-09-25 13:09:26 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-09-25 13:09:26 INFO  Version:27 - HV000001: Hibernate Validator 4.3.0.Final
+2015-09-25 13:09:26 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-09-25 13:09:26 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-09-25 13:13:20 INFO  FirmaService:199 - get firme...
+2015-09-25 13:13:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:13:21 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:13:21 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@1600e669
+2015-09-25 13:13:21 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:13:21 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:13:21 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:13:21 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:13:21 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:13:21 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:13:21 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:13:21 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:13:21 INFO  FirmaDao:42 - partner with
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:13:21 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:13:21 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:13:27 INFO  UserDao:91 - LOGOUT
+2015-09-25 13:13:27 INFO  FirmaService:199 - get firme...
+2015-09-25 13:13:27 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:13:32 INFO  UserDao:42 - logovanje...
+2015-09-25 13:13:32 INFO  UserDao:43 - username: admin
+2015-09-25 13:13:32 INFO  UserDao:44 - password: admin
+2015-09-25 13:13:32 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:13:32 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:13:32 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 13:13:32 INFO  FirmaService:199 - get firme...
+2015-09-25 13:13:32 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:13:32 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:13:32 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:13:32 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@6c11f692
+2015-09-25 13:13:32 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:13:32 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:13:32 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:13:32 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:13:32 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:13:32 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:13:32 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:13:32 INFO  FirmaDao:42 - partner with
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:13:32 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:13:32 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:13:43 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:13:43 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:13:43 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:13:43 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:13:43 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:13:43 INFO  FirmaDao:42 - partner with
+2015-09-25 13:16:19 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:16:19 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:16:19 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:16:19 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:16:19 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:16:19 INFO  FirmaDao:42 - partner with
+2015-09-25 13:16:25 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:16:25 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:16:25 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:16:25 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:16:25 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:16:25 INFO  FirmaDao:42 - partner with
+2015-09-25 13:18:17 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:18:17 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:18:17 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:18:17 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:18:17 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:18:17 INFO  FirmaDao:42 - partner with
+2015-09-25 13:18:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:18:20 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:18:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:18:20 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:18:20 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:18:20 INFO  FirmaDao:42 - partner with
+2015-09-25 13:38:15 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:38:15 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:38:15 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@3189bc98
+2015-09-25 13:38:15 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:38:15 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:38:15 INFO  FirmaService:199 - get firme...
+2015-09-25 13:38:15 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:38:15 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:38:15 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:38:15 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:38:15 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:38:15 INFO  FirmaDao:42 - partner with
+2015-09-25 13:38:15 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:38:15 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:38:15 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:38:18 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:38:18 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:38:18 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:38:18 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:38:18 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:38:18 INFO  FirmaDao:42 - partner with
+2015-09-25 13:38:47 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:38:47 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:38:47 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:38:47 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:38:47 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:38:47 INFO  FirmaDao:42 - partner with
+2015-09-25 13:38:50 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:38:50 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:38:50 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:38:50 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:38:50 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:38:50 INFO  FirmaDao:42 - partner with
+2015-09-25 13:39:28 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:39:28 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:39:28 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:39:28 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:39:28 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:39:28 INFO  FirmaDao:42 - partner with
+2015-09-25 13:40:50 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:40:50 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:40:50 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:40:50 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:40:50 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:40:50 INFO  FirmaDao:42 - partner with
+2015-09-25 13:50:21 INFO  UserDao:91 - LOGOUT
+2015-09-25 13:50:21 INFO  FirmaService:199 - get firme...
+2015-09-25 13:50:21 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:50:29 INFO  UserDao:42 - logovanje...
+2015-09-25 13:50:29 INFO  UserDao:43 - username: admin
+2015-09-25 13:50:29 INFO  UserDao:44 - password: admin
+2015-09-25 13:50:29 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:50:29 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:50:29 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 13:50:29 INFO  FirmaService:199 - get firme...
+2015-09-25 13:50:29 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:50:38 INFO  FirmaService:199 - get firme...
+2015-09-25 13:50:38 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:50:38 INFO  FirmaService:262 - urlKupca firma2
+2015-09-25 13:50:38 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:50:38 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@6b06a8b8
+2015-09-25 13:50:38 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:50:38 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:50:38 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:50:38 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:50:38 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 13:50:38 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:50:38 INFO  FirmaDao:40 - 11111222223
+2015-09-25 13:50:39 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:50:39 INFO  FirmaService:199 - get firme...
+2015-09-25 13:50:39 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:50:39 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@71f2aee2
+2015-09-25 13:50:39 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:50:39 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:50:39 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:50:39 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:50:39 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:50:39 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:50:39 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:50:39 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:50:39 INFO  FirmaDao:42 - partner with
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:50:39 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:50:39 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:50:43 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:50:43 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:50:43 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:50:43 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:50:43 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:50:43 INFO  FirmaDao:42 - partner with
+2015-09-25 13:53:13 INFO  FirmaService:199 - get firme...
+2015-09-25 13:53:13 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:53:13 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:53:13 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@7a9eecc4
+2015-09-25 13:53:13 INFO  FirmaService:264 - pib 11111222223
+2015-09-25 13:53:13 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:53:13 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:53:13 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:53:13 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:53:13 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:53:13 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:53:13 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:53:18 INFO  UserDao:91 - LOGOUT
+2015-09-25 13:53:18 INFO  FirmaService:199 - get firme...
+2015-09-25 13:53:18 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:53:22 INFO  UserDao:42 - logovanje...
+2015-09-25 13:53:22 INFO  UserDao:43 - username: admin
+2015-09-25 13:53:22 INFO  UserDao:44 - password: admin
+2015-09-25 13:53:22 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:53:22 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:53:22 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 13:53:22 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:53:22 INFO  FirmaService:199 - get firme...
+2015-09-25 13:53:22 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:53:22 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:53:22 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@2cf36f20
+2015-09-25 13:53:22 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:53:22 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:53:22 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:53:22 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:53:22 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:53:22 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:53:22 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:53:22 INFO  FirmaDao:42 - partner with
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:53:22 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:53:22 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:53:25 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:53:25 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:53:25 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:53:25 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:53:25 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:53:25 INFO  FirmaDao:42 - partner with
+2015-09-25 13:55:02 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:55:02 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:55:02 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:55:02 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:55:02 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:55:07 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:55:07 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:55:07 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:55:07 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:55:07 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:56:04 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:56:04 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:56:04 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:56:04 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:56:04 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:56:09 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:56:09 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:56:09 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:56:09 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:56:09 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:56:12 INFO  UserDao:91 - LOGOUT
+2015-09-25 13:56:12 INFO  FirmaService:199 - get firme...
+2015-09-25 13:56:12 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:56:18 INFO  UserDao:42 - logovanje...
+2015-09-25 13:56:18 INFO  UserDao:43 - username: admin
+2015-09-25 13:56:18 INFO  UserDao:44 - password: admin
+2015-09-25 13:56:18 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:56:18 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:56:18 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 13:56:18 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:56:18 INFO  FirmaService:199 - get firme...
+2015-09-25 13:56:18 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:56:18 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@17e5b035
+2015-09-25 13:56:18 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:56:18 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:56:18 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:56:18 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:56:18 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:56:18 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:56:18 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:56:18 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:56:18 INFO  FirmaDao:42 - partner with
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:56:18 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:56:18 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:56:24 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:56:24 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:56:24 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:56:24 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:56:24 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:56:24 INFO  FirmaDao:42 - partner with
+2015-09-25 13:57:54 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:57:54 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:57:54 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:57:54 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:57:54 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:57:58 INFO  UserDao:91 - LOGOUT
+2015-09-25 13:57:58 INFO  FirmaService:199 - get firme...
+2015-09-25 13:57:58 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:58:02 INFO  UserDao:42 - logovanje...
+2015-09-25 13:58:02 INFO  UserDao:43 - username: admin
+2015-09-25 13:58:02 INFO  UserDao:44 - password: admin
+2015-09-25 13:58:02 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:58:02 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 13:58:02 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 13:58:02 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:58:02 INFO  FirmaService:199 - get firme...
+2015-09-25 13:58:02 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 13:58:02 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@5865462f
+2015-09-25 13:58:02 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 13:58:02 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 13:58:02 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 13:58:02 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:58:02 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:58:02 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:58:02 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:58:02 INFO  FirmaDao:42 - partner with
+2015-09-25 13:58:02 INFO  FirmaService:210 - ukupno 2
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 13:58:02 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 13:58:02 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 13:58:04 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 13:58:04 INFO  FirmaDao:35 - is partner...
+2015-09-25 13:58:04 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 13:58:04 INFO  FirmaDao:38 - pibs:
+2015-09-25 13:58:04 INFO  FirmaDao:40 - 44444555556
+2015-09-25 13:58:04 INFO  FirmaDao:42 - partner with
+2015-09-25 14:14:40 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:14:40 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:14:40 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:14:40 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:14:40 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:14:44 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:14:44 INFO  FirmaService:199 - get firme...
+2015-09-25 14:14:44 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:14:50 INFO  UserDao:42 - logovanje...
+2015-09-25 14:14:50 INFO  UserDao:43 - username: admin
+2015-09-25 14:14:50 INFO  UserDao:44 - password: admin
+2015-09-25 14:14:50 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:14:50 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:14:50 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:14:50 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:14:50 INFO  FirmaService:199 - get firme...
+2015-09-25 14:14:50 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:14:50 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@2b70a107
+2015-09-25 14:14:50 INFO  FirmaService:264 - pib 11111222223
+2015-09-25 14:14:50 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:14:50 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:14:50 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:14:50 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:14:50 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:14:50 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:14:50 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:14:52 INFO  FirmaService:199 - get firme...
+2015-09-25 14:14:52 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:14:52 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:14:52 INFO  FirmaService:262 - urlKupca firma2
+2015-09-25 14:14:52 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@84e442a
+2015-09-25 14:14:52 INFO  FirmaService:264 - pib 11111222223
+2015-09-25 14:14:52 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:14:52 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:14:52 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:14:52 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 14:14:52 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:14:52 INFO  FirmaDao:40 - 11111222223
+2015-09-25 14:14:52 INFO  FirmaDao:42 - partner with
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:97 - buyerPIB: 44444555556
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:99 - sellerPIB: 11111222223
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:97 - buyerPIB: 44444555556
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:99 - sellerPIB: 11111222223
+2015-09-25 14:14:52 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:14:52 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:14:54 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:14:55 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:14:55 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 14:14:55 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:14:55 INFO  FirmaDao:40 - 11111222223
+2015-09-25 14:14:55 INFO  FirmaDao:42 - partner with
+2015-09-25 14:17:12 INFO  FirmaService:199 - get firme...
+2015-09-25 14:17:12 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:17:17 INFO  UserDao:42 - logovanje...
+2015-09-25 14:17:17 INFO  UserDao:43 - username: admin
+2015-09-25 14:17:17 INFO  UserDao:44 - password: admin
+2015-09-25 14:17:17 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:17:17 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:17:17 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:17:18 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:17:18 INFO  FirmaService:262 - urlKupca firma2
+2015-09-25 14:17:18 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@518ea385
+2015-09-25 14:17:18 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:17:18 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:17:18 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:17:18 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:17:18 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 14:17:18 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:17:18 INFO  FirmaDao:40 - 11111222223
+2015-09-25 14:17:18 INFO  FirmaService:199 - get firme...
+2015-09-25 14:17:18 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:17:21 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:17:21 INFO  FirmaService:199 - get firme...
+2015-09-25 14:17:21 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:17:21 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@310fe9c4
+2015-09-25 14:17:21 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:17:21 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:17:21 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:17:21 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:17:21 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:17:21 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:17:21 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:17:21 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:17:21 INFO  FirmaDao:42 - partner with
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:17:21 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:17:21 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:17:22 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:17:22 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:17:22 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:17:22 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:17:22 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:17:22 INFO  FirmaDao:42 - partner with
+2015-09-25 14:19:07 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:19:07 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:19:07 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:19:07 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:19:07 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:19:09 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:19:09 INFO  FirmaService:199 - get firme...
+2015-09-25 14:19:09 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:19:14 INFO  UserDao:42 - logovanje...
+2015-09-25 14:19:14 INFO  UserDao:43 - username: admin
+2015-09-25 14:19:14 INFO  UserDao:44 - password: admin
+2015-09-25 14:19:14 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:19:14 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:19:14 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:19:14 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:19:14 INFO  FirmaService:199 - get firme...
+2015-09-25 14:19:14 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:19:14 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@332e9f8d
+2015-09-25 14:19:14 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:19:14 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:19:14 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:19:14 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:19:14 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:19:14 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:19:14 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:19:14 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:19:14 INFO  FirmaDao:42 - partner with
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:19:14 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:19:14 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:19:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:19:20 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:19:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:19:20 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:19:20 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:19:20 INFO  FirmaDao:42 - partner with
+2015-09-25 14:23:04 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:23:04 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:23:04 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:23:04 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:23:04 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:23:05 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:23:05 INFO  FirmaService:199 - get firme...
+2015-09-25 14:23:05 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:23:10 INFO  UserDao:42 - logovanje...
+2015-09-25 14:23:10 INFO  UserDao:43 - username: admin
+2015-09-25 14:23:10 INFO  UserDao:44 - password: admin
+2015-09-25 14:23:10 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:23:10 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:23:10 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:23:10 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:23:10 INFO  FirmaService:199 - get firme...
+2015-09-25 14:23:10 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:23:10 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@431c3f74
+2015-09-25 14:23:10 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:23:10 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:23:10 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:23:10 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:23:10 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:23:10 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:23:10 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:23:10 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:23:10 INFO  FirmaDao:42 - partner with
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:23:10 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:23:10 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:23:12 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:23:12 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:23:12 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:23:12 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:23:12 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:23:12 INFO  FirmaDao:42 - partner with
+2015-09-25 14:26:41 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:26:41 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:26:41 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:26:41 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:26:41 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:26:42 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:26:42 INFO  FirmaService:199 - get firme...
+2015-09-25 14:26:42 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:26:46 INFO  UserDao:42 - logovanje...
+2015-09-25 14:26:46 INFO  UserDao:43 - username: admin
+2015-09-25 14:26:46 INFO  UserDao:44 - password: admin
+2015-09-25 14:26:46 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:26:46 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:26:46 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:26:46 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:26:46 INFO  FirmaService:199 - get firme...
+2015-09-25 14:26:46 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:26:46 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:26:46 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@2493c206
+2015-09-25 14:26:46 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:26:46 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:26:46 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:26:46 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:26:46 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:26:46 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:26:46 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:26:46 INFO  FirmaDao:42 - partner with
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:26:46 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:26:46 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:26:48 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:26:48 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:26:48 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:26:48 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:26:48 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:26:48 INFO  FirmaDao:42 - partner with
+2015-09-25 14:28:37 INFO  FirmaService:199 - get firme...
+2015-09-25 14:28:37 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:28:37 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:28:37 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:28:37 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@3cca70e8
+2015-09-25 14:28:37 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:28:37 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:28:37 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:28:37 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:28:37 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:28:37 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:28:37 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:28:37 INFO  FirmaDao:42 - partner with
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:28:37 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:28:37 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:28:43 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:28:43 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:28:43 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:28:43 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:28:43 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:28:43 INFO  FirmaDao:42 - partner with
+2015-09-25 14:31:11 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:31:11 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:31:11 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:31:11 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:31:11 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:31:12 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:31:12 INFO  FirmaService:199 - get firme...
+2015-09-25 14:31:12 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:31:19 INFO  UserDao:42 - logovanje...
+2015-09-25 14:31:19 INFO  UserDao:43 - username: admin
+2015-09-25 14:31:19 INFO  UserDao:44 - password: admin
+2015-09-25 14:31:19 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:31:19 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:31:19 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:31:19 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:31:19 INFO  FirmaService:199 - get firme...
+2015-09-25 14:31:19 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:31:19 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@3b9a30cd
+2015-09-25 14:31:19 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:31:19 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:31:19 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:31:19 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:31:19 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:31:19 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:31:19 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:31:19 INFO  FirmaDao:42 - partner with
+2015-09-25 14:31:19 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:31:19 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:31:19 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:31:21 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:31:21 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:31:21 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:31:21 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:31:21 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:31:21 INFO  FirmaDao:42 - partner with
+2015-09-25 14:40:56 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:40:56 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:40:56 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:40:56 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:40:56 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:40:57 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:40:57 INFO  FirmaService:199 - get firme...
+2015-09-25 14:40:57 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:41:04 INFO  UserDao:42 - logovanje...
+2015-09-25 14:41:04 INFO  UserDao:43 - username: admin
+2015-09-25 14:41:04 INFO  UserDao:44 - password: admin
+2015-09-25 14:41:04 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:41:04 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:41:04 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:41:04 INFO  FirmaService:199 - get firme...
+2015-09-25 14:41:04 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:41:04 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:41:04 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:41:04 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@3e199105
+2015-09-25 14:41:04 INFO  FirmaService:264 - pib 11111222223
+2015-09-25 14:41:04 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:41:04 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:41:04 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:41:04 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:41:04 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:41:04 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:41:08 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:41:08 INFO  FirmaService:199 - get firme...
+2015-09-25 14:41:08 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:41:08 INFO  FirmaService:262 - urlKupca firma2
+2015-09-25 14:41:08 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@440f973d
+2015-09-25 14:41:08 INFO  FirmaService:264 - pib 11111222223
+2015-09-25 14:41:08 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:41:08 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:41:08 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:41:08 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 14:41:08 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:41:08 INFO  FirmaDao:40 - 11111222223
+2015-09-25 14:41:08 INFO  FirmaDao:42 - partner with
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:97 - buyerPIB: 44444555556
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:99 - sellerPIB: 11111222223
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:97 - buyerPIB: 44444555556
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:99 - sellerPIB: 11111222223
+2015-09-25 14:41:08 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:41:08 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:41:10 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:41:10 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:41:10 INFO  FirmaDao:37 - found 2 - Firma 2
+2015-09-25 14:41:10 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:41:10 INFO  FirmaDao:40 - 11111222223
+2015-09-25 14:41:10 INFO  FirmaDao:42 - partner with
+2015-09-25 14:44:20 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:44:20 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:44:20 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:44:20 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:44:20 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:44:22 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:44:22 INFO  FirmaService:199 - get firme...
+2015-09-25 14:44:22 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:44:26 INFO  UserDao:42 - logovanje...
+2015-09-25 14:44:26 INFO  UserDao:43 - username: admin
+2015-09-25 14:44:26 INFO  UserDao:44 - password: admin
+2015-09-25 14:44:26 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:44:26 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:44:26 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:44:26 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:44:26 INFO  FirmaService:199 - get firme...
+2015-09-25 14:44:26 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:44:26 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@1a4378fa
+2015-09-25 14:44:26 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:44:26 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:44:26 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:44:26 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:44:26 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:44:26 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:44:26 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:44:26 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:44:26 INFO  FirmaDao:42 - partner with
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:44:26 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:44:26 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:44:28 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:44:28 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:44:28 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:44:28 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:44:28 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:44:28 INFO  FirmaDao:42 - partner with
+2015-09-25 14:47:51 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:47:51 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:47:51 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:47:51 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:47:51 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:47:53 INFO  UserDao:91 - LOGOUT
+2015-09-25 14:47:53 INFO  FirmaService:199 - get firme...
+2015-09-25 14:47:53 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:47:58 INFO  UserDao:42 - logovanje...
+2015-09-25 14:47:58 INFO  UserDao:43 - username: admin
+2015-09-25 14:47:58 INFO  UserDao:44 - password: admin
+2015-09-25 14:47:58 INFO  UserDao:54 - password: 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:47:58 INFO  UserDao:77 - admin - 21232f297a57a5a743894a0e4a801fc3
+2015-09-25 14:47:58 INFO  UserDao:79 - logovanje uspesno!
+2015-09-25 14:47:58 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:47:58 INFO  FirmaService:199 - get firme...
+2015-09-25 14:47:58 INFO  FirmaService:210 - ukupno 2
+2015-09-25 14:47:58 INFO  FirmaService:262 - urlKupca firma1
+2015-09-25 14:47:58 INFO  FirmaService:263 - kupac xws.tim7.entities.firma.Firma@cb524b8
+2015-09-25 14:47:58 INFO  FirmaService:264 - pib 44444555556
+2015-09-25 14:47:58 INFO  FirmaService:265 - firmaDao proxy=xws.tim7.sessionbeans.firma.FirmaDaoLocal;deployment=FirmaDao;pk=null
+2015-09-25 14:47:58 INFO  FirmaService:266 - fakturaDao proxy=xws.tim7.sessionbeans.faktura.FakturaDaoLocal;deployment=FakturaDao;pk=null
+2015-09-25 14:47:58 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:47:58 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:47:58 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:47:58 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:47:58 INFO  FirmaDao:42 - partner with
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:95 - sve fakture: 2
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:98 - f kupac PIB: 44444555556
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 11111222223
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:97 - buyerPIB: 11111222223
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:98 - f kupac PIB: 11111222223
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:99 - sellerPIB: 44444555556
+2015-09-25 14:47:58 INFO  FakturaDaoLocal:100 - f dobavljac PIB: 44444555556
+2015-09-25 14:47:58 INFO  FirmaService:270 - fakture za json: 1
+2015-09-25 14:48:00 INFO  AuthenticationInterceptor:31 - Authentication interceptor invoked!
+2015-09-25 14:48:00 INFO  FirmaDao:35 - is partner...
+2015-09-25 14:48:00 INFO  FirmaDao:37 - found 1 - Firma 1
+2015-09-25 14:48:00 INFO  FirmaDao:38 - pibs:
+2015-09-25 14:48:00 INFO  FirmaDao:40 - 44444555556
+2015-09-25 14:48:00 INFO  FirmaDao:42 - partner with
