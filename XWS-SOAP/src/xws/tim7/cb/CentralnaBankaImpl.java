@@ -41,6 +41,11 @@ public class CentralnaBankaImpl implements CentralnaBanka {
         System.out.println(nalogZaGrupnaPlacanja);
         try {
             xws.tim7.globals.StatusType _return = null;
+            // MT102Dao.persist(clearingNalog);	//cuvaj pa periodicno radi clearing, ili radi odmah
+        	// for(mt102 in MT102Dao.findAll()) {
+        	//     BankaClient client = new BankaClient(mt102.getRacunDobavljaca());
+        	//     client.primiMt102(mt102);
+        	// }
             return _return;
         } catch (java.lang.Exception ex) {
             ex.printStackTrace();
@@ -56,6 +61,15 @@ public class CentralnaBankaImpl implements CentralnaBanka {
         System.out.println(rtgsMT103);
         try {
             xws.tim7.globals.StatusType _return = null;
+            // ObracunskiRacunDao.transferFunds(rtgsNalog.getObracunskiRacunBankeKupca(), rtgsNalog.getObracunskiRacunBankeDostavljaca(), rtgsNalog.getIznos());
+
+        	// napravi Mt900
+        	// BankaClient bankaKupca = new BankaClient(rtgsNalog.getObracunskiRacunBankeKupca());
+        	// bankaKupca.primiMT900(mt900);
+        	
+        	// napravi Mt910
+        	// BankaClient bankaDostavljaca = new BankaClient(rtgsNalog.getObracunskiRacunBankeDostavljaca());
+        	// bankaDostavljaca.primitMT910(mt910);
             return _return;
         } catch (java.lang.Exception ex) {
             ex.printStackTrace();

@@ -3,6 +3,9 @@ package xws.tim7.nalogzaplacanje;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
+import xws.tim7.faktura.Faktura;
+import xws.tim7.globals.OsnovaNalogaZaPlacanjeType;
+
 
 /**
  * This object contains factory methods for each 
@@ -45,4 +48,23 @@ public class ObjectFactory {
         return new NalogZaPlacanjeType();
     }
 
+    /**
+     * Create an instance of {@link NalogZaPlacanjeType }
+     * 
+     */
+    public NalogZaPlacanjeType createNalogZaPlacanjeType(Faktura faktura,String racunKupca) {
+        NalogZaPlacanjeType retVal = new NalogZaPlacanjeType();
+        retVal.setDatumNaloga(faktura.getZaglavlje().getDatumRacuna());
+        retVal.setDatumValute(faktura.getZaglavlje().getDatumValute());
+        retVal.setIDPoruke(faktura.getZaglavlje().getIDPoruke());
+        retVal.setOznakaValute(faktura.getZaglavlje().getOznakaValute());
+                
+        xws.tim7.globals.ObjectFactory factory = new xws.tim7.globals.ObjectFactory();
+        OsnovaNalogaZaPlacanjeType onzp = factory.createOsnovaNalogaZaPlacanjeType(faktura, racunKupca);
+        retVal.setOsnovaNalogaZaPlacanje(onzp);
+        
+        retVal.setHitno(false);		//nije dato u specifikaciji
+        
+        return retVal;
+    }
 }

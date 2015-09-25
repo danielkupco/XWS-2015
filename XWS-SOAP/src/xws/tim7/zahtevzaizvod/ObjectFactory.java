@@ -1,7 +1,10 @@
 
 package xws.tim7.zahtevzaizvod;
 
+import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -44,5 +47,14 @@ public class ObjectFactory {
     public ZahtevZaIzvodType createZahtevZaIzvodType() {
         return new ZahtevZaIzvodType();
     }
+
+	public ZahtevZaIzvodType createZahtevZaIzvodType(String racun,
+			XMLGregorianCalendar date, int redniBroj) {
+		ZahtevZaIzvodType retVal = new ZahtevZaIzvodType();
+		retVal.setBrojRacuna(racun);
+		retVal.setDatum(date);
+		retVal.setRedniBrojPreseka(new BigInteger(String.valueOf(redniBroj)));
+		return retVal;
+	}
 
 }

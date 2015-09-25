@@ -11,7 +11,7 @@ import javax.xml.ws.Endpoint;
  */
  
 public class Banka_BankaPort_Server{
-
+	//prima deo adrese da bi instancirao
     protected Banka_BankaPort_Server() throws java.lang.Exception {
         System.out.println("Starting Server");
         Object implementor = new BankaImpl();

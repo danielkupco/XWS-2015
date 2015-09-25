@@ -3,6 +3,8 @@ package xws.tim7.mt103;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
+import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
+
 
 /**
  * This object contains factory methods for each 
@@ -44,5 +46,23 @@ public class ObjectFactory {
     public MT103Type createMT103Type() {
         return new MT103Type();
     }
+
+	public MT103Type createMT103Type(NalogZaPlacanjeType nzp) {
+		MT103Type retVal = new MT103Type();
+		retVal.setDatumNaloga(nzp.getDatumNaloga());
+		retVal.setDatumValute(nzp.getDatumValute());
+		retVal.setIDPoruke(nzp.getIDPoruke());
+		
+		retVal.setObracunskiRacunBankeDuznika(null);
+		retVal.setObracunskiRacunBankePoverioca(null);
+		
+		retVal.setOsnovaNalogaZaPlacanje(nzp.getOsnovaNalogaZaPlacanje());
+		retVal.setSifraValute(nzp.getOznakaValute());
+		
+		retVal.setSWIFTKodBankeDuznika("");
+		retVal.setSWIFTKodBankePoverioca("");
+		
+		return retVal;
+	}
 
 }

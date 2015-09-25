@@ -8,7 +8,12 @@
 
 package xws.tim7.globals;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlRegistry;
+
+import xws.tim7.faktura.Faktura;
 
 
 /**
@@ -54,10 +59,15 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RacunType }
+     * @param racunKupca 
      * 
      */
-    public RacunType createRacunType() {
-        return new RacunType();
+    public RacunType createRacunType(String racunKupca) {
+        RacunType retVal = new RacunType();
+        retVal.setBrojRacuna(racunKupca);
+        retVal.setModel(new BigInteger("97"));	//nije dato u specifikaciji
+        retVal.setPozivNaBroj(racunKupca);		//nije dato u specifikaciji
+        return retVal;
     }
 
     /**
@@ -68,6 +78,32 @@ public class ObjectFactory {
         return new OsnovaNalogaZaPlacanjeType();
     }
 
+    /**
+     * Create an instance of {@link OsnovaNalogaZaPlacanjeType }
+     * 
+     */
+    public OsnovaNalogaZaPlacanjeType createOsnovaNalogaZaPlacanjeType(Faktura faktura, String racunKupca) {
+        OsnovaNalogaZaPlacanjeType retVal = new OsnovaNalogaZaPlacanjeType();
+        
+        retVal.setDuznikNalogodavac(faktura.getZaglavlje().getKupac().getNaziv());
+        retVal.setPoverilacPrimalac(faktura.getZaglavlje().getDobavljac().getNaziv());
+
+        RacunType racunDuznika = this.createRacunType(racunKupca);
+        RacunType racunPoverioca = this.createRacunType(faktura.getZaglavlje().getUplataNaRacun());
+        
+        retVal.setRacunDuznika(racunDuznika);
+        retVal.setRacunPoverioca(racunPoverioca);
+        
+        BigDecimal iznos = faktura.getZaglavlje().getIznosZaUplatu();
+        retVal.setIznos(iznos);
+        String svrha = "";
+        for(xws.tim7.faktura.Stavka stavka : faktura.getStavka()) {
+        	svrha += stavka.getNazivRobeIliUsluge() + " ";
+        }
+        retVal.setSvrhaPlacanja(svrha);
+        
+        return retVal;
+    }
     /**
      * Create an instance of {@link MT9XXType }
      * 
