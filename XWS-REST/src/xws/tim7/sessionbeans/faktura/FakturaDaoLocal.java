@@ -1,6 +1,7 @@
 package xws.tim7.sessionbeans.faktura;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
@@ -13,7 +14,7 @@ public interface FakturaDaoLocal extends GenericDaoLocal<Faktura, Long> {
 	
 	public Stavka findItemInFaktura(Long fakturaId, Long stavkaId) throws IOException, JAXBException;
 	
-	public Faktura removeItemFromFaktura(Long FakturaId, Long itemId) throws IOException, JAXBException;
+	public Faktura removeItemFromFaktura(Long FakturaId, BigInteger bigInteger) throws IOException, JAXBException;
 
 	public Faktura createStavka(Long FakturaId, Stavka item) throws IOException, JAXBException;
 

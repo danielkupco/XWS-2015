@@ -1,6 +1,7 @@
 package xws.tim7.sessionbeans.faktura;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,17 +45,22 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	}
 
 	@Override
-	public Faktura removeItemFromFaktura(Long FakturaId, Long itemId) throws IOException, JAXBException {
+	public Faktura removeItemFromFaktura(Long FakturaId, BigInteger redBroj) throws IOException, JAXBException {
 		Faktura faktura = findById(FakturaId);
 		
 		if (faktura instanceof Faktura) {
 			for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 			    Stavka item = iter.next();
-			    if (item.getId().equals(itemId)) {
+			    if (item.getRedniBroj().equals(redBroj)) {
 			        iter.remove();
 			    }
 			}
 		}
+		
+		for(int i = 0; i < faktura.getStavka().size(); ++i){
+    		Stavka s = faktura.getStavka().get(i);
+    		s.setRedniBroj(BigInteger.valueOf(i+1));
+    	}
 		
 		return merge(faktura, FakturaId);
 	}
@@ -64,7 +70,6 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 		Faktura faktura = findById(FakturaId);
 		
 		if(faktura instanceof Faktura) {
-			item.setId(em.getIdentity());
 			faktura.getStavka().add(item);
 		}
 		

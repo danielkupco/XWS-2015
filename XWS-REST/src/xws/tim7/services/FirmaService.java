@@ -6,6 +6,9 @@ import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -357,10 +360,10 @@ public class FirmaService {
 			stavka.setRedniBroj(BigInteger.valueOf(faktura.getStavka().size()+1));
 			
 			log.info("***NOVA STAVKA**** ---->"+stavka.getNazivRobeIliUsluge());
+			log.info("***NOVA STAVKA[redniBroj] -----> "+stavka.getRedniBroj());
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura!=null)){
-				faktura.getStavka().add(stavka);
-				fakturaDao.merge(faktura, idFakture);
+				fakturaDao.createStavka(idFakture, stavka);
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj())).build();
 			}
 			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
@@ -369,7 +372,6 @@ public class FirmaService {
 			if(faktura == null){
 				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			}
-			
 			
 			//TODO: U slučaju neispravne stavke, odgovor je HTTP 400 Bad Request.
 			
@@ -407,7 +409,6 @@ public class FirmaService {
 				List<Stavka> stavke = faktura.getStavka();
 				for(Stavka stavka : stavke) {
 					if(stavka.getRedniBroj().equals(redniBroj)) {
-						//return Response.ok().type("application/xml").entity(stavka).build();
 						return stavka;
 					}
 				}	
@@ -473,7 +474,7 @@ public class FirmaService {
 	@DELETE
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
 	@Authenticate
-	Response deleteNthInvoiceItembyBuyerForProvider(
+	public Response deleteNthInvoiceItembyBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("pib_dob") String pib,
 			@PathParam("idFakture") Long idFakture,
@@ -483,24 +484,38 @@ public class FirmaService {
 			Firma kupac = firmaDao.findByURL(urlKupca);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
+				
+				log.info("***(1)DELETE TEST*** -------------->isPartnerWith je true");
+				
 				Faktura faktura = fakturaDao.findById(idFakture);
+				
+				log.info("***(2)DELETE TEST*** -------------->idFakture: " + idFakture);
+				
 				for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 				    Stavka item = iter.next();
-				    if(item.getRedniBroj().equals(redniBroj)) {
-				    	fakturaDao.removeItemFromFaktura(faktura.getId(), item.getId());
+				    
+				    log.info("***DELETE TEST*** (redniBrojStavke:"+item.getRedniBroj()+") uporedjuje se sa redniBroj= " +redniBroj);
+				    
+				    if(item.getRedniBroj().intValue() == redniBroj) {
+				    	log.info("***DELETE TEST***-------------->TRUE-uso u if");
+				    	fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
+				    	
 					    return Response.noContent().build();	
 				    }
 				}
-			} else {
-				// forbidden
+			} 
+			
+			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
 				return Response.status(403).build();
 			}
+			
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
 		//not found
 		return Response.status(404).build();
 	}
+	
 		
 }
 
