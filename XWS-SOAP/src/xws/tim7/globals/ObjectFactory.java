@@ -147,7 +147,6 @@ public class ObjectFactory {
 		MT9XXType retVal = new MT9XXType();
 		
 		retVal.setDatumValute(nalogZaGrupnaPlacanja.getDatumValute());
-		retVal.set
 		
 		return retVal;
 	}
