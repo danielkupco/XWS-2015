@@ -70,6 +70,8 @@ angular.module('invoice', [
 
 	//cuvanje izmena
 	$scope.save = function () {
+
+
 		if($scope.invoice.id){
 			//zbog cega redirekcija ide na callback?
 			angular.forEach($scope.invoice.Stavka, function(value, key) {
@@ -77,39 +79,42 @@ angular.module('invoice', [
   				console.log(value);
 
   				//var temp = angular.toJson(value);
-
-  				if(value.Redni_broj){
-  					InvoiceItem.update({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
-  					});
-  				}
-  				else{
-  					InvoiceItem.save({invoiceId:$scope.invoice.id}, value, function(){
-  					});
-  				}
+	  				if(value.Redni_broj){
+	  					InvoiceItem.update({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
+	  					});
+	  				}
+	  				else{
+	  					InvoiceItem.save({'url_kupca':$rootScope.url_kupca,'pib_dob':$rootScope.pib_dob, 'invoiceId':$scope.invoice.id}, value, function(){
+	  					});
+	  				}
+	  				if(!value.Redni_broj){
+	  					InvoiceItem.save({'url_kupca':$rootScope.url_kupca,'pib_dob':$rootScope.pib_dob, 'invoiceId':$scope.invoice.id}, value, function(){
+	  					});
+	  				}
 			});
 
 			$location.path('/invoice/'+$scope.invoice.id);
 
-			/*$scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
-				$location.path('/invoiceList');
-			});*/
+			//nije podrzana izmena fakture po specifikaciji, samo dodavanje stavki :|
+			// $scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
+			// 	$location.path('/invoiceList');
+			// });
 		}
 		else{
-			$scope.invoice.$save(function () {
-				$location.path('/invoiceList');
+			$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, $scope.invoice, function(){
+				$location.path('/invoice-list');
 			});
 		}
 		$log.info("save");
-	}
+	};
 
 	$scope.delete = function () {
 		if($scope.invoice.id){
 			$scope.invoice.$delete({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id}, function () {
-				$location.path('invoiceList');
+				console.log('delete');
 			});
 		}
 	};
-
 	// item order by
 	$scope.itemPredicate = 'Vrednost';
 	$scope.itemReverse = true;
