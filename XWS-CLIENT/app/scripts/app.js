@@ -99,7 +99,7 @@
     var modalInstance = $modal.open({
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl',
-      size: size,
+      size: size
     });
   };
 
@@ -108,7 +108,8 @@
   $scope.goBack = function () {
     var path = $location.path();
     console.log(path);
-    if(path.indexOf('/invoice/') == 0) { // starts with '/invoice/'
+    if(path.path() == '/invoice/:id') { // starts with '/invoice/'
+      console.log('ima id');
       $location.path('/invoice-list');
     }
   };

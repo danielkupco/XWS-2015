@@ -110,7 +110,8 @@
 	</target>
 	
 	<target name="generate-classes">
-		<xjc schema="${scheme.dir}/Firma.xsd" destdir="${gen.dir}" />
+		<xjc schema="${scheme.dir}/Racun_firme.xsd" destdir="${gen.dir}" />
+		<xjc schema="${scheme.dir}/Banka.xsd" destdir="${gen.dir}" />
 		<!--
 		<xjc schema="${scheme.dir}/Firma.xsd" destdir="${gen.dir}" />
 		<xjc schema="${scheme.dir}/Faktura.xsd" destdir="${gen.dir}" />

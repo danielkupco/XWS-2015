@@ -3,7 +3,7 @@
 angular.module('firme', ['resource.firma',
 	'angular-md5'])
 
-.controller('firmeCtrl', function (Firma, $scope, $rootScope, $location, md5, $log) {
+.controller('firmeCtrl', function (Firma, $scope, $rootScope, $location, md5, $log, $route) {
 
 	//preuzimanje niza firmi sa servera
 	Firma.query().$promise.then(function (data) {
@@ -21,7 +21,7 @@ angular.module('firme', ['resource.firma',
 	}
 	else {
 		$scope.firma = $scope.firme[0];
-		$rootScope.pib_dob = $scope.firma.PIB;
+		//$rootScope.pib_dob = $scope.firma.PIB;
 	}
 
 	// zbog buga kod comboboxa prilikom osvezavanja stranice invoice-list
@@ -36,7 +36,7 @@ angular.module('firme', ['resource.firma',
 	}
 	else {
 		$scope.kupac = $scope.firme[0];
-		$rootScope.url_kupca = $scope.kupac.Url;
+		//$rootScope.url_kupca = $scope.kupac.Url;
 	}
 
 	}, function (error) {
