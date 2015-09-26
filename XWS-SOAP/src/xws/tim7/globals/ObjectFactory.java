@@ -14,6 +14,8 @@ import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlRegistry;
 
 import xws.tim7.faktura.Faktura;
+import xws.tim7.mt102.MT102Type;
+import xws.tim7.mt103.MT103Type;
 
 
 /**
@@ -111,5 +113,51 @@ public class ObjectFactory {
     public MT9XXType createMT9XXType() {
         return new MT9XXType();
     }
+
+	public MT9XXType createMT900Type(MT103Type rtgsMT103) {
+
+		MT9XXType retVal = new MT9XXType();
+		
+		retVal.setDatumValute(rtgsMT103.getDatumValute());
+		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
+		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankeDuznika());
+		retVal.setSifraValute(rtgsMT103.getSifraValute());
+		retVal.setSWIFTKodBanke(rtgsMT103.getSWIFTKodBankeDuznika());
+		
+		return retVal;
+	}
+	
+	public MT9XXType createMT910Type(MT103Type rtgsMT103) {
+		MT9XXType retVal = new MT9XXType();
+		
+		retVal.setDatumValute(rtgsMT103.getDatumValute());
+		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
+		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankePoverioca());
+		retVal.setSifraValute(rtgsMT103.getSifraValute());
+		retVal.setSWIFTKodBanke(rtgsMT103.getSWIFTKodBankePoverioca());
+		
+		return retVal;
+	}
+
+	public MT9XXType createMT900Type(MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+		
+		retVal.setDatumValute(nalogZaGrupnaPlacanja.getDatumValute());
+		retVal.set
+		
+		return retVal;
+	}
+
+	public MT9XXType createMT910Type(MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+		
+		
+		return retVal;
+	}
+
 
 }

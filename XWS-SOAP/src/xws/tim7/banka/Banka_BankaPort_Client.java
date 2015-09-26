@@ -5,25 +5,17 @@ package xws.tim7.banka;
  * This class is not complete
  */
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.xml.namespace.QName;
-import javax.jws.Oneway;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
+import javax.xml.namespace.QName;
 
 import xws.tim7.faktura.Faktura;
-import xws.tim7.globals.RacunType;
+import xws.tim7.globals.MT9XXType;
 import xws.tim7.globals.StatusType;
+import xws.tim7.mt102.MT102Type;
+import xws.tim7.mt103.MT103Type;
 import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
 import xws.tim7.presek.PresekType;
 import xws.tim7.zahtevzaizvod.ZahtevZaIzvodType;
@@ -50,7 +42,6 @@ public final class Banka_BankaPort_Client {
 			URL wsdlURL = new URL(String.format(wsdlPart, racun.substring(0, 3)));
 			BankaService ss = new BankaService(wsdlURL, SERVICE_NAME);
 			port = ss.getBankaPort();
-			return port;
 		} catch (MalformedURLException e) {
 			// TODO LOG ERROR
 			e.printStackTrace();
@@ -77,5 +68,28 @@ public final class Banka_BankaPort_Client {
 			e.printStackTrace();
 		}
 		return retVal;
+	}
+	
+	
+	/* KORISTI SAMO CENTRALNA BANKA -- delegira Implementaciji */
+	
+	public StatusType primiMT900(MT9XXType mt900) {
+		Banka banka = this.getService();
+		return banka.primiMT900(mt900);
+	}
+	
+	public StatusType primiMT910(MT9XXType mt910) {
+		Banka banka = this.getService();
+		return banka.primiMT910(mt910);
+	}
+	
+	public StatusType primiMT103(MT103Type mt103) {
+		Banka banka = this.getService();
+		return banka.primiMT103(mt103);
+	}
+	
+	public StatusType primiMT102(MT102Type mt102) {
+		Banka banka = this.getService();
+		return banka.primiMT102(mt102);
 	}
 }
