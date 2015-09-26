@@ -123,20 +123,20 @@ angular.module('invoice', [
 			return actual < expected;
 		}
 		else return true;
-	}
+	};
 
 	$scope.equalComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual == expected;
 		}
 		else return true;
-	}
+	};
 
 	$scope.greaterComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual > expected;
 		}
 		else return true;
-	}
+	};
 
 });

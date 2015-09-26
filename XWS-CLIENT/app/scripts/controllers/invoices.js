@@ -4,61 +4,6 @@
  	'angular-md5'])
 
  .controller('invoicesListCtrl', function (Invoice, $scope, $location, md5, $log, $rootScope) {
- 	//postavljanje niza invoices u kodu
- 	/*$scope.invoices = [
- 	{
- 		"id": 1,
- 		"deleted": false,
- 		"version": 0,
- 		"suplierName": "Majstor za pivo",
- 		"suplierAddress": "Zorza Klemansoa 18",
- 		"supplierPib": "1232233",
- 		"buyerName": "Home Brew INC",
- 		"buyerAddress": "Skojevska 12",
- 		"acountNumber": 1226458,
- 		"date": 1169301600000,
- 		"totalGoodsValue": 5000.0,
- 		"totalServiceValue": 0.0,
- 		"totalValue": 5000.0,
- 		"totalRabate": 0.0,
- 		"totalTax": 20.0,
- 		"currency": "rsd",
- 		"totalAmount": 5000.0,
- 		"currencyDate": 1169301600000,
- 		"invoiceItems": [
- 		{
- 			"id": 1,
- 			"deleted": false,
- 			"version": 0,
- 			"orderNumber": 1,
- 			"goodsName": "Hmelj",
- 			"quantity": 3.0,
- 			"measureUnit": "kilogram",
- 			"pricePerUnit": 1000.0,
- 			"amount": 3.0,
- 			"rabatePercentage": 0.0,
- 			"rabateAmount": 0.0,
- 			"minusRabat": 0.0,
- 			"totalTax": 20.0
- 		},
- 		{
- 			"id": 2,
- 			"deleted": false,
- 			"version": 0,
- 			"orderNumber": 2,
- 			"goodsName": "Jecam",
- 			"quantity": 2.0,
- 			"measureUnit": "kilogram",
- 			"pricePerUnit": 1000.0,
- 			"amount": 2.0,
- 			"rabatePercentage": 0.0,
- 			"rabateAmount": 0.0,
- 			"minusRabat": 0.0,
- 			"totalTax": 20.0
- 		}
- 		]
- 	}
- 	];*/
 
  	//preuzimanje niza faktura sa servera
  	Invoice.query({url_kupca: $rootScope.url_kupca, pib_dob: $rootScope.pib_dob}).$promise.then(function (data) {
@@ -79,12 +24,58 @@
  		}
  	}
 
+	//funkcija koja otvara datepicker
+	$scope.openDatepicker = function($event, opened) {
+		$event.preventDefault();
+		$event.stopPropagation();
+		$scope[opened] = true;
+	};
+
 	// invoice order by
 	$scope.invoicePredicate = 'Zaglavlje.Dobavljac.Naziv';
 	$scope.invoiceReverse = true;
 	$scope.invoiceOrder = function(predicate) {
 		$scope.invoiceReverse = ($scope.invoicePredicate == predicate) ? !$scope.invoiceReverse : false;
 		$scope.invoicePredicate = predicate;
+	};
+
+	$scope.lowerComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual < expected;
+		}
+		else return true;
+	};
+
+	$scope.equalComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual == expected;
+		}
+		else return true;
+	};
+
+	$scope.greaterComparator = function (actual, expected) {
+		if(expected != '') {
+			return actual > expected;
+		}
+		else return true;
+	};
+
+	$scope.beforeComparator = function (actual, expected) {
+		if(actual == null || expected == null) {
+			return true;
+		}
+
+		var d = new Date(actual);
+		return  d < expected;
+	};
+
+	$scope.afterComparator = function (actual, expected) {
+		if(expected == null) {
+			return true;
+		}
+
+		var d = new Date(actual);
+		return d > expected;
 	};
 
  });

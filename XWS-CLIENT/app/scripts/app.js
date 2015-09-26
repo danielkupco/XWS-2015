@@ -104,9 +104,6 @@
   };
 
   // tim 7
-   
-  $rootScope.url_kupca = "firma1";
-  $rootScope.pib_dob = "11111222223";
   
   $scope.goBack = function () {
     var path = $location.path();
