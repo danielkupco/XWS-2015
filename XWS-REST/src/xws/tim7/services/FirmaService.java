@@ -363,7 +363,11 @@ public class FirmaService {
 			log.info("***NOVA STAVKA[redniBroj] -----> "+stavka.getRedniBroj());
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura!=null)){
-				fakturaDao.createStavka(idFakture, stavka);
+				//fakturaDao.createStavka(idFakture, stavka);
+				
+				faktura.getStavka().add(stavka);
+				fakturaDao.merge(faktura, idFakture);
+				
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj())).build();
 			}
 			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){

@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
+import xws.tim7.globals.StatusType;
 import xws.tim7.mt102.MT102Type;
 import xws.tim7.mt103.MT103Type;
 import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
@@ -48,19 +49,19 @@ public final class CentralnaBanka_CentralnaBankaPort_Client {
     	return retVal;
     }
     
-    public void primiMT102(NalogZaPlacanjeType nzp) {
+    public StatusType primiMT102(NalogZaPlacanjeType nzp) {
     	xws.tim7.mt102.ObjectFactory factory = new xws.tim7.mt102.ObjectFactory();
     	MT102Type clearingNalog = factory.createMT102Type(nzp);
-    	this.getService().primiMT102(clearingNalog);
+    	return this.getService().primiMT102(clearingNalog);
     }
     
-    public void primitMT103(NalogZaPlacanjeType nzp) {
+    public StatusType primitMT103(NalogZaPlacanjeType nzp) {
     	xws.tim7.mt103.ObjectFactory factory = new xws.tim7.mt103.ObjectFactory();
     	MT103Type rtgsNalog = factory.createMT103Type(nzp);
-    	this.getService().primiMT103(rtgsNalog);
+    	return this.getService().primiMT103(rtgsNalog);
     }
     
-    private CentralnaBanka_CentralnaBankaPort_Client(String banka) {
+    public CentralnaBanka_CentralnaBankaPort_Client(String banka) {
     	this.bankaId = banka;		//banka koja poziva
     }
     

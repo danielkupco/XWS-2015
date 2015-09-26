@@ -52,7 +52,7 @@ public class ObjectFactory {
 		retVal.setDatum(nzp.getDatumNaloga());
 		retVal.setDatumValute(nzp.getDatumValute());
 		
-		//todo
+		//TODO !!!
 		retVal.setObracunskiRacunBankeDuznika(null);
 		retVal.setObracunskiRacunBankePoverioca(null);
 		
@@ -60,6 +60,8 @@ public class ObjectFactory {
 		
 		retVal.setSWIFTKodBankeDuznika("");
 		retVal.setSWIFTKodBankePoverioca("");
+		
+		retVal.getNalogZaPlacanje().add(nzp);
 		
 		retVal.setUkupanIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
 		return retVal;

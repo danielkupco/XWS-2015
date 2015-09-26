@@ -1,5 +1,5 @@
 angular.module('resource.user', ['angular-md5'])
-.factory('User', function ($http, md5, $q, $log, $location, $rootScope) {
+.factory('User', function ($http, $rootScope, md5, $q, $log, $location) {
 	var service = {
 		login : function  (user) {
 			var deferred = $q.defer();

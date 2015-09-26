@@ -55,6 +55,7 @@ angular.module('firme', ['resource.firma',
 		$rootScope.url_kupca = kupac.Url;
 		console.log('selektovani kupac je ' + kupac.Url);
 		$rootScope.temp_kupac = kupac;
+		$route.reload();
 	};
 
 });
