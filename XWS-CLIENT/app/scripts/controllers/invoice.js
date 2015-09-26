@@ -7,7 +7,6 @@ angular.module('invoice', [
 	'resource.invoiceItem'])
 
 .controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem, $route) {
-
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -60,7 +59,7 @@ angular.module('invoice', [
 				$scope.invoice.Stavka.splice(index, 1);
 				//ako je stavka imala i id, treba da se obrise i na serveru (da li je to dobro?)
 				if(invoiceItem.id){
-					InvoiceItem.delete({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceItemId:invoiceItem.id});
+					InvoiceItem.delete({invoiceItemId:invoiceItem.id});
 				}
 			}
 		}, function () {
@@ -84,10 +83,6 @@ angular.module('invoice', [
 	  					});
 	  				}
 	  				else{
-	  					InvoiceItem.save({'url_kupca':$rootScope.url_kupca,'pib_dob':$rootScope.pib_dob, 'invoiceId':$scope.invoice.id}, value, function(){
-	  					});
-	  				}
-	  				if(!value.Redni_broj){
 	  					InvoiceItem.save({'url_kupca':$rootScope.url_kupca,'pib_dob':$rootScope.pib_dob, 'invoiceId':$scope.invoice.id}, value, function(){
 	  					});
 	  				}
@@ -115,6 +110,8 @@ angular.module('invoice', [
 			});
 		}
 	};
+
+
 	// item order by
 	$scope.itemPredicate = 'Vrednost';
 	$scope.itemReverse = true;
@@ -128,20 +125,20 @@ angular.module('invoice', [
 			return actual < expected;
 		}
 		else return true;
-	};
+	}
 
 	$scope.equalComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual == expected;
 		}
 		else return true;
-	};
+	}
 
 	$scope.greaterComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual > expected;
 		}
 		else return true;
-	};
+	}
 
 });

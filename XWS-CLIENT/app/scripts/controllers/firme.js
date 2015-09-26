@@ -3,7 +3,7 @@
 angular.module('firme', ['resource.firma',
 	'angular-md5'])
 
-.controller('firmeCtrl', function (Firma, $scope, $rootScope, $location, md5, $log) {
+.controller('firmeCtrl', function (Firma, $scope, $rootScope, $location, md5, $log, $route) {
 
 	//preuzimanje niza firmi sa servera
 	Firma.query().$promise.then(function (data) {
@@ -55,6 +55,7 @@ angular.module('firme', ['resource.firma',
 		$rootScope.url_kupca = kupac.Url;
 		console.log('selektovani kupac je ' + kupac.Url);
 		$rootScope.temp_kupac = kupac;
+		$route.reload();
 	};
 
 });
