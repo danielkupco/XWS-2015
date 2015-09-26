@@ -1,7 +1,7 @@
 package sessionbeans.nalogzaplacanje;
 
 import sessionbeans.common.GenericDao;
-import xws.tim7.nalogzaplacanje.NalogZaPlacanjeType;
+import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 public class NalogZaPlacanjeDao extends GenericDao<NalogZaPlacanjeType, Long> implements NalogZaPlacanjeDaoLocal {
 

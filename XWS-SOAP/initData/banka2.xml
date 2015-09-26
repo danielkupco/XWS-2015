@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ban:Banka xmlns:ban="http://xws/tim7/banka"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xws/tim7/banka Banka.xsd" id="2">
+    <ban:ID_banke>444</ban:ID_banke>
+    <ban:Naziv_banke>Vojvodjanska banka</ban:Naziv_banke>
+    <ban:Adresa>Adresa banke 444, Novi Sad</ban:Adresa>
+    <ban:Obracunski_racun>999-3333333333333-44</ban:Obracunski_racun>
+    <ban:SWIFT>VBUBRS22</ban:SWIFT>
+</ban:Banka>
