@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rac:Racun_firme xmlns:rac="http://xws/tim7/racun_firme"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xws/tim7/racun_firme Racun_firme.xsd" id="2">
+    <rac:SWIFT_banke>VBUBRS22</rac:SWIFT_banke>
+    <rac:PIB_firme>44444555556</rac:PIB_firme>
+    <rac:Stanje>202000.99</rac:Stanje>
+    <rac:Rezervisana_sredstva>0.00</rac:Rezervisana_sredstva>
+    <rac:Broj_racuna>999-3333333333333-44</rac:Broj_racuna>
+    <rac:Poziv_na_broj>98765-43-2123-456789</rac:Poziv_na_broj>
+</rac:Racun_firme>

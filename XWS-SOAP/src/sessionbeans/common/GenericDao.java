@@ -9,7 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
 import xmldb.EntityManagerBaseX;
-import xws.tim7.Identifiable;
+import xws.tim7.entities.Identifiable;
 
 public abstract class GenericDao<T extends Identifiable, ID extends Serializable> implements GenericDaoLocal<T, ID> {
 	

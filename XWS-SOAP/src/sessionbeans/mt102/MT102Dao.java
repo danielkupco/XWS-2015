@@ -1,7 +1,7 @@
 package sessionbeans.mt102;
 
 import sessionbeans.common.GenericDao;
-import xws.tim7.mt102.MT102Type;
+import xws.tim7.entities.mt102.MT102Type;
 
 public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLocal {
 

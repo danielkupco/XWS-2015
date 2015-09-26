@@ -1,7 +1,7 @@
 package sessionbeans.mt900;
 
 import sessionbeans.common.GenericDao;
-import xws.tim7.globals.MT9XXType;
+import xws.tim7.entities.globals.MT9XXType;
 
 public class MT900Dao extends GenericDao<MT9XXType, Long> implements MT900DaoLocal {
 
