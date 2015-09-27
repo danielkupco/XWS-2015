@@ -22,5 +22,6 @@
             <xs:element name="datum_valute" type="xs:date"/>
             <xs:element name="hitno" type="xs:boolean"/>
         </xs:sequence>
+    <xs:attribute name="id" type="xs:long"/>
     </xs:complexType>
 </xs:schema>

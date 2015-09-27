@@ -226,6 +226,7 @@ public class FirmaService {
 			@PathParam("url_kupca") String url, 
 			@PathParam("pib_dob") String pib,
 			Faktura faktura){
+		
 
 		
 		for(int i = 0; i < faktura.getStavka().size(); ++i){

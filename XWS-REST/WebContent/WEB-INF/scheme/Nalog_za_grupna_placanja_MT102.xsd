@@ -18,11 +18,11 @@
             <xs:element minOccurs="1" maxOccurs="1" name="SWIFT_kod_banke_duznika"
                 type="glob:TSWIFTKod"/>
             <xs:element minOccurs="1" maxOccurs="1" name="obracunski_racun_banke_duznika"
-                type="glob:RacunType"/>
+                type="glob:TBrojRacuna"/>
             <xs:element minOccurs="1" maxOccurs="1" name="SWIFT_kod_banke_poverioca"
                 type="glob:TSWIFTKod"/>
             <xs:element minOccurs="1" maxOccurs="1" name="obracunski_racun_banke_poverioca"
-                type="glob:RacunType"/>
+                type="glob:TBrojRacuna"/>
             <xs:element name="ukupan_iznos" type="glob:TDecimal15_2"/>
             <xs:element name="sifra_valute" type="glob:TOznakaValute"/>
             <xs:element name="datum" type="xs:date"/>
