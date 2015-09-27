@@ -55,7 +55,7 @@
                 <xs:element name="Naziv_robe_ili_usluge">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:length value="120"/>
+                            <xs:maxLength value="120"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>

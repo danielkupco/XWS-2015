@@ -7,14 +7,7 @@
     <xs:element name="Banka">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="ID_banke">
-					<xs:simpleType>
-					    <xs:restriction base="xs:positiveInteger">
-					        <xs:totalDigits value="3"/>
-					        <xs:minInclusive value="3"/>
-					    </xs:restriction>
-					</xs:simpleType>
-                </xs:element>
+                <xs:element name="ID_banke" type="xs:long"/>
                 <xs:element name="Naziv_banke" type="xs:string"/>
                 <xs:element name="Adresa" type="xs:string"/>
                 <xs:element name="Obracunski_racun" type="ns1:TBrojRacuna"/>
