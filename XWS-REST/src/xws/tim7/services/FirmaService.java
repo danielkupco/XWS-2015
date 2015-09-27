@@ -231,7 +231,8 @@ public class FirmaService {
 			//Firma dobavljac = firmaDao.findByPIB(pib);
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib)){
-				fakturaDao.persist(faktura);
+				Faktura nova = fakturaDao.persist(faktura);
+				log.info("faktura je kreirana sa id-em: " + nova.getId());
 				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId())).build();
 			} else {
 				return Response.status(HttpResponse.SC_FORBIDDEN).build();

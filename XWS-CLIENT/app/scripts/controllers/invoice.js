@@ -6,7 +6,7 @@ angular.module('invoice', [
 	'invoiceItem',
 	'resource.invoiceItem'])
 
-.controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem, $route) {
+.controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem) {
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -96,9 +96,39 @@ angular.module('invoice', [
 			// });
 		}
 		else{
-			$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, $scope.invoice, function(){
+			// podrzani nacini pozivanja resource funkcije
+
+			/*Invoice.save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, $scope.invoice, function(data){
+				$log.info(data);
+				$log.info($scope.invoice.id);
+				$location.path('/invoice-list');
+			}).$promise.then(function(data){
+				$log.info(data);
+				$log.info($scope.invoice.id);
 				$location.path('/invoice-list');
 			});
+
+			Invoice.save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, $scope.invoice, function(data){
+				$log.info(data);
+				$log.info($scope.invoice.id);
+				$location.path('/invoice-list');
+			});*/
+
+			$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, function(data, status){
+				$log.info(data);
+				var location = status('Location');
+				$log.info('location: ' + location);
+				var last = location.lastIndexOf('/');
+				var id = location.substring(last + 1);
+				$scope.invoice.id = id;
+				$location.path('/invoice/' + id);
+			});
+
+			/*$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}).then(function(data){
+				$log.info(data);
+				$log.info($scope.invoice.id);
+				$location.path('/invoice-list');
+			});*/
 		}
 		$log.info("save");
 	};

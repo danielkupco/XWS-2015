@@ -108,8 +108,7 @@
   $scope.goBack = function () {
     var path = $location.path();
     console.log(path);
-    if(path.path() == '/invoice/:id') { // starts with '/invoice/'
-      console.log('ima id');
+    if(path.indexOf('/invoice/') == 0) { // starts with '/invoice/'
       $location.path('/invoice-list');
     }
   };
