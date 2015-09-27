@@ -157,6 +157,11 @@ public class PresekType {
         return this.stavkaPreseka;
     }
 
+    
+    
+    public void setStavkaPreseka(List<StavkaPreseka> lista){
+    	this.stavkaPreseka = lista;
+    }
 
     /**
      * <p>Java class for anonymous complex type.

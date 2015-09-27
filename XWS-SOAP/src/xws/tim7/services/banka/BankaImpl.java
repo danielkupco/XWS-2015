@@ -7,28 +7,22 @@ package xws.tim7.services.banka;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ejb.EJB;
-import javax.jws.Oneway;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
 
 import sessionbeans.mt102.MT102DaoLocal;
 import sessionbeans.mt103.MT103DaoLocal;
 import sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
 import sessionbeans.racun_firme.RacunFirmeDaoLocal;
-import xws.tim7.entities.globals.MT9XXType;
 import xws.tim7.entities.globals.StatusType;
 import xws.tim7.entities.mt102.MT102Type;
 import xws.tim7.entities.mt103.MT103Type;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import xws.tim7.entities.presek.ObjectFactory;
+import xws.tim7.entities.presek.PresekType;
 import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 
 /**
@@ -51,6 +45,9 @@ public class BankaImpl implements Banka {
 
 	@EJB
 	private MT103DaoLocal Mt103Rtgs;
+	
+	@EJB
+	private NalogZaPlacanjeDaoLocal nalogZaPlacanjeDao;
 
 	private static final Logger LOG = Logger.getLogger(BankaImpl.class
 			.getName());
@@ -168,22 +165,87 @@ public class BankaImpl implements Banka {
 		System.out.println(zahtevZaIzvod);
 		try {
 			xws.tim7.entities.presek.PresekType _return = null;
-
-			// izvod se sastoji od mnogo stavki
-			// pa stavke grupisane u preseke
-			// ===> presek == NUM_PER_PRESEK*stavka
-
-			// nzps = NalogZaPlacanjeDao.findByAccountAndDate();
-			// ObjectFactory factory = new ObjectFactory();
-			// izvod = factory.izvodType(zahzaizvod);
-			// foreach nzp in nzps: presek = factory.createPresek(nzp);
-			// return presek[redniBroj];
-
-			return _return;
+			
+			
+			List<NalogZaPlacanjeType> naloziZaPlacanje = nalogZaPlacanjeDao.findByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
+			List<NalogZaPlacanjeType> naloziZaPlacanjePreTrazenog = nalogZaPlacanjeDao.findOlderByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
+			
+			double prethodnoStanje = 0.0;
+			
+			for(NalogZaPlacanjeType nalog : naloziZaPlacanjePreTrazenog){
+				
+				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){		//racun primaoca (+)	
+					prethodnoStanje += nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+				}else{
+					prethodnoStanje -= nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+				}
+				
+			}
+			
+			LOG.info("Prethodno stanje : " + prethodnoStanje);
+			
+			
+			List<PresekType> listaPreseka = new ArrayList<PresekType>();
+			
+			int brojPreseka = naloziZaPlacanje.size() % 5 == 0 ? naloziZaPlacanje.size()/5 : naloziZaPlacanje.size()/5 +1;
+			
+			for(int i = 0; i < brojPreseka ; ++i){
+				
+				PresekType presek = new PresekType();
+				
+				PresekType.ZaglavljePreseka zaglavlje = new PresekType.ZaglavljePreseka();
+				
+				zaglavlje.setBrojRacuna(zahtevZaIzvod.getBrojRacuna());
+				zaglavlje.setDatumNaloga(zahtevZaIzvod.getDatum());
+				zaglavlje.setBrojPreseka(BigInteger.valueOf(i+1));
+				zaglavlje.setPrethodnoStanje(i == 0 ? BigDecimal.valueOf(prethodnoStanje) : listaPreseka.get(i-1).getZaglavljePreseka().getNovoStanje());
+				
+				int brojPromenaUKorist = 0;
+				int brojPromenaNaTeret = 0;
+				double ukupnoUKorist = 0.0;
+				double ukupnoNaTeret = 0.0;
+				
+				List<PresekType.StavkaPreseka> listaStavkiPreseka = new ArrayList<PresekType.StavkaPreseka>();
+				
+				for(int j = 0+5*i; j < naloziZaPlacanje.size() || listaStavkiPreseka.size() == 5; ++j){
+					
+					PresekType.StavkaPreseka stavkaPreseka = new PresekType.StavkaPreseka();
+					
+					if(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
+						++brojPromenaUKorist;
+						ukupnoUKorist = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						stavkaPreseka.setSmer("K");
+					}else{
+						++brojPromenaNaTeret;
+						ukupnoNaTeret = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						stavkaPreseka.setSmer("T");
+					}
+					
+					stavkaPreseka.setOsnovaNalogaZaPlacanje(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje());
+					stavkaPreseka.setDatumNaloga(naloziZaPlacanje.get(j).getDatumNaloga());
+					stavkaPreseka.setDatumValute(naloziZaPlacanje.get(j).getDatumValute());
+					
+					
+					listaStavkiPreseka.add(stavkaPreseka);
+				}
+				
+				zaglavlje.setBrojPromenaNaTeret(BigInteger.valueOf(brojPromenaNaTeret));
+				zaglavlje.setBrojPromenaUKorist(BigInteger.valueOf(brojPromenaUKorist));
+				zaglavlje.setUkupnoNaTeret(BigDecimal.valueOf(ukupnoNaTeret));
+				zaglavlje.setUkupnoUKorist(BigDecimal.valueOf(ukupnoUKorist));
+				zaglavlje.setNovoStanje(BigDecimal.valueOf(zaglavlje.getPrethodnoStanje().doubleValue() + ukupnoUKorist - ukupnoNaTeret ));
+				
+				presek.setZaglavljePreseka(zaglavlje);
+				presek.setStavkaPreseka(listaStavkiPreseka);
+				listaPreseka.add(presek);
+			}
+			
+			
+			return listaPreseka.get(zahtevZaIzvod.getRedniBrojPreseka().intValue()-1);
+			
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
 			// TODO Fault
-			// throw new StatusMessage("statusMessage...");
 			throw new RuntimeException(ex);
 		}
 	}
