@@ -110,7 +110,12 @@ public class PresekType {
     protected PresekType.ZaglavljePreseka zaglavljePreseka;
     @XmlElement(name = "stavka_preseka")
     protected List<PresekType.StavkaPreseka> stavkaPreseka;
-    @XmlAttribute(name = "id")
+    public void setStavkaPreseka(List<PresekType.StavkaPreseka> stavkaPreseka) {
+		this.stavkaPreseka = stavkaPreseka;
+	}
+
+
+	@XmlAttribute(name = "id")
     protected Long id;
 
     /**

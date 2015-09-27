@@ -9,12 +9,15 @@
 package xws.tim7.entities.banka;
 
 import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import xws.tim7.entities.Identifiable;
 
 
 /**
@@ -57,7 +60,7 @@ import javax.xml.bind.annotation.XmlType;
     "swift"
 })
 @XmlRootElement(name = "Banka")
-public class Banka {
+public class Banka extends Identifiable {
 
     @XmlElement(name = "ID_banke", required = true)
     protected BigInteger idBanke;

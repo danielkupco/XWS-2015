@@ -24,7 +24,7 @@ public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLoc
 		List<MT102Type> mt102list = findAll();
 
 		for (MT102Type item : mt102list) {
-			String idBanke = item.getObracunskiRacunBankePoverioca().getBrojRacuna().substring(0, 3);
+			String idBanke = item.getObracunskiRacunBankePoverioca().substring(0, 3);
 			String bankaIzNaloga = nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3);
 			if (idBanke.equals(bankaIzNaloga)) {
 				// ako je nasao, dodaj stavku, update bazu, kraj !

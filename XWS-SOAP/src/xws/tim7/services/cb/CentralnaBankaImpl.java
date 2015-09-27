@@ -57,7 +57,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			// klijentima JEDNE banke
 
 			// pokupi prve 3 cifre banke poverioca
-			String idBankePoverioca = registarBanaka.findBankaByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca().getBrojRacuna()).getIDBanke();
+			String idBankePoverioca = registarBanaka.findBankaByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca()).getIDBanke();
 			Banka_BankaPort_Client tmpClient = new Banka_BankaPort_Client(
 					idBankePoverioca);
 			tmpClient.primiMT102(nalogZaGrupnaPlacanja);
@@ -72,7 +72,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 					String racunDuznika = nzp.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna();
 					Banka_BankaPort_Client clientK = new Banka_BankaPort_Client(racunDuznika);
 					
-					String obracunskiBankeDuznika = nalogZaGrupnaPlacanja.getObracunskiRacunBankeDuznika().getBrojRacuna();
+					String obracunskiBankeDuznika = nalogZaGrupnaPlacanja.getObracunskiRacunBankeDuznika();
 					String swiftBankeDuznika = nalogZaGrupnaPlacanja.getSWIFTKodBankeDuznika();
 					MT9XXType mt900 = factory.createMT900Type(nzp, obracunskiBankeDuznika, swiftBankeDuznika);
 					clientK.primiMT900(mt900);
@@ -80,7 +80,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 					String racunPoverioca = nzp.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna();
 					Banka_BankaPort_Client clientD = new Banka_BankaPort_Client(racunPoverioca);
 
-					String obracunskiBankePoverioca = nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca().getBrojRacuna();
+					String obracunskiBankePoverioca = nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca();
 					String swiftBankePoverioca = nalogZaGrupnaPlacanja.getSWIFTKodBankePoverioca();
 					MT9XXType mt910 = factory.createMT910Type(nzp, obracunskiBankePoverioca, swiftBankePoverioca);
 					clientD.primiMT910(mt910);
