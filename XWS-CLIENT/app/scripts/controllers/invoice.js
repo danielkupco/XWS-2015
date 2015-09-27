@@ -116,7 +116,7 @@ angular.module('invoice', [
 
 			$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, function(data, status){
 				$log.info(data);
-				var location = status('Location');
+				var location = status('Content-Location');
 				$log.info('location: ' + location);
 				var last = location.lastIndexOf('/');
 				var id = location.substring(last + 1);

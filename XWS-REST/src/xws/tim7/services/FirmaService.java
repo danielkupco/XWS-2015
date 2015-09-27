@@ -37,6 +37,7 @@ import xws.tim7.entities.firma.TRacuni;
 import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
 import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
 import xws.tim7.util.Authenticate;
+import xws.tim7.util.Tim7XMLValidator;
 
 @Path("/firma")
 public class FirmaService {
@@ -226,30 +227,33 @@ public class FirmaService {
 			@PathParam("pib_dob") String pib,
 			Faktura faktura){
 
-		try {
-			Firma kupac = firmaDao.findByURL(url);
-			//Firma dobavljac = firmaDao.findByPIB(pib);
-			
-			if(firmaDao.isPartnerWith(kupac.getId(), pib)){
-				Faktura nova = fakturaDao.persist(faktura);
-				log.info("faktura je kreirana sa id-em: " + nova.getId());
-				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId())).build();
-			} else {
-				return Response.status(HttpResponse.SC_FORBIDDEN).build();
+		if(Tim7XMLValidator.validateFromObject(faktura, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+		
+			try {
+				Firma kupac = firmaDao.findByURL(url);
+				//Firma dobavljac = firmaDao.findByPIB(pib);
+				
+				if(firmaDao.isPartnerWith(kupac.getId(), pib)){
+					Faktura nova = fakturaDao.persist(faktura);
+					log.info("faktura je kreirana sa id-em: " + nova.getId());
+					URI location = new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId());
+					return Response.created(location).header("Content-Location", location).build();
+				} else {
+					return Response.status(HttpResponse.SC_FORBIDDEN).build();
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				e.printStackTrace();
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
 			}
-			
-			
-			//TODO: U slucaju neispravne fakture, odgovor je HTTP 400 Bad Request.
-			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
 		}
-
+		else {
+			return Response.status(HttpResponse.SC_BAD_REQUEST).build();
+		}
+		
 		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		
 	}
@@ -274,11 +278,14 @@ public class FirmaService {
 				log.info("fakture za json: " + fakture.size());
 				return Response.ok().entity(fakture).build();
 			}
+			else {
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
+			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
 
-		return Response.status(404).build();
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 		
 	// #3
@@ -286,7 +293,7 @@ public class FirmaService {
 	@Path("/{url}/partneri/{pib_dob}/fakture/{id_fakture}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
-	public Faktura getFaktura(
+	public Response getFaktura(
 			@PathParam("url") String url,
 			@PathParam("pib_dob") String pib,
 			@PathParam("id_fakture") Long idFakture){
@@ -300,7 +307,10 @@ public class FirmaService {
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura != null)){
 				//return Response.ok().entity(faktura).build();
-				return faktura;
+				return Response.ok().entity(faktura).build();
+			}
+			else {
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			}
 			
 		} catch (IOException e) {
@@ -308,8 +318,8 @@ public class FirmaService {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
-		
-		return null;
+
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		
 	}
 	
@@ -324,18 +334,22 @@ public class FirmaService {
 	{
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
+			Faktura faktura = fakturaDao.findById(idFakture);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), pib_dob)) {
-				Faktura faktura = fakturaDao.findById(idFakture);
-				return Response.ok().type("application/xml").entity(faktura.getStavka()).build();
+			if(firmaDao.isPartnerWith(kupac.getId(), pib_dob) && faktura != null) {
+				// type("application/xml")
+				return Response.ok().entity(faktura.getStavka()).build();
+			}
+			else {
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			}
 			
 			
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-		
-		return Response.status(404).build(); 
+
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 		
 	// #5
@@ -363,36 +377,39 @@ public class FirmaService {
 			log.info("***NOVA STAVKA**** ---->"+stavka.getNazivRobeIliUsluge());
 			log.info("***NOVA STAVKA[redniBroj] -----> "+stavka.getRedniBroj());
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), pib) && (faktura!=null)){
-				//fakturaDao.createStavka(idFakture, stavka);
-				
-				faktura.getStavka().add(stavka);
-				fakturaDao.merge(faktura, idFakture);
-				
-				return Response.created(new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj())).build();
+			if(Tim7XMLValidator.validateFromObject(stavka, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+				if(faktura != null) {
+					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
+						//fakturaDao.createStavka(idFakture, stavka);
+						
+						faktura.getStavka().add(stavka);
+						fakturaDao.merge(faktura, idFakture);
+		
+						URI location = new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj());
+						return Response.created(location).header("Content-Location", location).build();
+					}
+					else {
+						return Response.status(HttpResponse.SC_FORBIDDEN).build();
+					}
+				}
+				else {
+					return Response.status(HttpResponse.SC_NOT_FOUND).build();
+				}
 			}
-			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
-				return Response.status(HttpResponse.SC_FORBIDDEN).build();
-			}
-			if(faktura == null){
-				return Response.status(HttpResponse.SC_NOT_FOUND).build();
+			else {
+				return Response.status(HttpResponse.SC_BAD_REQUEST).build();
 			}
 			
-			//TODO: U slučaju neispravne stavke, odgovor je HTTP 400 Bad Request.
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (JAXBException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		}
-		
-		return null;
-		
+
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 		
 	// #6
@@ -400,7 +417,7 @@ public class FirmaService {
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
-	public Stavka getNthInvoiceItemsByBuyerForProvider(
+	public Response getNthInvoiceItemsByBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
 			@PathParam("pib_dob") String pib,
 			@PathParam("idFakture") Long idFakture,
@@ -414,16 +431,17 @@ public class FirmaService {
 				List<Stavka> stavke = faktura.getStavka();
 				for(Stavka stavka : stavke) {
 					if(stavka.getRedniBroj().equals(redniBroj)) {
-						return stavka;
+						return Response.ok().entity(stavka).build();
 					}
 				}	
+			}
+			else {
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-		
-		//return Response.status(404).build();
-		return null;
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 		
 	// #7
@@ -446,33 +464,34 @@ public class FirmaService {
 			kupac = firmaDao.findByURL(url);
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
+			stavka = fakturaDao.findItemInFaktura(idFakture, rbrStavke);
 			
-			if(firmaDao.isPartnerWith(kupac.getId(), pib)
-					&& (fakturaDao.findItemInFaktura(idFakture, rbrStavke) != null)){
-				fakturaDao.updateStavka(idFakture, stavka);
-				return Response.ok().build();
+			if(Tim7XMLValidator.validateFromObject(stavka, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+				
+				if(faktura == null || stavka == null) {
+					return Response.status(HttpResponse.SC_NOT_FOUND).build();
+				}
+				else {
+					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
+						fakturaDao.updateStavka(idFakture, stavka);
+						return Response.ok().build();
+					}
+					else {
+						return Response.status(HttpResponse.SC_FORBIDDEN).build();
+					}
+				}
 			}
-			
-			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
-				return Response.status(HttpResponse.SC_FORBIDDEN).build();
+			else {
+				return Response.status(HttpResponse.SC_BAD_REQUEST).build();
 			}
-			
-			if( (faktura == null) || (fakturaDao.findItemInFaktura(idFakture, rbrStavke) == null)){
-				return Response.status(HttpResponse.SC_NOT_FOUND).build();
-			}
-			
-			//TODO : u slucaju neispravne stavke HTTP 400 Bad Request.
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		} catch (JAXBException e) {
 			e.printStackTrace();
-			return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 		}
 
-		return null;
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 	
 	// #8
@@ -496,6 +515,10 @@ public class FirmaService {
 				
 				log.info("***(2)DELETE TEST*** -------------->idFakture: " + idFakture);
 				
+				if(faktura == null) {
+					return Response.status(HttpResponse.SC_NOT_FOUND).build();
+				}
+				
 				for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 				    Stavka item = iter.next();
 				    
@@ -508,17 +531,18 @@ public class FirmaService {
 					    return Response.noContent().build();	
 				    }
 				}
+
+				return Response.status(HttpResponse.SC_NOT_FOUND).build();
 			} 
-			
-			if(!firmaDao.isPartnerWith(kupac.getId(), pib)){
-				return Response.status(403).build();
+			else {
+				return Response.status(HttpResponse.SC_FORBIDDEN).build();
 			}
 			
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-		//not found
-		return Response.status(404).build();
+		
+		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 	
 		
