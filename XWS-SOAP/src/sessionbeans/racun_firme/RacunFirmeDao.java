@@ -27,38 +27,38 @@ public class RacunFirmeDao extends GenericDao<RacunFirme, Long> implements Racun
 
 	@Override
 	public void transferFunds(String racunKupca, String racunDobavljaca, BigDecimal iznos) throws IOException, JAXBException {
+		RacunFirme kupac = findByRacun(racunKupca);
+		RacunFirme dobavljac = findByRacun(racunDobavljaca);
 		
+		kupac.setStanje(kupac.getStanje().subtract(iznos));
+		dobavljac.setStanje(dobavljac.getStanje().add(iznos));
+		
+		merge(kupac, kupac.getId());
+		merge(dobavljac, dobavljac.getId());
 	}
 
 	@Override
-	public void skiniSaRacuna(String racunDuznika, BigDecimal iznos)
-			throws IOException, JAXBException {
-		// TODO Auto-generated method stub
-		
+	public void skiniSaRacuna(String racunDuznika, BigDecimal iznos) throws IOException, JAXBException {
+		RacunFirme racun = findByRacun(racunDuznika);
+		racun.setStanje(racun.getStanje().subtract(iznos));
+		racun.setRezervisanaSredstva(racun.getRezervisanaSredstva().subtract(iznos));
+		merge(racun, racun.getId());
 	}
 
 	@Override
-	public void uplatiNovac(String racunDobavljaca, BigDecimal iznos)
-			throws IOException, JAXBException {
-		// TODO Auto-generated method stub
-		
+	public void uplatiNovac(String racunDobavljaca, BigDecimal iznos) throws IOException, JAXBException {
+		RacunFirme racun = findByRacun(racunDobavljaca);
+		racun.setStanje(racun.getStanje().add(iznos));
+		merge(racun, racun.getId());
 	}
 
 	@Override
-	public RacunFirme findByRacun(String brojRacuna) {
-		try {
-			List<RacunFirme> lista = findAll();
-			for(RacunFirme racun : lista) {
-				if(racun.getBrojRacuna().equals(brojRacuna)) {
-					return racun;
-				}
+	public RacunFirme findByRacun(String brojRacuna) throws IOException, JAXBException {
+		List<RacunFirme> lista = findAll();
+		for(RacunFirme racun : lista) {
+			if(racun.getBrojRacuna().equals(brojRacuna)) {
+				return racun;
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return null;
 	}
