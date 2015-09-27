@@ -226,6 +226,7 @@ public class FirmaService {
 			@PathParam("url_kupca") String url, 
 			@PathParam("pib_dob") String pib,
 			Faktura faktura){
+		
 
 		if(Tim7XMLValidator.validateFromObject(faktura, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 		

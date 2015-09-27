@@ -9,10 +9,9 @@
             <xs:sequence>
                 <xs:element name="ID_banke">
 					<xs:simpleType>
-					    <xs:restriction base="xs:positiveInteger">
-					        <xs:totalDigits value="3"/>
-					        <xs:minInclusive value="3"/>
-					    </xs:restriction>
+					    <xs:restriction base="xs:string">
+            				<xs:pattern value="\d{3}"/>
+        				</xs:restriction>
 					</xs:simpleType>
                 </xs:element>
                 <xs:element name="Naziv_banke" type="xs:string"/>

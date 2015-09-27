@@ -31,5 +31,6 @@
                 <xs:element name="nalog_za_placanje" type="nzp:NalogZaPlacanjeType"/>
             </xs:sequence>
         </xs:sequence>
+        <xs:attribute name="id" type="xs:long"/>
     </xs:complexType>
 </xs:schema>
