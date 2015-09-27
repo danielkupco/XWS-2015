@@ -48,7 +48,12 @@ public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLoc
 	@Override
 	public MT102Type findByMT910Id(String idPoruke) throws IOException,
 			JAXBException {
-		// TODO Auto-generated method stub
+		List<MT102Type> list = findAll();
+		for (MT102Type item : list) {
+			if (item.getIDPoruke().equals(idPoruke)) {
+				return item;
+			}
+		}
 		return null;
 	}
 	

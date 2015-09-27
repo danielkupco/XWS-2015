@@ -20,6 +20,7 @@ import javax.xml.ws.ResponseWrapper;
 
 import sessionbeans.banka.BankaDaoLocal;
 import xws.tim7.services.banka.Banka_BankaPort_Client;
+import xws.tim7.services.banka.StatusMessage;
 import xws.tim7.entities.globals.MT9XXType;
 import xws.tim7.entities.globals.StatusType;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
@@ -72,26 +73,24 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 					String racunDuznika = nzp.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna();
 					Banka_BankaPort_Client clientK = new Banka_BankaPort_Client(racunDuznika);
 					
-					String obracunskiBankeDuznika = nalogZaGrupnaPlacanja.getObracunskiRacunBankeDuznika();
-					String swiftBankeDuznika = nalogZaGrupnaPlacanja.getSWIFTKodBankeDuznika();
-					MT9XXType mt900 = factory.createMT900Type(nzp, obracunskiBankeDuznika, swiftBankeDuznika);
+					MT9XXType mt900 = factory.createMT900Type(nzp, nalogZaGrupnaPlacanja);
 					clientK.primiMT900(mt900);
 
 					String racunPoverioca = nzp.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna();
 					Banka_BankaPort_Client clientD = new Banka_BankaPort_Client(racunPoverioca);
-
-					String obracunskiBankePoverioca = nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca();
-					String swiftBankePoverioca = nalogZaGrupnaPlacanja.getSWIFTKodBankePoverioca();
-					MT9XXType mt910 = factory.createMT910Type(nzp, obracunskiBankePoverioca, swiftBankePoverioca);
+					
+					MT9XXType mt910 = factory.createMT910Type(nzp, nalogZaGrupnaPlacanja);
 					clientD.primiMT910(mt910);
 				}
 			}
 
-			// TODO vrati korektan status !
+			_return.setPoruka("[CENTRALNA BANKA] USPESNO PRIMLJEN MT102");
+			_return.setStatusKod(new BigInteger("200"));
+			
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			throw new RuntimeException(ex);
+			throw new RuntimeException(new StatusMessage("[CENTRALNA_BANKA] GRESKA PRI PRIJEMU MT102"));
 		}
 	}
 

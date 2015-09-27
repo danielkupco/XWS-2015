@@ -55,7 +55,7 @@ import xws.tim7.entities.Identifiable;
     "iznos",
     "sifraValute"
 })
-public class MT9XXType extends Identifiable {
+public class MT9XXType extends Identifiable {	//TODO izbrisi Identifiable, Id atribut, i Dao klase
 
     @XmlElement(name = "ID_poruke", required = true)
     protected String idPoruke;

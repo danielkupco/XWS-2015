@@ -112,6 +112,7 @@ public class BankaImpl implements Banka {
 
 			} else if (!istaBanka) {
 				
+				//TODO treba swift i obracunski tih banaka !!!
 				Mt102Clearing.addNalog(nalogZaPlacanje); // nadji na osnovu
 															// banke
 															// kupca/dobavljaca
@@ -149,7 +150,6 @@ public class BankaImpl implements Banka {
 		System.out.println(zahtevZaIzvod);
 		try {
 			xws.tim7.entities.presek.PresekType _return = null;
-			
 			
 			List<NalogZaPlacanjeType> naloziZaPlacanje = nalogZaPlacanjeDao.findByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
 			List<NalogZaPlacanjeType> naloziZaPlacanjePreTrazenog = nalogZaPlacanjeDao.findOlderByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
@@ -250,9 +250,6 @@ public class BankaImpl implements Banka {
 
 			// RTGS ili clearing
 			// primi MT900 poruku o zaduzenju i skini novce sa odredjenog racuna
-
-			//TODO validate(mt900);
-			
 			NalogZaPlacanjeType nzp = nalogZaPlacanjeDao.findByNalog(porukaOZaduzenjuMT900.getIDPorukeNaloga());
 
 			String racunDuznika = nzp.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna();
@@ -270,7 +267,7 @@ public class BankaImpl implements Banka {
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			throw new RuntimeException(ex);
+			throw new RuntimeException(new StatusMessage("[BANKA] GRESKA PRI PRIJEMU MT900"));
 		}
 	}
 
@@ -287,9 +284,6 @@ public class BankaImpl implements Banka {
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
 
-			// treba da primi MT103/102 pre toga
-			// prosledi sa MT103/102 novce firmi.
-			//TODO ne radi se to tako...
 			MT103Type rtgs = null;
 			MT102Type clearing = null;
 			if ( (rtgs = Mt103Rtgs.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) !=null ) {
@@ -309,7 +303,7 @@ public class BankaImpl implements Banka {
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			throw new RuntimeException(ex);
+			throw new RuntimeException(new StatusMessage("[BANKA] GRESKA PRI PRIJEMU MT910"));
 		}
 	}
 
