@@ -84,6 +84,7 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 		    Stavka stavka = iter.next();
 		    if (stavka.getRedniBroj().equals(item.getRedniBroj())) {
 		        iter.remove();
+		        break;
 		    }
 		}
 		faktura.getStavka().add(item);

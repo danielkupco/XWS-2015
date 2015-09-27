@@ -50,7 +50,7 @@ angular.module('invoice', [
 		modalInstance.result.then(function (data) {
 			var invoiceItem = data.invoiceItem;
 			//ako stavka fakture nema id i ako je akcija 'save' znaci da je nova i dodaje se u listu. ako ima, svakako se manja u listi
-			if(!invoiceItem.id && data.action==='save'){
+			if(!invoiceItem.Redni_broj && data.action==='save'){
 				$scope.invoice.Stavka.push(invoiceItem);				
 			}
 			//ako stavka treba da se obrise izbaci se iz niza

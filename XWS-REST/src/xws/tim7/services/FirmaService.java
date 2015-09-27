@@ -451,12 +451,10 @@ public class FirmaService {
 			Stavka stavka){
 		
 		Firma kupac;
-		Firma dobavljac;
 		Faktura faktura;
 		
 		try {
 			kupac = firmaDao.findByURL(url);
-			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			stavka = fakturaDao.findItemInFaktura(idFakture, rbrStavke);
 			
