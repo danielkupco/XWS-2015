@@ -16,6 +16,8 @@ public interface RacunFirmeDaoLocal extends GenericDaoLocal<RacunFirme, Long> {
 	public void transferFunds(String racunKupca, String racunDobavljaca,
 			BigDecimal iznos) throws IOException, JAXBException;
 
-	public void skiniSaRacuna(RacunType racunDuznika, BigDecimal iznos)throws IOException, JAXBException;
+	public void skiniSaRacuna(String racunDuznika, BigDecimal iznos) throws IOException, JAXBException;
+
+	public void uplatiNovac(String racunDobavljaca, BigDecimal iznos) throws IOException, JAXBException;
 
 }

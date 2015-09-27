@@ -121,6 +121,7 @@ public class ObjectFactory {
 		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
 		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
 		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
 		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankeDuznika());
@@ -135,6 +136,7 @@ public class ObjectFactory {
 		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
 		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
 		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
 		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankePoverioca());
@@ -159,12 +161,33 @@ public class ObjectFactory {
 		return retVal;
 	}
 
-	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp) {
-		// TODO Auto-generated method stub
+	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp, String obracunskiRacunBanke, String swiftBanke) {
+		MT9XXType retVal = new MT9XXType();
+
+		retVal.setDatumValute(nzp.getDatumValute());
+		retVal.setIDPoruke(nzp.getIDPoruke());
+		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
+		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(obracunskiRacunBanke);
+		retVal.setSifraValute(nzp.getOznakaValute());
+		retVal.setSWIFTKodBanke(swiftBanke);
+		
+		return retVal;
 	}
 
-	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp) {
-		// TODO Auto-generated method stub
+	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp, String obracunskiRacunBanke, String swiftBanke) {
+		MT9XXType retVal = new MT9XXType();
+		
+		retVal.setDatumValute(nzp.getDatumValute());
+		retVal.setIDPoruke(nzp.getIDPoruke());
+		//TODO poruka naloga koji je vezan za taj mt
+		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
+		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(obracunskiRacunBanke);
+		retVal.setSifraValute(nzp.getOznakaValute());
+		retVal.setSWIFTKodBanke(swiftBanke);
+		
+		return retVal;
 	}
 
 

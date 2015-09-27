@@ -52,7 +52,7 @@ public class ObjectFactory {
 		retVal.setDatum(nzp.getDatumNaloga());
 		retVal.setDatumValute(nzp.getDatumValute());
 		
-		//TODO !!!
+		//TODO !!! FALE PODACI !!!
 		retVal.setObracunskiRacunBankeDuznika(null);
 		retVal.setObracunskiRacunBankePoverioca(null);
 		

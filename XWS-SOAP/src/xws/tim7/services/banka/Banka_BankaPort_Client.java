@@ -43,7 +43,6 @@ public final class Banka_BankaPort_Client {
 			BankaService ss = new BankaService(wsdlURL, SERVICE_NAME);
 			port = ss.getBankaPort();
 		} catch (MalformedURLException e) {
-			// TODO LOG ERROR
 			e.printStackTrace();
 		}
 		return port;
@@ -64,7 +63,6 @@ public final class Banka_BankaPort_Client {
 		try {
 			retVal = banka.primiZahtevZaIzvod(zahtevZaIzvod);
 		} catch (StatusMessage e) {
-			// TODO LOG INFO
 			e.printStackTrace();
 		}
 		return retVal;

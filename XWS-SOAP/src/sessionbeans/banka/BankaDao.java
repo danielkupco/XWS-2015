@@ -10,7 +10,6 @@ public class BankaDao extends GenericDao<Banka, Long> implements BankaDaoLocal {
 	
 	public BankaDao() {
 		super(contextPath, schemaName);
-		// TODO Auto-generated constructor stub
 	}
 
 }
