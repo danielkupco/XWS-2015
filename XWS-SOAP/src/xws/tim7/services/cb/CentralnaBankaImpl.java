@@ -6,6 +6,7 @@
 package xws.tim7.services.cb;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.logging.Logger;
 
 import javax.ejb.EJB;
@@ -56,7 +57,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			// klijentima JEDNE banke
 
 			// pokupi prve 3 cifre banke poverioca
-			String idBankePoverioca = registarBanaka.findByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca()).getId();
+			String idBankePoverioca = registarBanaka.findBankaByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca().getBrojRacuna()).getIDBanke();
 			Banka_BankaPort_Client tmpClient = new Banka_BankaPort_Client(
 					idBankePoverioca);
 			tmpClient.primiMT102(nalogZaGrupnaPlacanja);
@@ -104,7 +105,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 		LOG.info("Executing operation primiMT103");
 		System.out.println(rtgsMT103);
 		try {
-			xws.tim7.entities.globals.StatusType _return = null;
+			xws.tim7.entities.globals.StatusType _return = new StatusType();
 			// ObracunskiRacunDao.transferFunds(rtgsNalog.getObracunskiRacunBankeKupca(),
 			// rtgsNalog.getObracunskiRacunBankeDostavljaca(),
 			// rtgsNalog.getIznos());
@@ -112,17 +113,19 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			xws.tim7.entities.globals.ObjectFactory factory = new xws.tim7.entities.globals.ObjectFactory();
 			MT9XXType mt900 = factory.createMT900Type(rtgsMT103);
 
-			String racunBankeKupca = registarBanaka.findByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getId();
+			String racunBankeKupca = registarBanaka.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
 			Banka_BankaPort_Client bankaKupca = new Banka_BankaPort_Client(racunBankeKupca);
 			bankaKupca.primiMT900(mt900);
 
 			// napravi Mt910
 			MT9XXType mt910 = factory.createMT910Type(rtgsMT103);
-			String racunBankeDobavljaca = registarBanaka.findByObracunskiRacun(rtgsMT103.getObracunskiRacunBankePoverioca()).getId();
+			String racunBankeDobavljaca = registarBanaka.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankePoverioca()).getIDBanke();
 			Banka_BankaPort_Client bankaDobavljaca = new Banka_BankaPort_Client(racunBankeDobavljaca);
-			bankaDobavljaca.primiMT103(rtgsMT103);
-			bankaDobavljaca.primiMT910(mt910);
+			bankaDobavljaca.primiMT103(rtgsMT103);	//prosledi mt103
+			bankaDobavljaca.primiMT910(mt910);		//prosledi mt910
 
+			_return.setPoruka("[CENTRALNA_BANKA] USPESNO PRIMLJEN MT103");
+			_return.setStatusKod(new BigInteger("200"));
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();

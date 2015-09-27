@@ -12,5 +12,7 @@ import xws.tim7.entities.globals.RacunType;
 public interface BankaDaoLocal extends GenericDaoLocal<Banka, Long> {
 
 	MT9XXType findByObracunskiRacun(RacunType obracunskiRacunBankePoverioca) throws IOException, JAXBException;
+
+	Banka findBankaByObracunskiRacun(String obracunskiRacunBankePoverioca) throws IOException, JAXBException;
 	
 }
