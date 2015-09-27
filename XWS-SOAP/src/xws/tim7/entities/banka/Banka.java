@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import xws.tim7.entities.Identifiable;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -55,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
     "swift"
 })
 @XmlRootElement(name = "Banka")
-public class Banka {
+public class Banka extends Identifiable {
 
     @XmlElement(name = "ID_banke", required = true)
     protected String idBanke;

@@ -21,7 +21,6 @@ import xws.tim7.entities.globals.StatusType;
 import xws.tim7.entities.mt102.MT102Type;
 import xws.tim7.entities.mt103.MT103Type;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
-import xws.tim7.entities.presek.ObjectFactory;
 import xws.tim7.entities.presek.PresekType;
 import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 
@@ -159,7 +158,7 @@ public class BankaImpl implements Banka {
 			
 			for(NalogZaPlacanjeType nalog : naloziZaPlacanjePreTrazenog){
 				
-				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){		//racun primaoca (+)	
+				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
 					prethodnoStanje += nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 				}else{
 					prethodnoStanje -= nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();

@@ -25,7 +25,7 @@ public class Tim7XMLValidator {
 	
 	public static boolean validateFromObject(Object jaxbObject, String schemaPath, String contextPath) {
 		
-		File xmlFile = new File("");
+		File xmlFile = new File("/output.xml");
 		
 		//Definisemo kontekst, tj. paket(e) u kome se nalaze bean-ovi
 		JAXBContext context;
@@ -49,8 +49,7 @@ public class Tim7XMLValidator {
 		Source xmlSource = new StreamSource(xmlFile);
 		
 		try {
-			
-			URL schemaFile = new URL(schemaPath);
+			Source schemaFile = new StreamSource(new File(schemaPath));
 			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = schemaFactory.newSchema(schemaFile);
 			Validator validator = schema.newValidator();
