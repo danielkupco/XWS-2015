@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.logging.Logger;
 
+import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,8 +20,15 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
+import sessionbeans.mt102.MT102DaoLocal;
+import sessionbeans.mt103.MT103DaoLocal;
+import sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
+import sessionbeans.racun_firme.RacunFirmeDaoLocal;
+import xws.tim7.entities.globals.MT9XXType;
 import xws.tim7.entities.globals.StatusType;
 import xws.tim7.entities.mt102.MT102Type;
+import xws.tim7.entities.mt103.MT103Type;
+import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 
 /**
@@ -32,20 +40,20 @@ import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 @javax.jws.WebService(serviceName = "BankaService", portName = "BankaPort", targetNamespace = "http://xws/tim7/banka", wsdlLocation = "file:/home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/banka.wsdl", endpointInterface = "xws.tim7.banka.Banka")
 public class BankaImpl implements Banka {
 
+	@EJB
+	private RacunFirmeDaoLocal racuni;
+
+	@EJB
+	private NalogZaPlacanjeDaoLocal naloziZaPlacanje;
+
+	@EJB
+	private MT102DaoLocal Mt102Clearing;
+
+	@EJB
+	private MT103DaoLocal Mt103Rtgs;
+
 	private static final Logger LOG = Logger.getLogger(BankaImpl.class
 			.getName());
-
-	/* spaghetti */
-	/*
-	 * Firma -> nalog za placanje -> Banka Banka -- RTGS (>250k || hitno) ?
-	 * Primalac iz druge banke? -> CB
-	 * 
-	 * Firma -> preuzimanje izvoda[rbr stavke] -> Banka Banka -> presek
-	 * ==(zaglavlje + stavka preseka) -> Firma
-	 * 
-	 * Banka cuva Racune svojih klijenata
-	 */
-	/* spaghetti */
 
 	/*
 	 * (non-Javadoc)
@@ -55,8 +63,12 @@ public class BankaImpl implements Banka {
 	public void obaviClearing() {
 		LOG.info("Executing operation obaviClearing");
 		try {
+			// pokupi MT102 iz Dao, prosledi CB
+			for (MT102Type mt102 : Mt102Clearing.findAll()) {
+				CentralnaBanka_CentralnaBankaPort_Client client = new CentralnaBanka_CentralnaBankaPort_Client("");
+				client.primiMT102(mt102);
+			}
 		} catch (java.lang.Exception ex) {
-			// POZIVA CB ?
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
@@ -72,7 +84,7 @@ public class BankaImpl implements Banka {
 			xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType nalogZaPlacanje) {
 		LOG.info("Executing operation primiNalogZaPlacanje");
 		System.out.println(nalogZaPlacanje);
-		
+
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
 
@@ -88,48 +100,48 @@ public class BankaImpl implements Banka {
 			if (nalogZaPlacanje.isHitno()
 					|| nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos()
 							.compareTo(new BigDecimal(250000)) > 0) {
-				//CB, RTGS
-				// RacunDao.reserveFunds(racunKupca, naloZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
-				// CBClient = new CBClient(racunKupca.substring(0, 3)); //kupac.racun.prve-tri-cifre
-				// CBClient.primiMT103(nalogZaPlacanje); // client napravi MT103 od toga, prosledi implementaciji
-				// goto: primiMT900 (a onda CB prolsedi MT103 drugoj banci, i MT910)
-				
-				
-				/* RACUN.java
-				 * BigDecimal: stanje;
-				 * BigDecimal: rezervisanaSredstva;
-				 * 
-				 * String: brojRacuna					|
-				 * String: model						 > RacunType.java (POSTOJI)
-				 * String: pozivNaBroj?					|
-				 * String: SWIFT/Obracunski
-				 */
+				// CB, RTGS
+				// RacunDao.reserveFunds(racunKupca,
+				// naloZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
+				// CBClient = new CBClient(racunKupca.substring(0, 3));
+				// //kupac.racun.prve-tri-cifre
+				// CBClient.primiMT103(nalogZaPlacanje); // client napravi MT103
+				// od toga, prosledi implementaciji
 
-				// RacunDao.reserveFunds(racunKupca, naloZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
-				CentralnaBanka_CentralnaBankaPort_Client cbClient = new CentralnaBanka_CentralnaBankaPort_Client(racunKupca.substring(0, 3));
+				racuni.reserveFunds(racunKupca, nalogZaPlacanje
+						.getOsnovaNalogaZaPlacanje().getIznos());
+				CentralnaBanka_CentralnaBankaPort_Client cbClient = new CentralnaBanka_CentralnaBankaPort_Client(
+						racunKupca.substring(0, 3));
 				_return = cbClient.primitMT103(nalogZaPlacanje);
-				
-				// RacunDao.reserveFunds(racunKupca, naloZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
-				
 
 			} else if (!istaBanka) {
 				// CB, clearing
 				// RESERVE FUNDS != SKINI SA RACUNA
-				// RacunDao.reserveFunds(racunKupca, nalogZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
+				// RacunDao.reserveFunds(racunKupca,
+				// nalogZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
 				// periodicno salji MT102 CBanci???
 				// MT102 se sastoji od nalogazaplacanje od poslednjeg clearinga
-				// svaki nalog u MT102 mora biti manji od 250k i upuceni klijentima JEDNE banke
-				// CB prima MT102 neko vreme?, i onda salje MT900 da javi da se banka zaduzila (skida sa racuna u MT900)
-				// takodje CB prosledjuje MT102 + MT910 drugoj banci, koja to prima i prenosi sredstva na te racune
-				
-				// RacunDao.reserveFunds(racunKupca, nalogZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
-				CentralnaBanka_CentralnaBankaPort_Client cbClient = new CentralnaBanka_CentralnaBankaPort_Client(racunKupca.substring(0, 3));
-				_return = cbClient.primiMT102(nalogZaPlacanje);
-				
+				// svaki nalog u MT102 mora biti manji od 250k i upuceni
+				// klijentima JEDNE banke
+				// CB prima MT102 neko vreme?, i onda salje MT900 da javi da se
+				// banka zaduzila (skida sa racuna u MT900)
+				// takodje CB prosledjuje MT102 + MT910 drugoj banci, koja to
+				// prima i prenosi sredstva na te racune
+
+				Mt102Clearing.addNalog(nalogZaPlacanje); // nadji na osnovu
+															// banke
+															// kupca/dobavljaca
+															// u odredjeni MT102
+															// da gura stavku
+
 			} else {
-				// RacunDao.transferFunds(racunKupca, racunDobavljaca, nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
+				// RacunDao.transferFunds(racunKupca, racunDobavljaca,
+				// nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
 				// log info
-				
+
+				racuni.transferFunds(racunKupca, racunDobavljaca,
+						nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
+
 				_return = new StatusType();
 				_return.setPoruka("ista banka");
 				_return.setStatusKod(new BigInteger("200"));
@@ -140,7 +152,7 @@ public class BankaImpl implements Banka {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		
+
 	}
 
 	/*
@@ -156,28 +168,28 @@ public class BankaImpl implements Banka {
 		System.out.println(zahtevZaIzvod);
 		try {
 			xws.tim7.entities.presek.PresekType _return = null;
-			
-			//izvod se sastoji od mnogo stavki
-			//pa stavke grupisane u preseke 
+
+			// izvod se sastoji od mnogo stavki
+			// pa stavke grupisane u preseke
 			// ===> presek == NUM_PER_PRESEK*stavka
-			
-			//nzps = NalogZaPlacanjeDao.findByAccountAndDate();
-			//ObjectFactory factory = new ObjectFactory();
-			//izvod = factory.izvodType(zahzaizvod);
-			//foreach nzp in nzps: presek = factory.createPresek(nzp);
-			//return presek[redniBroj];		
-			
+
+			// nzps = NalogZaPlacanjeDao.findByAccountAndDate();
+			// ObjectFactory factory = new ObjectFactory();
+			// izvod = factory.izvodType(zahzaizvod);
+			// foreach nzp in nzps: presek = factory.createPresek(nzp);
+			// return presek[redniBroj];
+
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			//TODO Fault
+			// TODO Fault
 			// throw new StatusMessage("statusMessage...");
 			throw new RuntimeException(ex);
 		}
 	}
-	
+
 	/* POZIVA SAMO CENTRALNA BANKA */
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -190,16 +202,16 @@ public class BankaImpl implements Banka {
 		System.out.println(porukaOZaduzenjuMT900);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
-			
+
 			// RTGS ili clearing
 			// primi MT900 poruku o zaduzenju i skini novce sa odredjenog racuna
-			// generisi sta treba u bazi?
-			// RacunDao.skiniSaRacuna();
-			
-			// nzp = NalogZaPlacanjeDao.find(mt900.getIdPorukeNaloga());
-			// RacuniDao.skiniSaRacuna(nzp.getRacunKupca(),mt900.getIznos());
-			
-			// opciono proveri ispravnost podataka
+
+			//TODO proveri ispravnost podataka
+			//TODO mora da trazi po MT102 i MT103 ? jer na to reaguje
+			NalogZaPlacanjeType nzp = naloziZaPlacanje.findByNalog(porukaOZaduzenjuMT900.getIDPorukeNaloga());
+			//TODO proveri ispravnost iznosa
+			racuni.skiniSaRacuna(nzp.getOsnovaNalogaZaPlacanje().getRacunDuznika(),porukaOZaduzenjuMT900.getIznos());
+			//TODO _return da bude korektna poruka
 			
 			return _return;
 		} catch (java.lang.Exception ex) {
@@ -220,12 +232,23 @@ public class BankaImpl implements Banka {
 		System.out.println(porukaOOdobrenjuMT910);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
-			
-			// treba da primi MT103 pre toga
-			// prosledi sa MT103-a novce firmi.
-			// racun = MT103Dao.findByID(porukaOOdobrenjuMT910.getId());
-			// racun = MT102Dao.findByID(porukaOOdobrenjuMT910.getId());
+
+			// treba da primi MT103/102 pre toga
+			// prosledi sa MT103/102 novce firmi.
+			// racun = MT103Dao.findByID(porukaOOdobrenjuMT910.getIdPoruke());
+			// racun = MT102Dao.findByID(porukaOOdobrenjuMT910.getIdPoruke());
 			// RacunDao.dodajSredstva(racun, porukaOOdobrenjuMt910.getIznos());
+
+			//TODO ne radi se to tako...
+			MT103Type rtgs = null;
+			MT102Type clearing = null;
+			if ( (rtgs = Mt103Rtgs.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) !=null ) {
+				;//TODO
+			} else if ( (clearing = Mt102Clearing.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) != null) {
+				;//TODO
+			} else {
+				throw new Exception("asd");
+			}
 			
 			return _return;
 		} catch (java.lang.Exception ex) {
@@ -233,8 +256,6 @@ public class BankaImpl implements Banka {
 			throw new RuntimeException(ex);
 		}
 	}
-
-	
 
 	/*
 	 * (non-Javadoc)
@@ -248,10 +269,11 @@ public class BankaImpl implements Banka {
 		System.out.println(rtgsMT103);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
-			
+
 			// Aha, sad znam da Firmi X iz MT103 trebam da prebacim novce...
-			// MT103Dao.persist(rtgsMT103);
-			
+			//TODO: _return da bude korektan status
+			Mt103Rtgs.persist(rtgsMT103);
+
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
@@ -271,10 +293,11 @@ public class BankaImpl implements Banka {
 		System.out.println(nalogZaGrupnaPlacanja);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
-			
+
 			// aha, sad znam da firmi X izMT102 trebam da prebacim novce...
-			// MT102Dao.persist(MT102);
-			
+			//TODO: _return da bude korektan status
+			Mt102Clearing.persist(nalogZaGrupnaPlacanja);
+
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();

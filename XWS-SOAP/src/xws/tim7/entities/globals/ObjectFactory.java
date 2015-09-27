@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.mt102.MT102Type;
 import xws.tim7.entities.mt103.MT103Type;
+import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 
 /**
@@ -156,6 +157,14 @@ public class ObjectFactory {
 		
 		
 		return retVal;
+	}
+
+	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp) {
+		// TODO Auto-generated method stub
+	}
+
+	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp) {
+		// TODO Auto-generated method stub
 	}
 
 

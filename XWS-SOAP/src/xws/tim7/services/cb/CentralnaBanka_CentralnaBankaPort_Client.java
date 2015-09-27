@@ -49,10 +49,10 @@ public final class CentralnaBanka_CentralnaBankaPort_Client {
     	return retVal;
     }
     
-    public StatusType primiMT102(NalogZaPlacanjeType nzp) {
-    	xws.tim7.entities.mt102.ObjectFactory factory = new xws.tim7.entities.mt102.ObjectFactory();
-    	MT102Type clearingNalog = factory.createMT102Type(nzp);
-    	return this.getService().primiMT102(clearingNalog);
+    public StatusType primiMT102(MT102Type mt102) {
+    	//xws.tim7.entities.mt102.ObjectFactory factory = new xws.tim7.entities.mt102.ObjectFactory();
+    	//MT102Type clearingNalog = factory.createMT102Type(nzp);
+    	return this.getService().primiMT102(mt102);
     }
     
     public StatusType primitMT103(NalogZaPlacanjeType nzp) {

@@ -9,12 +9,15 @@
 package xws.tim7.entities.racun_firme;
 
 import java.math.BigDecimal;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import xws.tim7.entities.Identifiable;
 
 
 /**
@@ -58,7 +61,7 @@ import javax.xml.bind.annotation.XmlType;
     "pozivNaBroj"
 })
 @XmlRootElement(name = "Racun_firme")
-public class RacunFirme {
+public class RacunFirme extends Identifiable {
 
     @XmlElement(name = "SWIFT_banke", required = true)
     protected String swiftBanke;
