@@ -227,7 +227,12 @@ public class FirmaService {
 			@PathParam("pib_dob") String pib,
 			Faktura faktura){
 
-		if(Tim7XMLValidator.validateFromObject(faktura, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+		
+		for(int i = 0; i < faktura.getStavka().size(); ++i){
+			faktura.getStavka().get(i).setRedniBroj(BigInteger.valueOf(i+1));
+		}
+		
+		if(Tim7XMLValidator.validateFromObject(faktura, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 		
 			try {
 				Firma kupac = firmaDao.findByURL(url);
@@ -377,7 +382,7 @@ public class FirmaService {
 			log.info("***NOVA STAVKA**** ---->"+stavka.getNazivRobeIliUsluge());
 			log.info("***NOVA STAVKA[redniBroj] -----> "+stavka.getRedniBroj());
 			
-			if(Tim7XMLValidator.validateFromObject(stavka, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 				if(faktura != null) {
 					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
 						//fakturaDao.createStavka(idFakture, stavka);
@@ -466,7 +471,7 @@ public class FirmaService {
 			faktura = fakturaDao.findById(idFakture);
 			stavka = fakturaDao.findItemInFaktura(idFakture, rbrStavke);
 			
-			if(Tim7XMLValidator.validateFromObject(stavka, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
+			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 				
 				if(faktura == null || stavka == null) {
 					return Response.status(HttpResponse.SC_NOT_FOUND).build();
