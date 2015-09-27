@@ -152,12 +152,12 @@ public class BankaImpl implements Banka {
 			xws.tim7.entities.presek.PresekType _return = null;
 			
 			
-			List<NalogZaPlacanjeType> nalogZaPlacanjeDao = nalogZaPlacanjeDao.findByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
-			List<NalogZaPlacanjeType> nalogZaPlacanjeDaoPreTrazenog = nalogZaPlacanjeDao.findOlderByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
+			List<NalogZaPlacanjeType> naloziZaPlacanje = nalogZaPlacanjeDao.findByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
+			List<NalogZaPlacanjeType> naloziZaPlacanjePreTrazenog = nalogZaPlacanjeDao.findOlderByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
 			
 			double prethodnoStanje = 0.0;
 			
-			for(NalogZaPlacanjeType nalog : nalogZaPlacanjeDaoPreTrazenog){
+			for(NalogZaPlacanjeType nalog : naloziZaPlacanjePreTrazenog){
 				
 				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){		//racun primaoca (+)	
 					prethodnoStanje += nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
@@ -172,7 +172,7 @@ public class BankaImpl implements Banka {
 			
 			List<PresekType> listaPreseka = new ArrayList<PresekType>();
 			
-			int brojPreseka = nalogZaPlacanjeDao.size() % 5 == 0 ? nalogZaPlacanjeDao.size()/5 : nalogZaPlacanjeDao.size()/5 +1;
+			int brojPreseka = naloziZaPlacanje.size() % 5 == 0 ? naloziZaPlacanje.size()/5 : naloziZaPlacanje.size()/5 +1;
 			
 			for(int i = 0; i < brojPreseka ; ++i){
 				
@@ -192,23 +192,23 @@ public class BankaImpl implements Banka {
 				
 				List<PresekType.StavkaPreseka> listaStavkiPreseka = new ArrayList<PresekType.StavkaPreseka>();
 				
-				for(int j = 0+5*i; j < nalogZaPlacanjeDao.size() || listaStavkiPreseka.size() == 5; ++j){
+				for(int j = 0+5*i; j < naloziZaPlacanje.size() || listaStavkiPreseka.size() == 5; ++j){
 					
 					PresekType.StavkaPreseka stavkaPreseka = new PresekType.StavkaPreseka();
 					
-					if(nalogZaPlacanjeDao.get(j).getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
+					if(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
 						++brojPromenaUKorist;
-						ukupnoUKorist = nalogZaPlacanjeDao.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						ukupnoUKorist = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 						stavkaPreseka.setSmer("K");
 					}else{
 						++brojPromenaNaTeret;
-						ukupnoNaTeret = nalogZaPlacanjeDao.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						ukupnoNaTeret = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 						stavkaPreseka.setSmer("T");
 					}
 					
-					stavkaPreseka.setOsnovaNalogaZaPlacanje(nalogZaPlacanjeDao.get(j).getOsnovaNalogaZaPlacanje());
-					stavkaPreseka.setDatumNaloga(nalogZaPlacanjeDao.get(j).getDatumNaloga());
-					stavkaPreseka.setDatumValute(nalogZaPlacanjeDao.get(j).getDatumValute());
+					stavkaPreseka.setOsnovaNalogaZaPlacanje(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje());
+					stavkaPreseka.setDatumNaloga(naloziZaPlacanje.get(j).getDatumNaloga());
+					stavkaPreseka.setDatumValute(naloziZaPlacanje.get(j).getDatumValute());
 					
 					
 					listaStavkiPreseka.add(stavkaPreseka);
