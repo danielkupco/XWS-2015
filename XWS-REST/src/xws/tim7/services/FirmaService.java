@@ -144,6 +144,7 @@ public class FirmaService {
 			
 			firmaDao.persist(firma);
 
+			log.info("Firme uspesno kreirane...");
 			return Response.ok().entity("Firme uspesno kreirane...").build();
 //		} catch (JAXBException e) {
 //			// TODO Auto-generated catch block
@@ -154,6 +155,7 @@ public class FirmaService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		log.info("Doslo je do greske...");
 		return Response.serverError().entity("Doslo je do greske...").build();
     }
 	
@@ -167,20 +169,13 @@ public class FirmaService {
 			context = JAXBContext.newInstance("xws.tim7.entities.faktura");
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 			
-			log.info("creating faktura 1...");
 			Faktura faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura1.xml"));
-			
-			log.info("faktura 1 created...");
 			fakturaDao.persist(faktura);
-			log.info("faktura 1 persisted...");
 			
-			log.info("creating faktura 2...");
 			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura2.xml"));
-			
-			log.info("faktura 2 created...");
 			fakturaDao.persist(faktura);
-			log.info("faktura 2 persisted...");
 
+			log.info("Fakture uspesno kreirane...");
 			return Response.ok().entity("Fakture uspesno kreirane...").build();
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
@@ -189,6 +184,7 @@ public class FirmaService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		log.info("Doslo je do greske...");
 		return Response.serverError().entity("Doslo je do greske...").build();
     }
 	
@@ -268,15 +264,9 @@ public class FirmaService {
 			@PathParam("pib_dob") String pib_dob) {
 		try {
 			Firma kupac = firmaDao.findByURL(urlKupca);
-			log.info("urlKupca " + urlKupca);
-			log.info("kupac " + kupac);
-			log.info("pib " + pib_dob);
-			log.info("firmaDao " + firmaDao);
-			log.info("fakturaDao " + fakturaDao);
 			// 200 OK + Lista
 			if (firmaDao.isPartnerWith(kupac.getId(), pib_dob)) {
 				List<Faktura> fakture = fakturaDao.getFaktureByBuyerAndSeller(kupac.getPIB(), pib_dob);
-				log.info("fakture za json: " + fakture.size());
 				return Response.ok().entity(fakture).build();
 			}
 			else {
@@ -374,9 +364,6 @@ public class FirmaService {
 			faktura = fakturaDao.findById(idFakture);
 			
 			stavka.setRedniBroj(BigInteger.valueOf(faktura.getStavka().size()+1));
-			
-			log.info("***NOVA STAVKA**** ---->"+stavka.getNazivRobeIliUsluge());
-			log.info("***NOVA STAVKA[redniBroj] -----> "+stavka.getRedniBroj());
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 				if(faktura != null) {
@@ -510,11 +497,7 @@ public class FirmaService {
 			
 			if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
 				
-				log.info("***(1)DELETE TEST*** -------------->isPartnerWith je true");
-				
 				Faktura faktura = fakturaDao.findById(idFakture);
-				
-				log.info("***(2)DELETE TEST*** -------------->idFakture: " + idFakture);
 				
 				if(faktura == null) {
 					return Response.status(HttpResponse.SC_NOT_FOUND).build();
@@ -522,13 +505,9 @@ public class FirmaService {
 				
 				for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 				    Stavka item = iter.next();
-				    
-				    log.info("***DELETE TEST*** (redniBrojStavke:"+item.getRedniBroj()+") uporedjuje se sa redniBroj= " +redniBroj);
-				    
+				   
 				    if(item.getRedniBroj().intValue() == redniBroj) {
-				    	log.info("***DELETE TEST***-------------->TRUE-uso u if");
 				    	fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
-				    	
 					    return Response.noContent().build();	
 				    }
 				}

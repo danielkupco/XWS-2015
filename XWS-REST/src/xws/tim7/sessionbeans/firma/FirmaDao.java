@@ -32,14 +32,9 @@ public class FirmaDao extends GenericDao<Firma, Long> implements FirmaDaoLocal {
 	@Override
 	public boolean isPartnerWith(Long firmId, String partnerPIB)
 			throws IOException, JAXBException {
-		log.info("is partner...");
 		Firma frm = findById(firmId);
-		log.info("found " + frm.getIDFirme() + " - " + frm.getNazivFirme());
-		log.info("pibs:");
 		for(String pib : frm.getPartneri().getPib()) {
-			log.info(pib);
 			if(pib.equals(partnerPIB)) {
-				log.info("partner with");
 				return true;
 			}
 		}

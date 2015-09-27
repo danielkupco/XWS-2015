@@ -97,12 +97,7 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 		// pokupis fakturu, proveris u zaglavlju kupca/dobavljaca pa dodas u retList
 		List<Faktura> retVal = new ArrayList<Faktura>();
 		List<Faktura> fakture = findAll();
-		log.info("sve fakture: " + fakture.size());
 		for(Faktura f : fakture) {
-			log.info("buyerPIB: " + buyerPIB);
-			log.info("f kupac PIB: " + f.getZaglavlje().getKupac().getPIB());
-			log.info("sellerPIB: " + sellerPIB);
-			log.info("f dobavljac PIB: " + f.getZaglavlje().getDobavljac().getPIB());
 			if(f.getZaglavlje().getKupac().getPIB().equals(buyerPIB) && f.getZaglavlje().getDobavljac().getPIB().equals(sellerPIB))
 				retVal.add(f);
 		}

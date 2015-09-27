@@ -39,9 +39,6 @@ public class UserDao extends GenericDao<User, Long> implements UserDaoLocal {
 	
 	@Override
 	public User login(String username, String password) throws NoSuchAlgorithmException, IOException, JAXBException {
-		log.info("logovanje...");
-		log.info("username: " + username);
-		log.info("password: " + password);
 
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		md.update(password.getBytes("UTF-8"));
@@ -51,8 +48,6 @@ public class UserDao extends GenericDao<User, Long> implements UserDaoLocal {
 			sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 		}
 		password = sb.toString();
-		log.info("password: " + password);
-		
 		
 //		if(username.equals("admin") && password.equals("21232f297a57a5a743894a0e4a801fc3")) {
 //			log.info("logovanje uspesno!");
@@ -74,7 +69,6 @@ public class UserDao extends GenericDao<User, Long> implements UserDaoLocal {
 		
 		List<User> users = findAll();
 		for(User u : users) {
-			log.info(u.getUsername() + " - " + u.getPassword());
 			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {
 				log.info("logovanje uspesno!");
 				request.getSession().setAttribute("user", u);
