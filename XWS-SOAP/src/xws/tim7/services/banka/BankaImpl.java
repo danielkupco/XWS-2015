@@ -267,7 +267,7 @@ public class BankaImpl implements Banka {
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			throw new RuntimeException(ex);
+			throw new RuntimeException(new StatusMessage("[BANKA] GRESKA PRI PRIJEMU MT900"));
 		}
 	}
 
@@ -303,7 +303,7 @@ public class BankaImpl implements Banka {
 			return _return;
 		} catch (java.lang.Exception ex) {
 			ex.printStackTrace();
-			throw new RuntimeException(ex);
+			throw new RuntimeException(new StatusMessage("[BANKA] GRESKA PRI PRIJEMU MT910"));
 		}
 	}
 
