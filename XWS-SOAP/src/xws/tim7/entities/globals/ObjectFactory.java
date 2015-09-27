@@ -119,9 +119,15 @@ public class ObjectFactory {
 
 		MT9XXType retVal = new MT9XXType();
 		
+		//TODO SET ID MORA ENTITY MANAGER !!!
+		retVal.setId(null);
+		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
 		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		/*
+		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
+		 */
 		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
 		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
 		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankeDuznika());
@@ -133,10 +139,16 @@ public class ObjectFactory {
 	
 	public MT9XXType createMT910Type(MT103Type rtgsMT103) {
 		MT9XXType retVal = new MT9XXType();
+
+		//TODO SET ID MORA ENTITY MANAGER !!!
+		retVal.setId(null);
 		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
 		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		/*
+		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
+		 */
 		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
 		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
 		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankePoverioca());
@@ -161,31 +173,38 @@ public class ObjectFactory {
 		return retVal;
 	}
 
-	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp, String obracunskiRacunBanke, String swiftBanke) {
+	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp, MT102Type nalogZaGrupnaPlacanja) {
 		MT9XXType retVal = new MT9XXType();
 
+		//TODO SET ID MORA ENTITY MANAGER !!!
+		retVal.setId(null);
+		
 		retVal.setDatumValute(nzp.getDatumValute());
-		retVal.setIDPoruke(nzp.getIDPoruke());
+		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());
 		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
 		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
-		retVal.setObracunskiRacunBanke(obracunskiRacunBanke);
+		retVal.setObracunskiRacunBanke(nalogZaGrupnaPlacanja.getObracunskiRacunBankeDuznika());
 		retVal.setSifraValute(nzp.getOznakaValute());
-		retVal.setSWIFTKodBanke(swiftBanke);
+		retVal.setSWIFTKodBanke(nalogZaGrupnaPlacanja.getSWIFTKodBankeDuznika());
 		
 		return retVal;
 	}
 
-	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp, String obracunskiRacunBanke, String swiftBanke) {
+
+	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp,
+			MT102Type nalogZaGrupnaPlacanja) {
 		MT9XXType retVal = new MT9XXType();
+
+		//TODO SET ID MORA ENTITY MANAGER !!!
+		retVal.setId(null);
 		
 		retVal.setDatumValute(nzp.getDatumValute());
-		retVal.setIDPoruke(nzp.getIDPoruke());
-		//TODO poruka naloga koji je vezan za taj mt
+		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());
 		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
 		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
-		retVal.setObracunskiRacunBanke(obracunskiRacunBanke);
+		retVal.setObracunskiRacunBanke(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca());
 		retVal.setSifraValute(nzp.getOznakaValute());
-		retVal.setSWIFTKodBanke(swiftBanke);
+		retVal.setSWIFTKodBanke(nalogZaGrupnaPlacanja.getSWIFTKodBankePoverioca());
 		
 		return retVal;
 	}
