@@ -20,4 +20,6 @@ public interface RacunFirmeDaoLocal extends GenericDaoLocal<RacunFirme, Long> {
 
 	public void uplatiNovac(String racunDobavljaca, BigDecimal iznos) throws IOException, JAXBException;
 
+	public RacunFirme findByRacun(String brojRacuna);
+	
 }

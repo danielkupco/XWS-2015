@@ -15,6 +15,7 @@
     </xs:element>
     <xs:complexType name="MT102Type">
         <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="ID_poruke" type="glob:TIDPoruke"/>
             <xs:element minOccurs="1" maxOccurs="1" name="SWIFT_kod_banke_duznika"
                 type="glob:TSWIFTKod"/>
             <xs:element minOccurs="1" maxOccurs="1" name="obracunski_racun_banke_duznika"

@@ -245,5 +245,9 @@ public class RacunFirme extends Identifiable {
     public void setId(Long value) {
         this.id = value;
     }
+    
+    public BigDecimal getRaspolozivaSredstva() {
+    	return stanje.subtract(rezervisanaSredstva);
+    }
 
 }
