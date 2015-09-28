@@ -191,7 +191,7 @@ public class BankaImpl implements Banka {
 				
 				List<PresekType.StavkaPreseka> listaStavkiPreseka = new ArrayList<PresekType.StavkaPreseka>();
 				
-				for(int j = 0+5*i; j < naloziZaPlacanje.size() || listaStavkiPreseka.size() == 5; ++j){
+				for(int j = 0+5*i; listaStavkiPreseka.size() == 5|| j < naloziZaPlacanje.size(); ++j){
 					
 					PresekType.StavkaPreseka stavkaPreseka = new PresekType.StavkaPreseka();
 					

@@ -139,4 +139,14 @@ angular.module('invoice', [
 		else return true;
 	}
 
+
+	$scope.send = function(){
+		$http({
+			method : 'GET',
+			url : 'http://localhost:8080/xws/api/firma/posaljiFakturu'+$scope.invoice.id
+		}).then(function successCallback(response){
+			console.log('faktura uspesno poslata');
+		})
+	}
+
 });
