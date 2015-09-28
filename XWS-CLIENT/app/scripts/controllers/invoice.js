@@ -6,7 +6,7 @@ angular.module('invoice', [
 	'invoiceItem',
 	'resource.invoiceItem'])
 
-.controller('invoiceCtrl', function (Invoice, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem) {
+.controller('invoiceCtrl', function (Invoice, $http, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem) {
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -143,7 +143,7 @@ angular.module('invoice', [
 	$scope.send = function(){
 		$http({
 			method : 'GET',
-			url : 'http://localhost:8080/xws/api/firma/posaljiFakturu'+$scope.invoice.id
+			url : 'http://localhost:8080/xws/api/firma/posaljiFakturu/'+$scope.invoice.id
 		}).then(function successCallback(response){
 			console.log('faktura uspesno poslata');
 		})
