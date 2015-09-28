@@ -32,11 +32,11 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	}
 
 	@Override
-	public Stavka findItemInFaktura(Long fakturaId, Long stavkaId) throws IOException, JAXBException {
+	public Stavka findItemInFaktura(Long fakturaId, Long stavkaRbr) throws IOException, JAXBException {
 		Faktura faktura = findById(fakturaId);
 		
 			for (Stavka item : faktura.getStavka()) {
-				if(stavkaId.equals(item.getRedniBroj().longValue())) {
+				if(stavkaRbr.equals(item.getRedniBroj().longValue())) {
 					return item;
 				}
 			}
@@ -79,11 +79,10 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	@Override
 	public Faktura updateStavka(Long FakturaId, Stavka item) throws IOException, JAXBException {
 		Faktura faktura = findById(FakturaId);
-		
 		for (Iterator<Stavka> iter = faktura.getStavka().iterator(); iter.hasNext(); ) {
 		    Stavka stavka = iter.next();
 		    if (stavka.getRedniBroj().equals(item.getRedniBroj())) {
-		        iter.remove();
+		    	iter.remove();
 		        break;
 		    }
 		}

@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import xws.tim7.entities.Identifiable;
 import xws.tim7.entities.globals.OsnovaNalogaZaPlacanjeType;
 
 
@@ -44,7 +45,7 @@ import xws.tim7.entities.globals.OsnovaNalogaZaPlacanjeType;
     "datumValute",
     "hitno"
 })
-public class NalogZaPlacanjeType {
+public class NalogZaPlacanjeType extends Identifiable {
 
     @XmlElement(name = "ID_poruke", required = true)
     protected String idPoruke;
@@ -194,6 +195,16 @@ public class NalogZaPlacanjeType {
      */
     public void setHitno(boolean value) {
         this.hitno = value;
+    }
+    
+    private Long Id;
+    @Override
+    public Long getId() {
+    	return Id;
+    }
+    @Override
+    public void setId(Long value) {
+    	Id = value;
     }
 
 }
