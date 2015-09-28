@@ -34,8 +34,12 @@ import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.entities.firma.TRacuni;
+import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import xws.tim7.entities.nalogzaplacanje.ObjectFactory;
+import xws.tim7.services.banka.Banka_BankaPort_Client;
 import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
 import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
+import xws.tim7.sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
 import xws.tim7.util.Authenticate;
 import xws.tim7.util.Tim7XMLValidator;
 
@@ -50,6 +54,8 @@ public class FirmaService {
 	@EJB
 	private FakturaDaoLocal fakturaDao;
 	
+	@EJB
+	private NalogZaPlacanjeDaoLocal nalogDao;
 	
 	public FirmaService() {
 		//init();
@@ -82,7 +88,7 @@ public class FirmaService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response initializeFirme() {
 		
-		JAXBContext context;
+		//JAXBContext context;
 		try {
 //			context = JAXBContext.newInstance("xws.tim7.entities.firma");
 //			Unmarshaller unmarshaller = context.createUnmarshaller();
@@ -459,13 +465,12 @@ public class FirmaService {
 			faktura = fakturaDao.findById(idFakture);
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
-				
 				if(faktura == null || stavka == null) {
 					return Response.status(HttpResponse.SC_NOT_FOUND).build();
 				}
 				else {
 					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
-						fakturaDao.updateStavka(idFakture, stavka);
+						Faktura f = fakturaDao.updateStavka(idFakture, stavka);
 						return Response.ok().build();
 					}
 					else {
@@ -530,6 +535,40 @@ public class FirmaService {
 		return Response.status(HttpResponse.SC_INTERNAL_SERVER_ERROR).build();
 	}
 	
+	// #3
+		@GET
+		@Path("/{url}/partneri/{pib_dob}/posaljiFakturu/{id_fakture}")
+		@Produces(MediaType.APPLICATION_JSON)
+		@Authenticate
+		public Response posaljiFakturu(
+				@PathParam("url") String url,
+				@PathParam("pib_dob") String pib,
+				@PathParam("id_fakture") Long idFakture){
+
+			Firma kupac;
+			//Firma dobavljac;
+			try {
+				kupac = firmaDao.findByURL(url);
+				//dobavljac = firmaDao.findByPIB(pib);
+				Faktura faktura = fakturaDao.findById(idFakture);
+				
+				if(nalogDao.findByNalog(faktura.getZaglavlje().getIDPoruke()) == null) { // faktura jos nije poslata
+					ObjectFactory nalogFactory = new ObjectFactory();
+					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac
+					// NalogZaPlacanjeType nalog = nalogFactory.createNalogZaPlacanjeType(faktura, kupac.getRacuni().getRacun().get(0)); 
+					Banka_BankaPort_Client client = new Banka_BankaPort_Client(faktura.getZaglavlje().getUplataNaRacun());
+					client.posaljiNalogZaPlacanje(faktura);
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				e.printStackTrace();
+			}
+
+			return Response.status(HttpResponse.SC_BAD_REQUEST).build();
+			
+		}
 		
 }
 

@@ -602,5 +602,13 @@ public class Faktura extends Identifiable {
         }
 
     }
+    
+    public Stavka getStavkaSaRednimBrojem(BigInteger rbr) {
+    	for(Stavka s : stavka) {
+    		if(s.getRedniBroj().equals(rbr))
+    			return s;
+    	}
+    	return null;
+    }
 
 }

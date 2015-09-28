@@ -61,13 +61,13 @@ public class ObjectFactory {
 		
 		
 		//TODO !!! FALE PODACI !!!
-		retVal.setObracunskiRacunBankeDuznika(null);
-		retVal.setObracunskiRacunBankePoverioca(null);
+		//retVal.setObracunskiRacunBankeDuznika(null);
+		//retVal.setObracunskiRacunBankePoverioca(null);
 		
 		retVal.setSifraValute(nzp.getOznakaValute());
 		
-		retVal.setSWIFTKodBankeDuznika("");
-		retVal.setSWIFTKodBankePoverioca("");
+		//retVal.setSWIFTKodBankeDuznika("");
+		//retVal.setSWIFTKodBankePoverioca("");
 		
 		retVal.getNalogZaPlacanje().add(nzp);
 		

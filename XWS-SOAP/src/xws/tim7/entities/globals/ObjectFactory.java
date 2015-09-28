@@ -101,7 +101,7 @@ public class ObjectFactory {
         retVal.setIznos(iznos);
         String svrha = "";
         for(xws.tim7.entities.faktura.Stavka stavka : faktura.getStavka()) {
-        	svrha += stavka.getNazivRobeIliUsluge() + " ";
+        	svrha += stavka.getNazivRobeIliUsluge() + ", ";
         }
         retVal.setSvrhaPlacanja(svrha);
         
@@ -119,12 +119,12 @@ public class ObjectFactory {
 
 		MT9XXType retVal = new MT9XXType();
 		
-		//TODO SET ID MORA ENTITY MANAGER !!!
-		retVal.setId(null);
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
 		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
-		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		// treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
 		/*
 		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
 		 */
@@ -140,12 +140,12 @@ public class ObjectFactory {
 	public MT9XXType createMT910Type(MT103Type rtgsMT103) {
 		MT9XXType retVal = new MT9XXType();
 
-		//TODO SET ID MORA ENTITY MANAGER !!!
-		retVal.setId(null);
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
 		
 		retVal.setDatumValute(rtgsMT103.getDatumValute());
 		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
-		//TODO treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		// treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
 		/*
 		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
 		 */
@@ -176,8 +176,8 @@ public class ObjectFactory {
 	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp, MT102Type nalogZaGrupnaPlacanja) {
 		MT9XXType retVal = new MT9XXType();
 
-		//TODO SET ID MORA ENTITY MANAGER !!!
-		retVal.setId(null);
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
 		
 		retVal.setDatumValute(nzp.getDatumValute());
 		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());
@@ -195,8 +195,8 @@ public class ObjectFactory {
 			MT102Type nalogZaGrupnaPlacanja) {
 		MT9XXType retVal = new MT9XXType();
 
-		//TODO SET ID MORA ENTITY MANAGER !!!
-		retVal.setId(null);
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
 		
 		retVal.setDatumValute(nzp.getDatumValute());
 		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());

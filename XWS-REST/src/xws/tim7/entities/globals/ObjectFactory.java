@@ -8,7 +8,15 @@
 
 package xws.tim7.entities.globals;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlRegistry;
+
+import xws.tim7.entities.faktura.Faktura;
+import xws.tim7.entities.mt102.MT102Type;
+import xws.tim7.entities.mt103.MT103Type;
+import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 
 /**
@@ -54,10 +62,15 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RacunType }
+     * @param racunKupca 
      * 
      */
-    public RacunType createRacunType() {
-        return new RacunType();
+    public RacunType createRacunType(String racunKupca) {
+        RacunType retVal = new RacunType();
+        retVal.setBrojRacuna(racunKupca);
+        retVal.setModel(new BigInteger("97"));	//nije dato u specifikaciji
+        retVal.setPozivNaBroj(racunKupca);		//nije dato u specifikaciji
+        return retVal;
     }
 
     /**
@@ -69,11 +82,132 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link OsnovaNalogaZaPlacanjeType }
+     * 
+     */
+    public OsnovaNalogaZaPlacanjeType createOsnovaNalogaZaPlacanjeType(Faktura faktura, String racunKupca) {
+        OsnovaNalogaZaPlacanjeType retVal = new OsnovaNalogaZaPlacanjeType();
+        
+        retVal.setDuznikNalogodavac(faktura.getZaglavlje().getKupac().getNaziv());
+        retVal.setPoverilacPrimalac(faktura.getZaglavlje().getDobavljac().getNaziv());
+
+        RacunType racunDuznika = this.createRacunType(racunKupca);
+        RacunType racunPoverioca = this.createRacunType(faktura.getZaglavlje().getUplataNaRacun());
+        
+        retVal.setRacunDuznika(racunDuznika);
+        retVal.setRacunPoverioca(racunPoverioca);
+        
+        BigDecimal iznos = faktura.getZaglavlje().getIznosZaUplatu();
+        retVal.setIznos(iznos);
+        String svrha = "";
+        for(xws.tim7.entities.faktura.Stavka stavka : faktura.getStavka()) {
+        	svrha += stavka.getNazivRobeIliUsluge() + ", ";
+        }
+        retVal.setSvrhaPlacanja(svrha);
+        
+        return retVal;
+    }
+    /**
      * Create an instance of {@link MT9XXType }
      * 
      */
     public MT9XXType createMT9XXType() {
         return new MT9XXType();
     }
+
+	public MT9XXType createMT900Type(MT103Type rtgsMT103) {
+
+		MT9XXType retVal = new MT9XXType();
+		
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
+		
+		retVal.setDatumValute(rtgsMT103.getDatumValute());
+		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		// treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		/*
+		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
+		 */
+		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
+		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankeDuznika());
+		retVal.setSifraValute(rtgsMT103.getSifraValute());
+		retVal.setSWIFTKodBanke(rtgsMT103.getSWIFTKodBankeDuznika());
+		
+		return retVal;
+	}
+	
+	public MT9XXType createMT910Type(MT103Type rtgsMT103) {
+		MT9XXType retVal = new MT9XXType();
+
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
+		
+		retVal.setDatumValute(rtgsMT103.getDatumValute());
+		retVal.setIDPoruke(rtgsMT103.getIDPoruke());
+		// treba da bude IDPorukeNalogaZaPlacanje koji odgovara tom mt103
+		/*
+		 * NOTE: MOZE DA BUDE ISTO KAO I NALOG ZA PLACANJE : ID_PORUKE JER JE JEDAN MT103 PO NZP!
+		 */
+		retVal.setIDPorukeNaloga(rtgsMT103.getIDPoruke());
+		retVal.setIznos(rtgsMT103.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(rtgsMT103.getObracunskiRacunBankePoverioca());
+		retVal.setSifraValute(rtgsMT103.getSifraValute());
+		retVal.setSWIFTKodBanke(rtgsMT103.getSWIFTKodBankePoverioca());
+		
+		return retVal;
+	}
+
+	public MT9XXType createMT900Type(MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+		
+		retVal.setDatumValute(nalogZaGrupnaPlacanja.getDatumValute());
+		
+		return retVal;
+	}
+
+	public MT9XXType createMT910Type(MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+		
+		
+		return retVal;
+	}
+
+	public MT9XXType createMT900Type(NalogZaPlacanjeType nzp, MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
+		
+		retVal.setDatumValute(nzp.getDatumValute());
+		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());
+		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
+		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(nalogZaGrupnaPlacanja.getObracunskiRacunBankeDuznika());
+		retVal.setSifraValute(nzp.getOznakaValute());
+		retVal.setSWIFTKodBanke(nalogZaGrupnaPlacanja.getSWIFTKodBankeDuznika());
+		
+		return retVal;
+	}
+
+
+	public MT9XXType createMT910Type(NalogZaPlacanjeType nzp,
+			MT102Type nalogZaGrupnaPlacanja) {
+		MT9XXType retVal = new MT9XXType();
+
+		// SET ID MORA ENTITY MANAGER !!!
+		//retVal.setId(null);
+		
+		retVal.setDatumValute(nzp.getDatumValute());
+		retVal.setIDPoruke(nalogZaGrupnaPlacanja.getIDPoruke());
+		retVal.setIDPorukeNaloga(nzp.getIDPoruke());
+		retVal.setIznos(nzp.getOsnovaNalogaZaPlacanje().getIznos());
+		retVal.setObracunskiRacunBanke(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca());
+		retVal.setSifraValute(nzp.getOznakaValute());
+		retVal.setSWIFTKodBanke(nalogZaGrupnaPlacanja.getSWIFTKodBankePoverioca());
+		
+		return retVal;
+	}
+
 
 }

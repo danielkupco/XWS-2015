@@ -9,14 +9,17 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 
+import org.apache.log4j.Logger;
+
+import sessionbeans.banka.BankaDaoLocal;
 import sessionbeans.mt102.MT102DaoLocal;
 import sessionbeans.mt103.MT103DaoLocal;
 import sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
 import sessionbeans.racun_firme.RacunFirmeDaoLocal;
+import xws.tim7.entities.banka.Banka;
 import xws.tim7.entities.globals.StatusType;
 import xws.tim7.entities.mt102.MT102Type;
 import xws.tim7.entities.mt103.MT103Type;
@@ -31,7 +34,7 @@ import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
  */
 
 @javax.jws.WebService(serviceName = "BankaService", portName = "BankaPort", targetNamespace = "http://xws/tim7/banka", wsdlLocation = "file:/home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/banka.wsdl", endpointInterface = "xws.tim7.banka.Banka")
-public class BankaImpl implements Banka {
+public class BankaImpl implements xws.tim7.services.banka.Banka {
 
 	@EJB
 	private RacunFirmeDaoLocal racuni;
@@ -44,8 +47,12 @@ public class BankaImpl implements Banka {
 	
 	@EJB
 	private NalogZaPlacanjeDaoLocal nalogZaPlacanjeDao;
+	
+	@EJB
+	private BankaDaoLocal bankaDao;
 
-	private static final Logger LOG = Logger.getLogger(BankaImpl.class.getName());
+
+	private static Logger log = Logger.getLogger(BankaImpl.class);
 
 	/*
 	 * (non-Javadoc)
@@ -53,7 +60,7 @@ public class BankaImpl implements Banka {
 	 * @see xws.tim7.banka.Banka#obaviClearing(*
 	 */
 	public void obaviClearing() {
-		LOG.info("Executing operation obaviClearing");
+		log.info("Executing operation obaviClearing");
 		try {
 			// pokupi MT102 iz Dao, prosledi CB
 			for (MT102Type mt102 : Mt102Clearing.findAll()) {
@@ -74,8 +81,9 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.globals.StatusType primiNalogZaPlacanje(
 			xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType nalogZaPlacanje) {
-		LOG.info("Executing operation primiNalogZaPlacanje");
-		System.out.println(nalogZaPlacanje);
+		log.info("BANKA SOAP: --> Executing operation primiNalogZaPlacanje");
+		log.info("Primljen nalog sa ID poruke: " + nalogZaPlacanje.getIDPoruke());
+		// System.out.println(nalogZaPlacanje);
 
 		try {
 			// KAD PRIMI MT900 TRAZI U NALOZI ZA PLACANJE
@@ -92,9 +100,7 @@ public class BankaImpl implements Banka {
 			boolean istaBanka = racunKupca.substring(0, 3).equals(
 					racunDobavljaca.substring(0, 3));
 
-			if (nalogZaPlacanje.isHitno()
-					|| nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos()
-							.compareTo(new BigDecimal(250000)) > 0) {
+			if (nalogZaPlacanje.isHitno() || nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos().compareTo(new BigDecimal(250000)) > 0) {
 				// CB, RTGS
 				// RacunDao.reserveFunds(racunKupca,
 				// naloZaPlacanje.getOsnovaNalogaZaPlacanje.getIznos());
@@ -112,8 +118,13 @@ public class BankaImpl implements Banka {
 
 			} else if (!istaBanka) {
 				
-				//TODO treba swift i obracunski tih banaka !!!
-				Mt102Clearing.addNalog(nalogZaPlacanje); // nadji na osnovu
+				// treba swift i obracunski tih banaka !!!
+				String bankaPoveriocaIzNaloga = nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3);
+				String bankaDuznikaIzNaloga = nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna().substring(0, 3);
+				
+				Banka bankaPoverioca = bankaDao.findBankaByIDBanke(bankaPoveriocaIzNaloga);
+				Banka bankaDuznika = bankaDao.findBankaByIDBanke(bankaDuznikaIzNaloga);
+				Mt102Clearing.addNalog(nalogZaPlacanje, bankaDuznika, bankaPoverioca); // nadji na osnovu
 															// banke
 															// kupca/dobavljaca
 															// u odredjeni MT102
@@ -146,7 +157,7 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.presek.PresekType primiZahtevZaIzvod(
 			xws.tim7.entities.zahtevzaizvod.ZahtevZaIzvodType zahtevZaIzvod) throws StatusMessage {
-		LOG.info("Executing operation primiZahtevZaIzvod");
+		log.info("Executing operation primiZahtevZaIzvod");
 		System.out.println(zahtevZaIzvod);
 		try {
 			xws.tim7.entities.presek.PresekType _return = null;
@@ -166,7 +177,7 @@ public class BankaImpl implements Banka {
 				
 			}
 			
-			LOG.info("Prethodno stanje : " + prethodnoStanje);
+			log.info("Prethodno stanje : " + prethodnoStanje);
 			
 			
 			List<PresekType> listaPreseka = new ArrayList<PresekType>();
@@ -243,7 +254,7 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.globals.StatusType primiMT900(
 			xws.tim7.entities.globals.MT9XXType porukaOZaduzenjuMT900) {
-		LOG.info("Executing operation primiMT900");
+		log.info("Executing operation primiMT900");
 		System.out.println(porukaOZaduzenjuMT900);
 		try {
 			xws.tim7.entities.globals.StatusType _return = new StatusType();
@@ -279,7 +290,7 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.globals.StatusType primiMT910(
 			xws.tim7.entities.globals.MT9XXType porukaOOdobrenjuMT910) {
-		LOG.info("Executing operation primiMT910");
+		log.info("Executing operation primiMT910");
 		System.out.println(porukaOOdobrenjuMT910);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
@@ -315,7 +326,7 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.globals.StatusType primiMT103(
 			xws.tim7.entities.mt103.MT103Type rtgsMT103) {
-		LOG.info("Executing operation primiMT103");
+		log.info("Executing operation primiMT103");
 		System.out.println(rtgsMT103);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;
@@ -342,7 +353,7 @@ public class BankaImpl implements Banka {
 	 */
 	public xws.tim7.entities.globals.StatusType primiMT102(
 			xws.tim7.entities.mt102.MT102Type nalogZaGrupnaPlacanja) {
-		LOG.info("Executing operation primiMT102");
+		log.info("Executing operation primiMT102");
 		System.out.println(nalogZaGrupnaPlacanja);
 		try {
 			xws.tim7.entities.globals.StatusType _return = null;

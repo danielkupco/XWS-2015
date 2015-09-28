@@ -25,7 +25,7 @@ public class Tim7XMLValidator {
 	
 	public static boolean validateFromObject(Object jaxbObject, String schemaPath, String contextPath) {
 		
-		File xmlFile = new File("/output.xml");
+		File xmlFile = new File("temp_validation.xml");
 		
 		//Definisemo kontekst, tj. paket(e) u kome se nalaze bean-ovi
 		JAXBContext context;

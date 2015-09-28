@@ -29,4 +29,15 @@ public class BankaDao extends GenericDao<Banka, Long> implements BankaDaoLocal {
 		return null;
 	}
 
+	@Override
+	public Banka findBankaByIDBanke(String idBanke) throws IOException, JAXBException {
+		List<Banka> banke = findAll();
+		for(Banka b : banke) {
+			if(b.getIDBanke().equals(idBanke)) {
+				return b;
+			}
+		}
+		return null;
+	}
+
 }
