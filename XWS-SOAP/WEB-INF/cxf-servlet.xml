@@ -27,13 +27,13 @@
 	<jaxws:endpoint 
 		id="banka" 
 		address="/Banka"
-		implementor="xws.tim7.banka.BankaImpl"
+		implementor="xws.tim7.services.banka.BankaImpl"
 		wsdlLocation="WEB-INF/wsdl/banka.wsdl"/>
 		
 	<jaxws:endpoint 
 		id="centralnabanka" 
 		address="/CentralnaBanka"
-		implementor="xws.tim7.cb.CentralnaBankaImpl"
+		implementor="xws.tim7.services.cb.CentralnaBankaImpl"
 		wsdlLocation="WEB-INF/wsdl/centralnaBanka.wsdl"/>
 
 </beans>

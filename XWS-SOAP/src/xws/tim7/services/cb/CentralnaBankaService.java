@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "CentralnaBankaService", 
-                  wsdlLocation = "file:/D:/Programiranje/Eclipse workspaces/XWS/XWS_Tim7/WEB-INF/wsdl/centralnaBanka.wsdl",
+                  wsdlLocation = "file:../wsdl/centralnaBanka.wsdl",
                   targetNamespace = "http://xws/tim7/cb") 
 public class CentralnaBankaService extends Service {
 
@@ -26,7 +26,7 @@ public class CentralnaBankaService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("file:/D:/Programiranje/Eclipse workspaces/XWS/XWS_Tim7/WEB-INF/wsdl/centralnaBanka.wsdl");
+            url = new URL("file:../wsdl/centralnaBanka.wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(CentralnaBankaService.class.getName())
                 .log(java.util.logging.Level.INFO, 

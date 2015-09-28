@@ -33,7 +33,7 @@ import xws.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
  * 
  */
 
-@javax.jws.WebService(serviceName = "BankaService", portName = "BankaPort", targetNamespace = "http://xws/tim7/banka", wsdlLocation = "file:/home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/banka.wsdl", endpointInterface = "xws.tim7.banka.Banka")
+@javax.jws.WebService(serviceName = "BankaService", portName = "BankaPort", targetNamespace = "http://xws/tim7/banka", wsdlLocation = "file:../wsdl/banka.wsdl", endpointInterface = "xws.tim7.services.banka.Banka")
 public class BankaImpl implements xws.tim7.services.banka.Banka {
 
 	@EJB

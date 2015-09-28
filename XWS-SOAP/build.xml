@@ -152,7 +152,8 @@
 				<include name="**/*.class"/>
 			</classes>
 			<lib dir="${lib.dir}">
-				<include name="spring-*.jar"/>
+				<!-- <include name="spring-*.jar"/> -->
+				<include name="*.jar"/>
 			</lib>
 			<webinf dir="${webinf.dir}">
 				<include name="wsdl/**"/>

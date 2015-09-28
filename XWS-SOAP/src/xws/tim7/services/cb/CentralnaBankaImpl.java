@@ -31,7 +31,7 @@ import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
  * 
  */
 
-@javax.jws.WebService(serviceName = "CentralnaBankaService", portName = "CentralnaBankaPort", targetNamespace = "http://xws/tim7/cb", wsdlLocation = "file://home/danex/Documents/Eclipse_workspaces/XWS/XWS_test/WEB-INF/wsdl/centralnaBanka.wsdl", endpointInterface = "xws.tim7.cb.CentralnaBanka")
+@javax.jws.WebService(serviceName = "CentralnaBankaService", portName = "CentralnaBankaPort", targetNamespace = "http://xws/tim7/cb", wsdlLocation = "file:../wsdl/centralnaBanka.wsdl", endpointInterface = "xws.tim7.services.cb.CentralnaBanka")
 public class CentralnaBankaImpl implements CentralnaBanka {
 
 	private static final Logger LOG = Logger.getLogger(CentralnaBankaImpl.class.getName());
