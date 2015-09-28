@@ -96,6 +96,9 @@ public class BankaImpl implements xws.tim7.services.banka.Banka {
 			String racunDobavljaca = nalogZaPlacanje
 					.getOsnovaNalogaZaPlacanje().getRacunPoverioca()
 					.getBrojRacuna();
+			
+			log.info("Racun kupca: " + racunKupca);
+			log.info("Racun dobavljaca: " + racunDobavljaca);
 
 			boolean istaBanka = racunKupca.substring(0, 3).equals(
 					racunDobavljaca.substring(0, 3));
@@ -133,9 +136,13 @@ public class BankaImpl implements xws.tim7.services.banka.Banka {
 				_return.setStatusKod(new BigInteger("304"));
 
 			} else {
+				log.info("Racuni su u istoj banci...");
+				
 				racuni.transferFunds(racunKupca, racunDobavljaca,
 						nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
 
+				log.info("Novac je uspesno prebacen!");
+				
 				_return = new StatusType();
 				_return.setPoruka("[ISTA BANKA] USPESNO PREBACEN NOVAC");
 				_return.setStatusKod(new BigInteger("200"));

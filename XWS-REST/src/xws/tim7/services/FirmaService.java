@@ -6,9 +6,6 @@ import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -374,17 +371,16 @@ public class FirmaService {
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			
-			
-			stavka.setRedniBroj(BigInteger.valueOf(1));
+			stavka.setRedniBroj(BigInteger.valueOf(faktura.getStavka().size()+1));
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 
 				if(faktura != null) {
 					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
-						fakturaDao.createStavka(idFakture, stavka);
+						//fakturaDao.createStavka(idFakture, stavka);
 						
-//						faktura.getStavka().add(stavka);
-//						fakturaDao.merge(faktura, idFakture);
+						faktura.getStavka().add(stavka);
+						fakturaDao.merge(faktura, idFakture);
 		
 						URI location = new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj());
 						return Response.created(location).header("Content-Location", location).build();
@@ -463,6 +459,7 @@ public class FirmaService {
 		try {
 			kupac = firmaDao.findByURL(url);
 			faktura = fakturaDao.findById(idFakture);
+			stavka = fakturaDao.findItemInFaktura(idFakture, rbrStavke);
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 				if(faktura == null || stavka == null) {
@@ -494,7 +491,6 @@ public class FirmaService {
 	// #8
 	@DELETE
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
-	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
 	public Response deleteNthInvoiceItembyBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
@@ -517,8 +513,8 @@ public class FirmaService {
 				    Stavka item = iter.next();
 				   
 				    if(item.getRedniBroj().intValue() == redniBroj) {
-				    	Faktura f = fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
-					    return Response.noContent().entity(f).build();	
+				    	fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
+					    return Response.noContent().build();	
 				    }
 				}
 
@@ -537,7 +533,7 @@ public class FirmaService {
 	
 	// #3
 		@GET
-		@Path("/{url}/partneri/{pib_dob}/posaljiFakturu/{id_fakture}")
+		@Path("/posaljiFakturu/{id_fakture}")
 		@Produces(MediaType.APPLICATION_JSON)
 		@Authenticate
 		public Response posaljiFakturu(
@@ -545,19 +541,20 @@ public class FirmaService {
 				@PathParam("pib_dob") String pib,
 				@PathParam("id_fakture") Long idFakture){
 
-			Firma kupac;
-			//Firma dobavljac;
+			// Firma kupac;
+			// Firma dobavljac;
 			try {
-				kupac = firmaDao.findByURL(url);
+				//kupac = firmaDao.findByURL(url);
 				//dobavljac = firmaDao.findByPIB(pib);
 				Faktura faktura = fakturaDao.findById(idFakture);
 				
 				if(nalogDao.findByNalog(faktura.getZaglavlje().getIDPoruke()) == null) { // faktura jos nije poslata
-					ObjectFactory nalogFactory = new ObjectFactory();
+					// ObjectFactory nalogFactory = new ObjectFactory();
 					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac
 					// NalogZaPlacanjeType nalog = nalogFactory.createNalogZaPlacanjeType(faktura, kupac.getRacuni().getRacun().get(0)); 
 					Banka_BankaPort_Client client = new Banka_BankaPort_Client(faktura.getZaglavlje().getUplataNaRacun());
 					client.posaljiNalogZaPlacanje(faktura);
+					return Response.ok().build();
 				}
 				
 			} catch (IOException e) {
