@@ -57,10 +57,10 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 			}
 		}
 		
-		for(int i = 0; i < faktura.getStavka().size(); ++i){
-    		Stavka s = faktura.getStavka().get(i);
-    		s.setRedniBroj(BigInteger.valueOf(i+1));
-    	}
+//		for(int i = 0; i < faktura.getStavka().size(); ++i){
+//    		Stavka s = faktura.getStavka().get(i);
+//    		s.setRedniBroj(BigInteger.valueOf(i+1));
+//    	}
 		
 		return merge(faktura, FakturaId);
 	}
@@ -69,9 +69,18 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 	public Faktura createStavka(Long FakturaId, Stavka item) throws IOException, JAXBException {
 		Faktura faktura = findById(FakturaId);
 		
-		if(faktura instanceof Faktura) {
-			faktura.getStavka().add(item);
+		int maxRedniBroj = 0;
+		
+		for(Stavka s : faktura.getStavka()){
+			if(s.getRedniBroj().intValue() > maxRedniBroj){
+				maxRedniBroj = s.getRedniBroj().intValue();
+			}
 		}
+		
+		item.setRedniBroj(BigInteger.valueOf(maxRedniBroj+1));
+		
+		
+		faktura.getStavka().add(item);
 		
 		return merge(faktura, FakturaId);
 	}
@@ -86,8 +95,8 @@ public class FakturaDao extends GenericDao<Faktura, Long> implements FakturaDaoL
 		        break;
 		    }
 		}
+		
 		faktura.getStavka().add(item);
-
 		return merge(faktura, FakturaId);
 	}
 
