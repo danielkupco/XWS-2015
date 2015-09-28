@@ -99,7 +99,7 @@
     var modalInstance = $modal.open({
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl',
-      size: size
+      size: size,
     });
   };
 

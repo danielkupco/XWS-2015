@@ -368,16 +368,17 @@ public class FirmaService {
 			dobavljac = firmaDao.findByPIB(pib);
 			faktura = fakturaDao.findById(idFakture);
 			
-			stavka.setRedniBroj(BigInteger.valueOf(faktura.getStavka().size()+1));
+			
+			stavka.setRedniBroj(BigInteger.valueOf(1));
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 
 				if(faktura != null) {
 					if(firmaDao.isPartnerWith(kupac.getId(), pib)) {
-						//fakturaDao.createStavka(idFakture, stavka);
+						fakturaDao.createStavka(idFakture, stavka);
 						
-						faktura.getStavka().add(stavka);
-						fakturaDao.merge(faktura, idFakture);
+//						faktura.getStavka().add(stavka);
+//						fakturaDao.merge(faktura, idFakture);
 		
 						URI location = new URI(url+"/partneri/"+pib+"/fakture/"+faktura.getId()+"/stavke/"+stavka.getRedniBroj());
 						return Response.created(location).header("Content-Location", location).build();
@@ -456,7 +457,6 @@ public class FirmaService {
 		try {
 			kupac = firmaDao.findByURL(url);
 			faktura = fakturaDao.findById(idFakture);
-			stavka = fakturaDao.findItemInFaktura(idFakture, rbrStavke);
 			
 			if(Tim7XMLValidator.validateFromObject(stavka, "../webapps/xws/WEB-INF/scheme/Faktura.xsd", "xws.tim7.entities.faktura")) {
 				
@@ -489,6 +489,7 @@ public class FirmaService {
 	// #8
 	@DELETE
 	@Path("{urlKupca}/partneri/{pib_dob}/fakture/{idFakture}/stavke/{redniBroj}")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Authenticate
 	public Response deleteNthInvoiceItembyBuyerForProvider(
 			@PathParam("urlKupca") String urlKupca,
@@ -511,8 +512,8 @@ public class FirmaService {
 				    Stavka item = iter.next();
 				   
 				    if(item.getRedniBroj().intValue() == redniBroj) {
-				    	fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
-					    return Response.noContent().build();	
+				    	Faktura f = fakturaDao.removeItemFromFaktura(faktura.getId(), item.getRedniBroj());
+					    return Response.noContent().entity(f).build();	
 				    }
 				}
 

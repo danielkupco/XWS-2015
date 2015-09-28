@@ -57,45 +57,13 @@ angular.module('invoice', [
 			if(data.action==='delete'){
 				var index = $scope.invoice.Stavka.indexOf(invoiceItem);
 				$scope.invoice.Stavka.splice(index, 1);
-				//ako je stavka imala i id, treba da se obrise i na serveru (da li je to dobro?)
-				if(invoiceItem.id){
-					InvoiceItem.delete({invoiceItemId:invoiceItem.id});
 				}
-			}
-		}, function () {
-			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
 
 	//cuvanje izmena
 	$scope.save = function () {
-
-
-		if($scope.invoice.id){
-			//zbog cega redirekcija ide na callback?
-			angular.forEach($scope.invoice.Stavka, function(value, key) {
-  				console.log(key + ': ' + value);
-  				console.log(value);
-
-  				//var temp = angular.toJson(value);
-	  				if(value.Redni_broj){
-	  					InvoiceItem.update({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id, Redni_broj:value.Redni_broj}, value, function(){
-	  					});
-	  				}
-	  				else{
-	  					InvoiceItem.save({'url_kupca':$rootScope.url_kupca,'pib_dob':$rootScope.pib_dob, 'invoiceId':$scope.invoice.id}, value, function(){
-	  					});
-	  				}
-			});
-
-			$location.path('/invoice/'+$scope.invoice.id);
-
-			//nije podrzana izmena fakture po specifikaciji, samo dodavanje stavki :|
-			// $scope.invoice.$update({invoiceId:$scope.invoice.id},function () {
-			// 	$location.path('/invoiceList');
-			// });
-		}
-		else{
+		if(!$scope.invoice.id){		 		//ako stavka nema id => ne postoji u bazi => cuvamo je celu 
 			// podrzani nacini pozivanja resource funkcije
 
 			/*Invoice.save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, $scope.invoice, function(data){
@@ -116,7 +84,7 @@ angular.module('invoice', [
 
 			$scope.invoice.$save({'url_kupca':$rootScope.url_kupca, 'pib_dob':$rootScope.pib_dob}, function(data, status){
 				$log.info(data);
-				var location = status('Content-Location');
+				var location = status('Location');
 				$log.info('location: ' + location);
 				var last = location.lastIndexOf('/');
 				var id = location.substring(last + 1);
