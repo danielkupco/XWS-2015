@@ -548,6 +548,9 @@ public class FirmaService {
 				//dobavljac = firmaDao.findByPIB(pib);
 				Faktura faktura = fakturaDao.findById(idFakture);
 				
+				log.info("faktura: " + faktura);
+				log.info("nalogdao: " + nalogDao);
+				
 				if(nalogDao.findByNalog(faktura.getZaglavlje().getIDPoruke()) == null) { // faktura jos nije poslata
 					// ObjectFactory nalogFactory = new ObjectFactory();
 					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac

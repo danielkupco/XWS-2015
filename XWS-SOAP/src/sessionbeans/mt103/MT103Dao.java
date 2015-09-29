@@ -3,11 +3,16 @@ package sessionbeans.mt103;
 import java.io.IOException;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
+import sessionbeans.banka.BankaDaoLocal;
 import sessionbeans.common.GenericDao;
 import xws.tim7.entities.mt103.MT103Type;
 
+@Stateless
+@Local(MT103DaoLocal.class)
 public class MT103Dao extends GenericDao<MT103Type, Long> implements MT103DaoLocal {
 
 	public static final String contextPath = "xws.tim7.entities.mt103";

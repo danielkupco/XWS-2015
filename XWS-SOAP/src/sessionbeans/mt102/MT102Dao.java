@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
 import sessionbeans.banka.BankaDaoLocal;
@@ -12,6 +14,8 @@ import xws.tim7.entities.banka.Banka;
 import xws.tim7.entities.mt102.MT102Type;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
+@Stateless
+@Local(MT102DaoLocal.class)
 public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLocal {
 
 	public static final String contextPath = "xws.tim7.entities.mt102";

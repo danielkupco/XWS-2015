@@ -4,11 +4,16 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
 import sessionbeans.common.GenericDao;
+import sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
 import xws.tim7.entities.racun_firme.RacunFirme;
 
+@Stateless
+@Local(RacunFirmeDaoLocal.class)
 public class RacunFirmeDao extends GenericDao<RacunFirme, Long> implements RacunFirmeDaoLocal {
 
 	public static final String contextPath = "xws.tim7.entities.racun_firme";

@@ -4,12 +4,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import sessionbeans.common.GenericDao;
+import sessionbeans.mt103.MT103DaoLocal;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
+@Stateless
+@Local(NalogZaPlacanjeDaoLocal.class)
 public class NalogZaPlacanjeDao extends GenericDao<NalogZaPlacanjeType, Long> implements NalogZaPlacanjeDaoLocal {
 
 	public static final String contextPath = "xws.tim7.entities.nalogzaplacanje";
