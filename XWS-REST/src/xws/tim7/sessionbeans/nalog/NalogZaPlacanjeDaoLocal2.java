@@ -6,7 +6,7 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import sessionbeans.common.GenericDaoLocal;
+import xws.tim7.sessionbeans.common.GenericDaoLocal;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 public interface NalogZaPlacanjeDaoLocal2 extends GenericDaoLocal<NalogZaPlacanjeType, Long> {

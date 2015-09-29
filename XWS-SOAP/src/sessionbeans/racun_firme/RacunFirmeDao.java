@@ -10,13 +10,13 @@ import javax.xml.bind.JAXBException;
 
 import sessionbeans.common.GenericDao;
 import sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
-import xws.tim7.entities.racun_firme.RacunFirme;
+import soap.tim7.entities.racun_firme.RacunFirme;
 
 @Stateless
 @Local(RacunFirmeDaoLocal.class)
 public class RacunFirmeDao extends GenericDao<RacunFirme, Long> implements RacunFirmeDaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.racun_firme";
+	public static final String contextPath = "soap.tim7.entities.racun_firme";
 	public static final String schemaName = "racun_firme";
 	
 	public RacunFirmeDao() {

@@ -8,13 +8,13 @@ import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 
 import sessionbeans.common.GenericDao;
-import xws.tim7.entities.banka.Banka;
+import soap.tim7.entities.banka.Banka;
 
 @Stateless
 @Local(BankaDaoLocal.class)
 public class BankaDao extends GenericDao<Banka, Long> implements BankaDaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.banka";
+	public static final String contextPath = "soap.tim7.entities.banka";
 	public static final String schemaName = "banka";
 	
 	public BankaDao() {

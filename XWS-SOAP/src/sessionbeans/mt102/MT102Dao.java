@@ -10,15 +10,15 @@ import javax.xml.bind.JAXBException;
 
 import sessionbeans.banka.BankaDaoLocal;
 import sessionbeans.common.GenericDao;
-import xws.tim7.entities.banka.Banka;
-import xws.tim7.entities.mt102.MT102Type;
-import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import soap.tim7.entities.banka.Banka;
+import soap.tim7.entities.mt102.MT102Type;
+import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 @Stateless
 @Local(MT102DaoLocal.class)
 public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.mt102";
+	public static final String contextPath = "soap.tim7.entities.mt102";
 	public static final String schemaName = "nalog_za_grupna_placanja_mt102";
 	
 	public MT102Dao() {
@@ -46,7 +46,7 @@ public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLoc
 		}
 		
 		// ako nije nasao, stici ce dovde
-		xws.tim7.entities.mt102.ObjectFactory factory = new xws.tim7.entities.mt102.ObjectFactory();
+		soap.tim7.entities.mt102.ObjectFactory factory = new soap.tim7.entities.mt102.ObjectFactory();
 		// potrebne informacije: SWIFT banke duznika/poverioca, Obracunski racun banke duznika/poverioca
 		MT102Type mt102 = factory.createMT102Type(nalogZaPlacanje);	
 		// entityManager.findSWIFTBankeDuznika/Poverioca + ObracunskiRacunBankeDuznika/Poverioca + set na mt102

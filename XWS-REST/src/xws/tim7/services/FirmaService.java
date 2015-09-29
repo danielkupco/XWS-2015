@@ -27,11 +27,11 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 import org.apache.openejb.server.httpd.HttpResponse;
 
+import soap.tim7.services.banka.Banka_BankaPort_Client;
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.entities.firma.TRacuni;
-import xws.tim7.services.banka.Banka_BankaPort_Client;
 import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
 import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
 import xws.tim7.sessionbeans.nalog.NalogZaPlacanjeDaoLocal2;
@@ -554,7 +554,73 @@ public class FirmaService {
 					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac
 					// NalogZaPlacanjeType nalog = nalogFactory.createNalogZaPlacanjeType(faktura, kupac.getRacuni().getRacun().get(0)); 
 					Banka_BankaPort_Client client = new Banka_BankaPort_Client(faktura.getZaglavlje().getUplataNaRacun());
-					client.posaljiNalogZaPlacanje(faktura);
+					soap.tim7.entities.faktura.Faktura f = new soap.tim7.entities.faktura.Faktura();
+					
+					f.setId( faktura.getId());
+					
+					f.setZaglavlje(new soap.tim7.entities.faktura.Faktura.Zaglavlje());
+					
+					f.getZaglavlje().setBrojRacuna(faktura.getZaglavlje().getBrojRacuna());
+					f.getZaglavlje().setDatumRacuna(faktura.getZaglavlje().getDatumRacuna());
+					f.getZaglavlje().setDatumValute(faktura.getZaglavlje().getDatumValute());
+					
+					//DOBAVLJAC
+					f.getZaglavlje().setDobavljac(new soap.tim7.entities.faktura.TFirma());
+					f.getZaglavlje().getDobavljac().setAdresa(faktura.getZaglavlje().getDobavljac().getAdresa());
+					f.getZaglavlje().getDobavljac().setNaziv(faktura.getZaglavlje().getDobavljac().getNaziv());
+					f.getZaglavlje().getDobavljac().setPIB(faktura.getZaglavlje().getDobavljac().getPIB());
+					
+					log.info("-----dodat dobavljac");
+					
+					////
+					
+					f.getZaglavlje().setIDPoruke(faktura.getZaglavlje().getIDPoruke());
+					f.getZaglavlje().setIznosZaUplatu(faktura.getZaglavlje().getIznosZaUplatu());
+					
+					////KUPAC
+					f.getZaglavlje().setKupac(new soap.tim7.entities.faktura.TFirma());
+					f.getZaglavlje().getKupac().setAdresa(faktura.getZaglavlje().getKupac().getAdresa());
+					f.getZaglavlje().getKupac().setNaziv(faktura.getZaglavlje().getKupac().getNaziv());
+					f.getZaglavlje().getKupac().setPIB(faktura.getZaglavlje().getKupac().getPIB());
+					
+					log.info("-----dodat kupac");
+					/////
+					
+					
+					f.getZaglavlje().setOznakaValute(faktura.getZaglavlje().getOznakaValute());
+					f.getZaglavlje().setUkupanPorez(faktura.getZaglavlje().getUkupanPorez());
+					f.getZaglavlje().setUkupanRabat(faktura.getZaglavlje().getUkupanRabat());
+					f.getZaglavlje().setUkupnoRobaIUsluge(faktura.getZaglavlje().getUkupnoRobaIUsluge());
+					f.getZaglavlje().setUplataNaRacun(faktura.getZaglavlje().getUplataNaRacun());
+					f.getZaglavlje().setVrednostRobe(faktura.getZaglavlje().getVrednostRobe());
+					f.getZaglavlje().setVrednostUsluga(faktura.getZaglavlje().getVrednostUsluga());
+					
+					
+					List<soap.tim7.entities.faktura.Stavka> lista = new ArrayList<soap.tim7.entities.faktura.Stavka>();
+
+					
+					for(Stavka s : faktura.getStavka()){
+						soap.tim7.entities.faktura.Stavka ss = new soap.tim7.entities.faktura.Stavka();
+						ss.setId(s.getId());
+						ss.setIznosRabata(s.getIznosRabata());
+						ss.setJedinicaMere(s.getJedinicaMere());
+						ss.setJedinicnaCena(s.getJedinicnaCena());
+						ss.setKolicina(s.getKolicina());
+						ss.setNazivRobeIliUsluge(s.getNazivRobeIliUsluge());
+						ss.setProcenatRabata(s.getProcenatRabata());
+						ss.setRedniBroj(s.getRedniBroj());
+						ss.setUkupanPorez(s.getUkupanPorez());
+						ss.setUmanjenoZaRabat(s.getUmanjenoZaRabat());
+						ss.setVrednost(s.getVrednost());
+						
+						lista.add(ss);
+					}
+					
+					f.setStavka(lista);
+
+					log.info("-----dodata lista stavki");
+					
+					client.posaljiNalogZaPlacanje(f);
 					return Response.ok().build();
 				}
 				

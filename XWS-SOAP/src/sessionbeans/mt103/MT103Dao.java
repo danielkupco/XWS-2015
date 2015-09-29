@@ -9,13 +9,13 @@ import javax.xml.bind.JAXBException;
 
 import sessionbeans.banka.BankaDaoLocal;
 import sessionbeans.common.GenericDao;
-import xws.tim7.entities.mt103.MT103Type;
+import soap.tim7.entities.mt103.MT103Type;
 
 @Stateless
 @Local(MT103DaoLocal.class)
 public class MT103Dao extends GenericDao<MT103Type, Long> implements MT103DaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.mt103";
+	public static final String contextPath = "soap.tim7.entities.mt103";
 	public static final String schemaName = "rtgs_mt103";
 	
 	public MT103Dao() {

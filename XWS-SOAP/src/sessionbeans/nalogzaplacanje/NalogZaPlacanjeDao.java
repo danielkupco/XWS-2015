@@ -11,14 +11,14 @@ import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import sessionbeans.common.GenericDao;
-import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 @Stateless
 @Local(NalogZaPlacanjeDaoLocal.class)
 @Remote(INalogZaPlacanje.class)
 public class NalogZaPlacanjeDao extends GenericDao<NalogZaPlacanjeType, Long> implements NalogZaPlacanjeDaoLocal {
 
-	public static final String contextPath = "xws.tim7.entities.nalogzaplacanje";
+	public static final String contextPath = "soap.tim7.entities.nalogzaplacanje";
 	public static final String schemaName = "nalog_za_placanje";
 	
 	

@@ -10,7 +10,7 @@ import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import sessionbeans.common.GenericDao;
+import xws.tim7.sessionbeans.common.GenericDao;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 @Stateless

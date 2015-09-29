@@ -6,9 +6,9 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 
 import sessionbeans.common.GenericDaoLocal;
-import xws.tim7.entities.banka.Banka;
-import xws.tim7.entities.mt102.MT102Type;
-import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import soap.tim7.entities.banka.Banka;
+import soap.tim7.entities.mt102.MT102Type;
+import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 public interface MT102DaoLocal extends GenericDaoLocal<MT102Type, Long> {
 

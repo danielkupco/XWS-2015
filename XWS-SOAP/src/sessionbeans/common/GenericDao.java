@@ -8,8 +8,8 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
+import soap.tim7.entities.Identifiable;
 import xmldb.EntityManagerBaseX;
-import xws.tim7.entities.Identifiable;
 
 public abstract class GenericDao<T extends Identifiable, ID extends Serializable> implements GenericDaoLocal<T, ID> {
 	

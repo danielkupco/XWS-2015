@@ -7,7 +7,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import sessionbeans.common.GenericDaoLocal;
-import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
+import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 public interface NalogZaPlacanjeDaoLocal extends GenericDaoLocal<NalogZaPlacanjeType, Long> {
 
