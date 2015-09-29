@@ -34,7 +34,7 @@ public final class CentralnaBanka_CentralnaBankaPort_Client {
 
     private static final QName SERVICE_NAME = new QName("http://xws/tim7/cb", "CentralnaBankaService");
 
-    private String wsdlPart = "http://localhost:8080/CentralnaBanka?wsdl";
+    private String wsdlPart = "http://localhost:8080/xws-soap/CentralnaBankaService?wsdl";
     private String bankaId;
     
     private CentralnaBanka getService() {

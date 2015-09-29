@@ -33,7 +33,7 @@ public final class Banka_BankaPort_Client {
 	
 	private static final QName SERVICE_NAME = new QName(
 			"http://xws/tim7/banka", "BankaService");
-	private String wsdlPart = "http://localhost:8080/Banka/%s?wsdl";
+	private String wsdlPart = "http://localhost:8080/xws-soap/BankaService?wsdl";
 	private String racun;
 
 	public Banka_BankaPort_Client(String racun) {

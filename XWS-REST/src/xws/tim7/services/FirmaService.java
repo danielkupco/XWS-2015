@@ -31,12 +31,10 @@ import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.entities.firma.TRacuni;
-import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
-import xws.tim7.entities.nalogzaplacanje.ObjectFactory;
 import xws.tim7.services.banka.Banka_BankaPort_Client;
 import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
 import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
-import xws.tim7.sessionbeans.nalogzaplacanje.NalogZaPlacanjeDaoLocal;
+import xws.tim7.sessionbeans.nalog.NalogZaPlacanjeDaoLocal2;
 import xws.tim7.util.Authenticate;
 import xws.tim7.util.Tim7XMLValidator;
 
@@ -52,7 +50,7 @@ public class FirmaService {
 	private FakturaDaoLocal fakturaDao;
 	
 	@EJB
-	private NalogZaPlacanjeDaoLocal nalogDao;
+	private NalogZaPlacanjeDaoLocal2 nalogDao;
 	
 	public FirmaService() {
 		//init();

@@ -13,6 +13,5 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/XWS-SOAP"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

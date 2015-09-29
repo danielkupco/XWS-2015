@@ -1,4 +1,4 @@
-package xws.tim7.sessionbeans.nalogzaplacanje;
+package xws.tim7.sessionbeans.nalog;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import xws.tim7.sessionbeans.common.GenericDaoLocal;
+import sessionbeans.common.GenericDaoLocal;
 import xws.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
-public interface NalogZaPlacanjeDaoLocal extends GenericDaoLocal<NalogZaPlacanjeType, Long> {
+public interface NalogZaPlacanjeDaoLocal2 extends GenericDaoLocal<NalogZaPlacanjeType, Long> {
 
 	public NalogZaPlacanjeType findByNalog(String idPorukeNaloga)throws IOException, JAXBException;
 	
