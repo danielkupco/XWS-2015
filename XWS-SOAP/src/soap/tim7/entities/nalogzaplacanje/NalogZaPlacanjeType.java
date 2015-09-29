@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -54,6 +55,7 @@ import soap.tim7.entities.globals.OsnovaNalogaZaPlacanjeType;
     "datumValute",
     "hitno"
 })
+@XmlRootElement(name = "NalogZaPlacanjeType")
 public class NalogZaPlacanjeType extends Identifiable {
 
     @XmlElement(name = "ID_poruke", required = true)

@@ -27,14 +27,18 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 import org.apache.openejb.server.httpd.HttpResponse;
 
+import soap.tim7.entities.banka.Banka;
+import soap.tim7.entities.racun_firme.RacunFirme;
 import soap.tim7.services.banka.Banka_BankaPort_Client;
 import xws.tim7.entities.faktura.Faktura;
 import xws.tim7.entities.faktura.Stavka;
 import xws.tim7.entities.firma.Firma;
 import xws.tim7.entities.firma.TRacuni;
+import xws.tim7.sessionbeans.bank.BankaDaoLocal2;
 import xws.tim7.sessionbeans.faktura.FakturaDaoLocal;
 import xws.tim7.sessionbeans.firma.FirmaDaoLocal;
 import xws.tim7.sessionbeans.nalog.NalogZaPlacanjeDaoLocal2;
+import xws.tim7.sessionbeans.racun.RacunFirmeDaoLocal2;
 import xws.tim7.util.Authenticate;
 import xws.tim7.util.Tim7XMLValidator;
 
@@ -51,6 +55,12 @@ public class FirmaService {
 	
 	@EJB
 	private NalogZaPlacanjeDaoLocal2 nalogDao;
+	
+	@EJB
+	private RacunFirmeDaoLocal2 racunDao;
+	
+	@EJB
+	private BankaDaoLocal2 bankaDao;
 	
 	public FirmaService() {
 		//init();
@@ -178,6 +188,71 @@ public class FirmaService {
 
 			log.info("Fakture uspesno kreirane...");
 			return Response.ok().entity("Fakture uspesno kreirane...").build();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.info("Doslo je do greske...");
+		return Response.serverError().entity("Doslo je do greske...").build();
+    }
+	
+	
+	
+	@GET
+    @Path("initBanke")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response initializeBanke() {
+		log.info("initBanke pogodjeno");
+		log.info("banka dao: " + bankaDao);
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance("soap.tim7.entities.banka");
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			
+			Banka banka = (Banka) unmarshaller.unmarshal(new File("../webapps/initData/banka1.xml"));
+
+			log.info("////// banka dao: " + bankaDao);
+			log.info("////// banka: " + banka);
+			
+			bankaDao.persist(banka);
+			
+			banka = (Banka) unmarshaller.unmarshal(new File("../webapps/initData/banka2.xml"));
+			bankaDao.persist(banka);
+
+			log.info("Banke uspesno kreirane...");
+			return Response.ok().entity("Banke uspesno kreirane...").build();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.info("Doslo je do greske...");
+		return Response.serverError().entity("Doslo je do greske...").build();
+    }
+	
+	@GET
+    @Path("initRacuni")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response initializeRacuni() {
+		
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance("soap.tim7.entities.racun_firme");
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			
+			RacunFirme racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme1.xml"));
+			racunDao.persist(racun);
+			
+			racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme2.xml"));
+			racunDao.persist(racun);
+			
+			log.info("Racuni uspesno kreirani...");
+			return Response.ok().entity("Racuni uspesno kreirani...").build();
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
