@@ -251,6 +251,10 @@ public class FirmaService {
 			racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme2.xml"));
 			racunDao.persist(racun);
 			
+			
+			racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme3.xml"));
+			racunDao.persist(racun);
+			
 			log.info("Racuni uspesno kreirani...");
 			return Response.ok().entity("Racuni uspesno kreirani...").build();
 		} catch (JAXBException e) {
