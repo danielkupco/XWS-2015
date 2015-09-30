@@ -655,7 +655,7 @@ public class FirmaService {
 				log.info("nalogdao: " + nalogDao);
 				
 				if(nalogDao.findByNalog(faktura.getZaglavlje().getIDPoruke()) == null) { // faktura jos nije poslata
-					// ObjectFactory nalogFactory = new ObjectFactory();
+					// ObjectFactory nalogFactory = new ObjectFactory();git 
 					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac
 					// NalogZaPlacanjeType nalog = nalogFactory.createNalogZaPlacanjeType(faktura, kupac.getRacuni().getRacun().get(0)); 
 					Banka_BankaPort_Client client = new Banka_BankaPort_Client((firmaDao.findByPIB(faktura.getZaglavlje().getKupac().getPIB())).getRacuni().getRacun().get(0));

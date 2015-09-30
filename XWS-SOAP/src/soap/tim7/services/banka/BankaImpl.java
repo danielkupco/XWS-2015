@@ -37,7 +37,7 @@ import soap.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 public class BankaImpl implements soap.tim7.services.banka.Banka {
 
 	@EJB
-	private RacunFirmeDaoLocal racuni;
+	private RacunFirmeDaoLocal racunDao;
 
 	@EJB
 	private MT102DaoLocal Mt102Clearing;	//CUVAMO ONE KOJI TREBA DA SE POSALJU... i primljene
@@ -111,8 +111,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 				// //kupac.racun.prve-tri-cifre
 				// CBClient.primiMT103(nalogZaPlacanje); // client napravi MT103
 				// od toga, prosledi implementaciji
-
-				racuni.reserveFunds(racunKupca, nalogZaPlacanje
+				racunDao.reserveFunds(racunKupca, nalogZaPlacanje
 						.getOsnovaNalogaZaPlacanje().getIznos());
 				CentralnaBanka_CentralnaBankaPort_Client cbClient = new CentralnaBanka_CentralnaBankaPort_Client(
 						racunKupca.substring(0, 3));
@@ -138,7 +137,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			} else {
 				log.info("Racuni su u istoj banci...");
 				
-				racuni.transferFunds(racunKupca, racunDobavljaca,
+				racunDao.transferFunds(racunKupca, racunDobavljaca,
 						nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
 
 				log.info("Novac je uspesno prebacen!");
@@ -274,7 +273,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			BigDecimal iznos = porukaOZaduzenjuMT900.getIznos();
 			
 			if(iznos.compareTo(porukaOZaduzenjuMT900.getIznos()) == 0) {
-				racuni.skiniSaRacuna(racunDuznika, iznos);
+				racunDao.skiniSaRacuna(racunDuznika, iznos);
 				_return.setPoruka("USPESNO PRIMLJEN MT900");
 				_return.setStatusKod(new BigInteger("200"));
 			} else {
@@ -307,12 +306,12 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			if ( (rtgs = Mt103Rtgs.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) !=null ) {
 				String racunDobavljaca = rtgs.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna();
 				BigDecimal iznos = rtgs.getOsnovaNalogaZaPlacanje().getIznos();
-				racuni.uplatiNovac(racunDobavljaca, iznos);				
+				racunDao.uplatiNovac(racunDobavljaca, iznos);				
 			} else if ( (clearing = Mt102Clearing.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) != null) {
 				for (NalogZaPlacanjeType nzp : clearing.getNalogZaPlacanje()) {
 					String racunDobavljaca = nzp.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna();
 					BigDecimal iznos = nzp.getOsnovaNalogaZaPlacanje().getIznos();
-					racuni.uplatiNovac(racunDobavljaca, iznos);
+					racunDao.uplatiNovac(racunDobavljaca, iznos);
 				}
 			} else {
 				throw new StatusMessage("NIJE PRONADJEN MT102/103 NA OSNOVU KOG JE POTREBNO UPLATITI NOVAC");
