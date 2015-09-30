@@ -138,6 +138,9 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 															// kupca/dobavljaca
 															// u odredjeni MT102
 															// da gura stavku
+				
+				racunDao.reserveFunds(nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna(), nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getIznos());
+				
 				_return.setPoruka("[CLEARING] SACUVAN NALOG ZA PLACANJE");
 				_return.setStatusKod(new BigInteger("304"));
 

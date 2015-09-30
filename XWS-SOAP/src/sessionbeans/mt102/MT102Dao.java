@@ -21,6 +21,10 @@ public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLoc
 	public static final String contextPath = "soap.tim7.entities.mt102";
 	public static final String schemaName = "nalog_za_grupna_placanja_mt102";
 	
+	@EJB
+	private BankaDaoLocal bankaDao;
+	
+	
 	public MT102Dao() {
 		super(contextPath, schemaName);
 	}
@@ -33,8 +37,15 @@ public class MT102Dao extends GenericDao<MT102Type, Long> implements MT102DaoLoc
 		String bankaPoveriocaIzNaloga = nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3);
 		String bankaDuznikaIzNaloga = nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna().substring(0, 3);
 		for (MT102Type item : mt102list) {
-			String idBankePoverioca = item.getObracunskiRacunBankePoverioca().substring(0, 3);
-			String idBankeDuznika = item.getObracunskiRacunBankeDuznika().substring(0, 3);
+//			String idBankePoverioca = item.getObracunskiRacunBankePoverioca().substring(0, 3);
+//			String idBankeDuznika = item.getObracunskiRacunBankeDuznika().substring(0, 3);
+			
+			Banka bankaPov = bankaDao.findBankaByObracunskiRacun(item.getObracunskiRacunBankePoverioca());
+			Banka bankaDuz = bankaDao.findBankaByObracunskiRacun(item.getObracunskiRacunBankeDuznika());
+			
+			String idBankePoverioca = bankaPov.getIDBanke();
+			String idBankeDuznika = bankaDuz.getIDBanke();
+			
 			if (idBankePoverioca.equals(bankaPoveriocaIzNaloga) && idBankeDuznika.equals(bankaDuznikaIzNaloga)) {
 				// ako je nasao, dodaj stavku, update bazu, kraj !
 				item.getNalogZaPlacanje().add(nalogZaPlacanje);
