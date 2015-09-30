@@ -15,7 +15,6 @@ import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 
 @Stateless
 @Local(NalogZaPlacanjeDaoLocal.class)
-@Remote(INalogZaPlacanje.class)
 public class NalogZaPlacanjeDao extends GenericDao<NalogZaPlacanjeType, Long> implements NalogZaPlacanjeDaoLocal {
 
 	public static final String contextPath = "soap.tim7.entities.nalogzaplacanje";

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fak:Faktura xmlns:fak="http://xws/tim7/faktura"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xws/tim7/faktura Faktura.xsd" id="3">
+    <fak:Zaglavlje>
+        <fak:ID_poruke>141</fak:ID_poruke>
+        <fak:Kupac>
+            <fak:Naziv>Firma 3</fak:Naziv>
+            <fak:Adresa>Adresa firme 3</fak:Adresa>
+            <fak:PIB>77777888889</fak:PIB>
+        </fak:Kupac>
+        <fak:Dobavljac>
+            <fak:Naziv>Firma 1</fak:Naziv>
+            <fak:Adresa>Adresa firme 1</fak:Adresa>
+            <fak:PIB>11111222223</fak:PIB>
+        </fak:Dobavljac>
+        <fak:Broj_racuna>114414</fak:Broj_racuna>
+        <fak:Datum_racuna>2015-09-30</fak:Datum_racuna>
+        <fak:Vrednost_robe>1500.00</fak:Vrednost_robe>
+        <fak:Vrednost_usluga>1200.99</fak:Vrednost_usluga>
+        <fak:Ukupno_roba_i_usluge>2700.99</fak:Ukupno_roba_i_usluge>
+        <fak:Ukupan_rabat>110.00</fak:Ukupan_rabat>
+        <fak:Ukupan_porez>555.55</fak:Ukupan_porez>
+        <fak:Oznaka_valute>RSD</fak:Oznaka_valute>
+        <fak:Iznos_za_uplatu>14000.14</fak:Iznos_za_uplatu>
+        <fak:Uplata_na_racun>111-2222222222222-33</fak:Uplata_na_racun>
+        <fak:Datum_valute>2015-09-29</fak:Datum_valute>
+    </fak:Zaglavlje>
+    <fak:Stavka>
+        <fak:Redni_broj>1</fak:Redni_broj>
+        <fak:Naziv_robe_ili_usluge>Mango</fak:Naziv_robe_ili_usluge>
+        <fak:Kolicina>2</fak:Kolicina>
+        <fak:Jedinica_mere>kg</fak:Jedinica_mere>
+        <fak:Jedinicna_cena>330.20</fak:Jedinicna_cena>
+        <fak:Vrednost>660.40</fak:Vrednost>
+        <fak:Procenat_rabata>2.00</fak:Procenat_rabata>
+        <fak:Iznos_rabata>16.00</fak:Iznos_rabata>
+        <fak:Umanjeno_za_rabat>644.40</fak:Umanjeno_za_rabat>
+        <fak:Ukupan_porez>36.00</fak:Ukupan_porez>
+    </fak:Stavka>
+    <fak:Stavka>
+        <fak:Redni_broj>2</fak:Redni_broj>
+        <fak:Naziv_robe_ili_usluge>Avokado</fak:Naziv_robe_ili_usluge>
+        <fak:Kolicina>3</fak:Kolicina>
+        <fak:Jedinica_mere>kg</fak:Jedinica_mere>
+        <fak:Jedinicna_cena>245.45</fak:Jedinicna_cena>
+        <fak:Vrednost>736.35</fak:Vrednost>
+        <fak:Procenat_rabata>3.15</fak:Procenat_rabata>
+        <fak:Iznos_rabata>106.00</fak:Iznos_rabata>
+        <fak:Umanjeno_za_rabat>730.00</fak:Umanjeno_za_rabat>
+        <fak:Ukupan_porez>121.23</fak:Ukupan_porez>
+    </fak:Stavka>
+</fak:Faktura>
