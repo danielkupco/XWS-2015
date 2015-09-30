@@ -6,19 +6,15 @@ package soap.tim7.services.cb;
  * This class is not complete
  */
 
-import java.io.File;
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URL;
 
+import javax.ejb.EJB;
+import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
 
+import sessionbeans.banka.BankaDaoLocal;
+import soap.tim7.entities.banka.Banka;
 import soap.tim7.entities.globals.StatusType;
 import soap.tim7.entities.mt102.MT102Type;
 import soap.tim7.entities.mt103.MT103Type;
@@ -31,6 +27,9 @@ import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
  * 
  */
 public final class CentralnaBanka_CentralnaBankaPort_Client {
+	
+	@EJB
+	private BankaDaoLocal bankaDao;
 
     private static final QName SERVICE_NAME = new QName("http://xws/tim7/cb", "CentralnaBankaService");
 
@@ -58,6 +57,26 @@ public final class CentralnaBanka_CentralnaBankaPort_Client {
     public StatusType primitMT103(NalogZaPlacanjeType nzp) {
     	soap.tim7.entities.mt103.ObjectFactory factory = new soap.tim7.entities.mt103.ObjectFactory();
     	MT103Type rtgsNalog = factory.createMT103Type(nzp);
+    	
+    	//postavljanje podataka koji fale (obracunski racun i swift)
+    	try {
+			Banka bankaPoverioca = bankaDao.findBankaByIDBanke(rtgsNalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3));
+			Banka bankaDuznika = bankaDao.findBankaByIDBanke(rtgsNalog.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna().substring(0, 3));
+			
+			rtgsNalog.setObracunskiRacunBankePoverioca(bankaPoverioca.getObracunskiRacun());
+			rtgsNalog.setObracunskiRacunBankeDuznika(bankaDuznika.getObracunskiRacun());
+			
+			rtgsNalog.setSWIFTKodBankePoverioca(bankaPoverioca.getSWIFT());
+			rtgsNalog.setSWIFTKodBankeDuznika(bankaDuznika.getSWIFT());
+    	
+    	} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     	return this.getService().primiMT103(rtgsNalog);
     }
     
