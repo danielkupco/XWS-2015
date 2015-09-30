@@ -37,14 +37,15 @@ public final class Banka_BankaPort_Client {
 	private String racun;
 
 	public Banka_BankaPort_Client(String racun) {
-		this.racun = racun;			// racun korisnika, preko njega odredjujemo banku
+		this.racun = racun;			// racun kupca, preko njega odredjujemo banku
 		log.info("Banka klijent je kreiran za racun: " + racun);
 	}
 
 	private Banka getService() {
 		Banka port = null;
 		try {
-			URL wsdlURL = new URL(String.format(wsdlPart, racun.substring(0, 3)));
+			// URL wsdlURL = new URL(String.format(wsdlPart, racun.substring(0, 3)));
+			URL wsdlURL = new URL(wsdlPart);
 			BankaService ss = new BankaService(wsdlURL, SERVICE_NAME);
 			port = ss.getBankaPort();
 		} catch (MalformedURLException e) {

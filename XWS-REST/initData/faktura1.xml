@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fak:Faktura xmlns:fak="http://xws/tim7/faktura"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://xws/tim7/faktura Faktura.xsd" id="123">
+ xsi:schemaLocation="http://xws/tim7/faktura Faktura.xsd" id="1">
     <fak:Zaglavlje>
         <fak:ID_poruke>123</fak:ID_poruke>
         <fak:Kupac>
