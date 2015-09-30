@@ -5,6 +5,7 @@
 
 package soap.tim7.services.cb;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.logging.Logger;
@@ -14,11 +15,13 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
 import sessionbeans.banka.BankaDaoLocal;
+import soap.tim7.entities.banka.Banka;
 import soap.tim7.entities.globals.MT9XXType;
 import soap.tim7.entities.globals.StatusType;
 import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
@@ -112,12 +115,24 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			soap.tim7.entities.globals.ObjectFactory factory = new soap.tim7.entities.globals.ObjectFactory();
 			MT9XXType mt900 = factory.createMT900Type(rtgsMT103);
 			
-			LOG.info("///////////////////////////////////////");
-			LOG.info("*****bankaDao : "+ bankaDao);
-			LOG.info("*****rtgs : "+rtgsMT103);
-			LOG.info("*****rtgs.getObracunskiDuznika : "+rtgsMT103.getObracunskiRacunBankeDuznika());
-			LOG.info("******ID banke: "+bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke());
-			LOG.info("///////////////////////////////////////");
+			//postavljanje podataka koji fale (obracunski racun i swift)
+			LOG.info("************************");
+			LOG.info("bankaDao : "+bankaDao);
+			LOG.info("rtgsNalog : "+rtgsMT103);
+			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje() : "+rtgsMT103.getOsnovaNalogaZaPlacanje());
+			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca(): "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca());
+			LOG.info("getBrojRacuna() : "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna());
+			LOG.info("**************************");
+	    		
+			Banka bankaPoverioca = bankaDao.findBankaByIDBanke(rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3));
+			Banka bankaDuznika = bankaDao.findBankaByIDBanke(rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna().substring(0, 3));
+			
+			rtgsMT103.setObracunskiRacunBankePoverioca(bankaPoverioca.getObracunskiRacun());
+			rtgsMT103.setObracunskiRacunBankeDuznika(bankaDuznika.getObracunskiRacun());
+			
+			rtgsMT103.setSWIFTKodBankePoverioca(bankaPoverioca.getSWIFT());
+			rtgsMT103.setSWIFTKodBankeDuznika(bankaDuznika.getSWIFT());
+
 			
 
 			String racunBankeKupca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
