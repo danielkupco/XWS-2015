@@ -112,7 +112,6 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			soap.tim7.entities.globals.ObjectFactory factory = new soap.tim7.entities.globals.ObjectFactory();
 			MT9XXType mt900 = factory.createMT900Type(rtgsMT103);
 			
-			
 			LOG.info("///////////////////////////////////////");
 			LOG.info("*****bankaDao : "+ bankaDao);
 			LOG.info("*****rtgs : "+rtgsMT103);

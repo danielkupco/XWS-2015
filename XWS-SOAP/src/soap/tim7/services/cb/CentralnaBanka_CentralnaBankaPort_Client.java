@@ -36,7 +36,7 @@ public final class CentralnaBanka_CentralnaBankaPort_Client {
 
     private String wsdlPart = "http://localhost:8080/xws-soap/CentralnaBankaService?wsdl";
     private String bankaId;
-    
+
     private CentralnaBanka getService() {
     	CentralnaBanka retVal = null;
     	try {
