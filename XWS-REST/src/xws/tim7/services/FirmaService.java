@@ -118,7 +118,7 @@ public class FirmaService {
 			log.info("firmaDao " + firmaDao);
 			
 			Firma firma = new Firma();
-			firma.setId(new Long(1));
+			//firma.setId(new Long(1));
 			firma.setIDFirme(1);
 			firma.setNazivFirme("Firma 1");
 			firma.setAdresa("Adresa firme 1");
@@ -127,6 +127,7 @@ public class FirmaService {
 			Firma.Partneri fp = new Firma.Partneri();
 			List<String> l1 = new ArrayList<String>();
 			l1.add("44444555556");
+			l1.add("77777888889");
 			fp.setPib(l1);
 			firma.setPartneri(fp);
 			TRacuni tr = new TRacuni();
@@ -137,7 +138,7 @@ public class FirmaService {
 			firmaDao.persist(firma);
 			
 			firma = new Firma();
-			firma.setId(new Long(2));
+			//firma.setId(new Long(2));
 			firma.setIDFirme(2);
 			firma.setNazivFirme("Firma 2");
 			firma.setAdresa("Adresa firme 2");
@@ -152,6 +153,25 @@ public class FirmaService {
 			List<String> l4 = new ArrayList<String>();
 			l4.add("444-5555555555555-66");
 			firma.setRacuni(tr2);
+			
+			firmaDao.persist(firma);
+			
+			firma = new Firma();
+			//firma.setId(new Long(3));
+			firma.setIDFirme(3);
+			firma.setNazivFirme("Firma 3");
+			firma.setAdresa("Adresa firme 3");
+			firma.setUrl("firma3");
+			firma.setPIB("77777888889");
+			Firma.Partneri fp3 = new Firma.Partneri();
+			List<String> l5 = new ArrayList<String>();
+			l5.add("11111222223");
+			fp3.setPib(l5);
+			firma.setPartneri(fp3);
+			TRacuni tr3 = new TRacuni();
+			List<String> l6 = new ArrayList<String>();
+			l6.add("111-8888888888888-99");
+			firma.setRacuni(tr3);
 			
 			firmaDao.persist(firma);
 
@@ -249,6 +269,9 @@ public class FirmaService {
 			racunDao.persist(racun);
 			
 			racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme2.xml"));
+			racunDao.persist(racun);
+			
+			racun = (RacunFirme) unmarshaller.unmarshal(new File("../webapps/initData/racun_firme3.xml"));
 			racunDao.persist(racun);
 			
 			log.info("Racuni uspesno kreirani...");
