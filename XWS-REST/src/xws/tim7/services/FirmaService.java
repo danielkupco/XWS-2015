@@ -24,6 +24,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.DeleteMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.PutMethod;
 import org.apache.log4j.Logger;
 import org.apache.openejb.server.httpd.HttpResponse;
 
@@ -306,13 +310,53 @@ public class FirmaService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response initializeAll() {
 		
+		String BASE_URL = "http://localhost:8081/BaseX75/rest/";
+		
 		try {
+	        HttpClient httpclient = new HttpClient();
+	        
+	        DeleteMethod delete; // brisanje
+	        delete = new DeleteMethod(BASE_URL + "banka");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "faktura");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "firma");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "nalog_za_grupna_placanja_mt102");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "nalog_za_placanje");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "racun_firme");
+	        httpclient.executeMethod(delete);
+	        delete = new DeleteMethod(BASE_URL + "rtgs_mt103");
+	        httpclient.executeMethod(delete);
+
+			log.info("Sve uspesno obrisano...");
+	        
+	        PutMethod put; // kreiranje baze
+	        put = new PutMethod(BASE_URL + "banka");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "faktura");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "firma");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "nalog_za_grupna_placanja_mt102");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "nalog_za_placanje");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "racun_firme");
+	        httpclient.executeMethod(put);
+	        put = new PutMethod(BASE_URL + "rtgs_mt103");
+	        httpclient.executeMethod(put);
+			
+	        log.info("Sve uspesno obrisano...");
+	        
 			initializeFirme();
 			initializeBanke();
 			initializeFakture();
 			initializeRacuni();
-			log.info("Sve uspesno kreirano...");
-			return Response.ok().entity("Sve uspesno kreirano...").build();
+			log.info("Sve uspesno inicijalizovano...");
+			return Response.ok().entity("Sve uspesno inicijalizovano...").build();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
