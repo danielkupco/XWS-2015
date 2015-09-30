@@ -215,6 +215,9 @@ public class FirmaService {
 			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura4.xml"));
 			fakturaDao.persist(faktura);
 
+			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura5.xml"));
+			fakturaDao.persist(faktura);
+
 			log.info("Fakture uspesno kreirane...");
 			return Response.ok().entity("Fakture uspesno kreirane...").build();
 		} catch (JAXBException e) {
