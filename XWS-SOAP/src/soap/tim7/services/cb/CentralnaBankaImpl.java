@@ -37,7 +37,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 	private static final Logger LOG = Logger.getLogger(CentralnaBankaImpl.class.getName());
 
 	@EJB
-	private BankaDaoLocal registarBanaka;
+	private BankaDaoLocal bankaDao;
 
 	/*
 	 * (non-Javadoc)
@@ -58,7 +58,7 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			// klijentima JEDNE banke
 
 			// pokupi prve 3 cifre banke poverioca
-			String idBankePoverioca = registarBanaka.findBankaByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca()).getIDBanke();
+			String idBankePoverioca = bankaDao.findBankaByObracunskiRacun(nalogZaGrupnaPlacanja.getObracunskiRacunBankePoverioca()).getIDBanke();
 			Banka_BankaPort_Client tmpClient = new Banka_BankaPort_Client(
 					idBankePoverioca);
 			tmpClient.primiMT102(nalogZaGrupnaPlacanja);
@@ -111,14 +111,23 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 
 			soap.tim7.entities.globals.ObjectFactory factory = new soap.tim7.entities.globals.ObjectFactory();
 			MT9XXType mt900 = factory.createMT900Type(rtgsMT103);
+			
+			
+			LOG.info("///////////////////////////////////////");
+			LOG.info("*****bankaDao : "+ bankaDao);
+			LOG.info("*****rtgs : "+rtgsMT103);
+			LOG.info("*****rtgs.getObracunskiDuznika : "+rtgsMT103.getObracunskiRacunBankeDuznika());
+			LOG.info("******ID banke: "+bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke());
+			LOG.info("///////////////////////////////////////");
+			
 
-			String racunBankeKupca = registarBanaka.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
+			String racunBankeKupca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
 			Banka_BankaPort_Client bankaKupca = new Banka_BankaPort_Client(racunBankeKupca);
 			bankaKupca.primiMT900(mt900);
 
 			// napravi Mt910
 			MT9XXType mt910 = factory.createMT910Type(rtgsMT103);
-			String racunBankeDobavljaca = registarBanaka.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankePoverioca()).getIDBanke();
+			String racunBankeDobavljaca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankePoverioca()).getIDBanke();
 			Banka_BankaPort_Client bankaDobavljaca = new Banka_BankaPort_Client(racunBankeDobavljaca);
 			bankaDobavljaca.primiMT103(rtgsMT103);	//prosledi mt103
 			bankaDobavljaca.primiMT910(mt910);		//prosledi mt910
