@@ -4,7 +4,7 @@
  xsi:schemaLocation="http://xws/tim7/racun_firme Racun_firme.xsd" id="2">
     <rac:SWIFT_banke>VBUBRS22</rac:SWIFT_banke>
     <rac:PIB_firme>44444555556</rac:PIB_firme>
-    <rac:Stanje>202000.99</rac:Stanje>
+    <rac:Stanje>404000.99</rac:Stanje>
     <rac:Rezervisana_sredstva>0.00</rac:Rezervisana_sredstva>
     <rac:Broj_racuna>444-5555555555555-66</rac:Broj_racuna>
     <rac:Poziv_na_broj>98765-43-2123-456789</rac:Poziv_na_broj>

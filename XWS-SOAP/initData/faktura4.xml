@@ -5,9 +5,9 @@
     <fak:Zaglavlje>
         <fak:ID_poruke>444</fak:ID_poruke>
         <fak:Kupac>
-            <fak:Naziv>Firma 3</fak:Naziv>
-            <fak:Adresa>Adresa firme 3</fak:Adresa>
-            <fak:PIB>77777888889</fak:PIB>
+            <fak:Naziv>Firma 2</fak:Naziv>
+            <fak:Adresa>Adresa firme 2</fak:Adresa>
+            <fak:PIB>44444555556</fak:PIB>
         </fak:Kupac>
         <fak:Dobavljac>
             <fak:Naziv>Firma 1</fak:Naziv>

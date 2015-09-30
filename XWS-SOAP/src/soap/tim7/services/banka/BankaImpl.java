@@ -25,6 +25,7 @@ import soap.tim7.entities.mt102.MT102Type;
 import soap.tim7.entities.mt103.MT103Type;
 import soap.tim7.entities.nalogzaplacanje.NalogZaPlacanjeType;
 import soap.tim7.entities.presek.PresekType;
+import soap.tim7.entities.racun_firme.RacunFirme;
 import soap.tim7.services.cb.CentralnaBanka_CentralnaBankaPort_Client;
 
 /**
@@ -99,6 +100,12 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			
 			log.info("Racun kupca: " + racunKupca);
 			log.info("Racun dobavljaca: " + racunDobavljaca);
+			
+			// postavljanje poziva na broj
+			RacunFirme racunD = racunDao.findByRacun(racunDobavljaca);
+			nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunPoverioca().setPozivNaBroj(racunD.getPozivNaBroj());
+			RacunFirme racunK = racunDao.findByRacun(racunKupca);
+			nalogZaPlacanje.getOsnovaNalogaZaPlacanje().getRacunDuznika().setPozivNaBroj(racunK.getPozivNaBroj());
 
 			boolean istaBanka = racunKupca.substring(0, 3).equals(
 					racunDobavljaca.substring(0, 3));
