@@ -298,6 +298,27 @@ public class FirmaService {
 	
 	/////////////////////////////////////////
 	
+	@GET
+    @Path("initAll")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response initializeAll() {
+		
+		try {
+			initializeFirme();
+			initializeBanke();
+			initializeFakture();
+			initializeRacuni();
+			log.info("Sve uspesno kreirano...");
+			return Response.ok().entity("Sve uspesno kreirano...").build();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.info("Doslo je do greske...");
+		return Response.serverError().entity("Doslo je do greske...").build();
+	
+	}
+	
 	/////////////// custom get metode ///////////////
 	
 	@GET
