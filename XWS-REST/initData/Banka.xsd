@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ban="http://xws/tim7/banka"
+    targetNamespace="http://xws/tim7/banka" elementFormDefault="qualified"
+    xmlns:ns1="http://xws/tim7/globals">
+
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="Banka">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ID_banke" type="xs:long"/>
+                <xs:element name="Naziv_banke" type="xs:string"/>
+                <xs:element name="Adresa" type="xs:string"/>
+                <xs:element name="Obracunski_racun" type="ns1:TBrojRacuna"/>
+                <xs:element name="SWIFT" type="ns1:TSWIFTKod"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

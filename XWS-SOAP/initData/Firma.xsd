@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:frm="http://xws/tim7/firma"
+    targetNamespace="http://xws/tim7/firma" elementFormDefault="qualified"
+    xmlns:ns1="http://xws/tim7/globals">
+
+    <xs:import namespace="http://xws/tim7/globals" schemaLocation="Globals.xsd"/>
+    <xs:element name="Firma">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ID_firme" type="xs:long"/>
+                <xs:element name="Naziv_firme" type="xs:string"/>
+                <xs:element name="Adresa" type="xs:string"/>
+                <xs:element name="Url" type="xs:string"/>
+                <xs:element name="Partneri">
+	                <xs:complexType>
+                       	<xs:sequence maxOccurs="1" minOccurs="1">
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="pib">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="11"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+             	</xs:element>     
+                <xs:element name="PIB" type="xs:string"/>
+                <xs:element name="Racuni" type="frm:TRacuni"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TRacuni">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element minOccurs="0" name="Racun" type="ns1:TBrojRacuna"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

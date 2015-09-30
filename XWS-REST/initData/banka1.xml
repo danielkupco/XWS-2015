@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ban:Banka xmlns:ban="http://xws/tim7/banka"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xws/tim7/banka Banka.xsd" id="1">
+    <ban:ID_banke>111</ban:ID_banke>
+    <ban:Naziv_banke>Continental banka</ban:Naziv_banke>
+    <ban:Adresa>Adresa banke 111, Novi Sad</ban:Adresa>
+    <ban:Obracunski_racun>999-1111111111111-22</ban:Obracunski_racun>
+    <ban:SWIFT>CONARS22</ban:SWIFT>
+</ban:Banka>
