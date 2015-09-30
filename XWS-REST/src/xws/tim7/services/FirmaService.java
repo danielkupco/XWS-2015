@@ -133,6 +133,7 @@ public class FirmaService {
 			TRacuni tr = new TRacuni();
 			List<String> l2 = new ArrayList<String>();
 			l2.add("111-2222222222222-33");
+			tr.setRacun(l2);
 			firma.setRacuni(tr);
 			
 			firmaDao.persist(firma);
@@ -152,6 +153,7 @@ public class FirmaService {
 			TRacuni tr2 = new TRacuni();
 			List<String> l4 = new ArrayList<String>();
 			l4.add("444-5555555555555-66");
+			tr2.setRacun(l4);
 			firma.setRacuni(tr2);
 			
 			firmaDao.persist(firma);
@@ -171,6 +173,7 @@ public class FirmaService {
 			TRacuni tr3 = new TRacuni();
 			List<String> l6 = new ArrayList<String>();
 			l6.add("111-8888888888888-99");
+			tr3.setRacun(l6);
 			firma.setRacuni(tr3);
 			
 			firmaDao.persist(firma);
@@ -204,6 +207,12 @@ public class FirmaService {
 			fakturaDao.persist(faktura);
 			
 			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura2.xml"));
+			fakturaDao.persist(faktura);
+			
+			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura3.xml"));
+			fakturaDao.persist(faktura);
+			
+			faktura = (Faktura) unmarshaller.unmarshal(new File("../webapps/initData/faktura4.xml"));
 			fakturaDao.persist(faktura);
 
 			log.info("Fakture uspesno kreirane...");
@@ -633,8 +642,6 @@ public class FirmaService {
 		@Produces(MediaType.APPLICATION_JSON)
 		@Authenticate
 		public Response posaljiFakturu(
-				@PathParam("url") String url,
-				@PathParam("pib_dob") String pib,
 				@PathParam("id_fakture") Long idFakture){
 
 			// Firma kupac;
@@ -651,7 +658,7 @@ public class FirmaService {
 					// ObjectFactory nalogFactory = new ObjectFactory();
 					// //TODO uzima 1. racun, trebalo bi obezbediti biranje racuna sa kog ce se skinuti novac
 					// NalogZaPlacanjeType nalog = nalogFactory.createNalogZaPlacanjeType(faktura, kupac.getRacuni().getRacun().get(0)); 
-					Banka_BankaPort_Client client = new Banka_BankaPort_Client(faktura.getZaglavlje().getUplataNaRacun());
+					Banka_BankaPort_Client client = new Banka_BankaPort_Client((firmaDao.findByPIB(faktura.getZaglavlje().getKupac().getPIB())).getRacuni().getRacun().get(0));
 					soap.tim7.entities.faktura.Faktura f = new soap.tim7.entities.faktura.Faktura();
 					
 					f.setId( faktura.getId());
@@ -668,7 +675,7 @@ public class FirmaService {
 					f.getZaglavlje().getDobavljac().setNaziv(faktura.getZaglavlje().getDobavljac().getNaziv());
 					f.getZaglavlje().getDobavljac().setPIB(faktura.getZaglavlje().getDobavljac().getPIB());
 					
-					log.info("-----dodat dobavljac");
+					log.info("-----DODAT DOBAVLJAC : "+f.getZaglavlje().getDobavljac().getNaziv());
 					
 					////
 					
@@ -681,7 +688,7 @@ public class FirmaService {
 					f.getZaglavlje().getKupac().setNaziv(faktura.getZaglavlje().getKupac().getNaziv());
 					f.getZaglavlje().getKupac().setPIB(faktura.getZaglavlje().getKupac().getPIB());
 					
-					log.info("-----dodat kupac");
+					log.info("-----DODAT KUPAC :"+f.getZaglavlje().getKupac().getNaziv());
 					/////
 					
 					
