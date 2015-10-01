@@ -5,8 +5,8 @@ angular.module('resource.user', ['angular-md5'])
 			var deferred = $q.defer();
 			//user.password = md5.createHash(user.password);
 			$http({
-				url: "http://localhost:8080/xws/api/user/login", 
-				method: "POST",
+				url: 'http://localhost:8080/xws/api/user/login', 
+				method: 'POST',
 				data: user
 			}).success(function (data) {
 				deferred.resolve(data);
@@ -15,13 +15,13 @@ angular.module('resource.user', ['angular-md5'])
 		},
 		logout : function () {
 			$http({
-				url: "http://localhost:8080/xws/api/user/logout",
-				method: "GET",
+				url: 'http://localhost:8080/xws/api/user/logout',
+				method: 'GET'
 			}).success(function () {
 				$rootScope.user = {};
-				$location.path("login");
+				$location.path('login');
 			});
 		}
 	};
 	return service;
-})
+});

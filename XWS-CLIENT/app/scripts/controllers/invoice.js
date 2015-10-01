@@ -6,7 +6,7 @@ angular.module('invoice', [
 	'invoiceItem',
 	'resource.invoiceItem'])
 
-.controller('invoiceCtrl', function (Invoice, $http, $scope, $routeParams, $rootScope, $modal, $log, $location, InvoiceItem) {
+.controller('invoiceCtrl', function (Invoice, $http, $scope, $routeParams, $rootScope, $modal, $log, $location) {
 	//ako pozivamo edit postojece fakture
 	if($routeParams.invoiceId!='new'){
 		//preuzimanje parametra iz URL
@@ -98,15 +98,15 @@ angular.module('invoice', [
 				$location.path('/invoice-list');
 			});*/
 		}
-		$log.info("save");
+		$log.info('save');
 	};
 
-	$scope.delete = function () {
-		if($scope.invoice.id){
+	$scope.delete = function () {	//brisanje fakture nije u specifikaciji
+		/*if($scope.invoice.id){
 			$scope.invoice.$delete({url_kupca:$rootScope.url_kupca, pib_dob:$rootScope.pib_dob, invoiceId:$scope.invoice.id}, function () {
 				console.log('delete');
 			});
-		}
+		}*/
 	};
 
 
@@ -123,21 +123,23 @@ angular.module('invoice', [
 			return actual < expected;
 		}
 		else return true;
-	}
+	};
 
 	$scope.equalComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual == expected;
 		}
 		else return true;
-	}
+	};
 
 	$scope.greaterComparator = function (actual, expected) {
 		if(expected != '') {
 			return actual > expected;
 		}
-		else return true;
-	}
+		else{
+			return true;
+		}
+	};
 
 
 	$scope.send = function(){
@@ -145,8 +147,26 @@ angular.module('invoice', [
 			method : 'GET',
 			url : 'http://localhost:8080/xws/api/firma/posaljiFakturu/'+$scope.invoice.id
 		}).then(function successCallback(response){
-			console.log('faktura uspesno poslata');
-		})
-	}
+			if(response.status == 200){
+				var modalInstance = $modal.open({
+ 					templateUrl: 'views/fakturaUspesnoPoslata.html',
+					controller: 'AboutCtrl'
+					});
+			}
 
+		}, function errorCallback(response){
+			if(response.status == 400){
+				var modalInstance = $modal.open({
+      				templateUrl: 'views/fakturaVecPoslata.html',
+      				controller: 'AboutCtrl'
+    				});
+			}else{
+				modalInstance = $modal.open({
+      				templateUrl: 'views/greska.html',
+      				controller: 'AboutCtrl'
+    				});
+			}
+
+		});
+	};
 });
