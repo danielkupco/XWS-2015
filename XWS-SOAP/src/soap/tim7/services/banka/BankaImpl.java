@@ -120,8 +120,14 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 				// od toga, prosledi implementaciji
 				racunDao.reserveFunds(racunKupca, nalogZaPlacanje
 						.getOsnovaNalogaZaPlacanje().getIznos());
+				
+				log.info(">>>>> Rezervisana su sredstva " + nalogZaPlacanje
+						.getOsnovaNalogaZaPlacanje().getIznos() + " na racunu " + racunKupca);
+				
 				CentralnaBanka_CentralnaBankaPort_Client cbClient = new CentralnaBanka_CentralnaBankaPort_Client(
 						racunKupca.substring(0, 3));
+				
+				log.info(">>>> Poziva se centralna banka...");
 				
 				_return = cbClient.primitMT103(nalogZaPlacanje);
 
@@ -270,7 +276,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 	 */
 	public soap.tim7.entities.globals.StatusType primiMT900(
 			soap.tim7.entities.globals.MT9XXType porukaOZaduzenjuMT900) {
-		log.info("Executing operation primiMT900");
+		log.info(">>>>> Banka: Executing operation primiMT900");
 		System.out.println(porukaOZaduzenjuMT900);
 		try {
 			soap.tim7.entities.globals.StatusType _return = new StatusType();
@@ -280,16 +286,19 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			NalogZaPlacanjeType nzp = nalogZaPlacanjeDao.findByNalog(porukaOZaduzenjuMT900.getIDPorukeNaloga());
 
 			String racunDuznika = nzp.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna();
-			BigDecimal iznos = porukaOZaduzenjuMT900.getIznos();
+			BigDecimal iznos = nzp.getOsnovaNalogaZaPlacanje().getIznos();
 			
 			if(iznos.compareTo(porukaOZaduzenjuMT900.getIznos()) == 0) {
 				racunDao.skiniSaRacuna(racunDuznika, iznos);
+				log.info(">>>> Uspesno primljen MT900, skida se novac " + porukaOZaduzenjuMT900.getIznos() + " sa racuna " + racunDuznika);
 				_return.setPoruka("USPESNO PRIMLJEN MT900");
 				_return.setStatusKod(new BigInteger("200"));
 			} else {
 				_return.setPoruka("NE SLAZE SE IZNOS");
 				_return.setStatusKod(new BigInteger("400"));
 			}
+			
+			log.info(_return.getPoruka());
 			
 			return _return;
 		} catch (java.lang.Exception ex) {
@@ -306,7 +315,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 	 */
 	public soap.tim7.entities.globals.StatusType primiMT910(
 			soap.tim7.entities.globals.MT9XXType porukaOOdobrenjuMT910) {
-		log.info("Executing operation primiMT910");
+		log.info(">>>>> Banka: Executing operation primiMT910");
 		System.out.println(porukaOOdobrenjuMT910);
 		try {
 			soap.tim7.entities.globals.StatusType _return = null;
@@ -316,6 +325,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			if ( (rtgs = Mt103Rtgs.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) !=null ) {
 				String racunDobavljaca = rtgs.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna();
 				BigDecimal iznos = rtgs.getOsnovaNalogaZaPlacanje().getIznos();
+				log.info(">>>> Uspesno primljen MT910, uplacuje se novac " + porukaOOdobrenjuMT910.getIznos() + " sa racuna " + racunDobavljaca);
 				racunDao.uplatiNovac(racunDobavljaca, iznos);				
 			} else if ( (clearing = Mt102Clearing.findByMT910Id(porukaOOdobrenjuMT910.getIDPoruke())) != null) {
 				for (NalogZaPlacanjeType nzp : clearing.getNalogZaPlacanje()) {

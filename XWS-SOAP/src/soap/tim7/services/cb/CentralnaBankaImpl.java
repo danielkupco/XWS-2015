@@ -104,26 +104,15 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 	 * rtgsMT103 )*
 	 */
 	public soap.tim7.entities.globals.StatusType primiMT103(soap.tim7.entities.mt103.MT103Type rtgsMT103) {
-		LOG.info("Executing operation primiMT103");
-		System.out.println(rtgsMT103);
+		LOG.info(">>>> Centralna banka: Executing operation primiMT103");
+		//System.out.println(rtgsMT103);
 		try {
 			soap.tim7.entities.globals.StatusType _return = new StatusType();
 			// ObracunskiRacunDao.transferFunds(rtgsNalog.getObracunskiRacunBankeKupca(),
 			// rtgsNalog.getObracunskiRacunBankeDostavljaca(),
 			// rtgsNalog.getIznos());
-
-			soap.tim7.entities.globals.ObjectFactory factory = new soap.tim7.entities.globals.ObjectFactory();
-			MT9XXType mt900 = factory.createMT900Type(rtgsMT103);
 			
 			//postavljanje podataka koji fale (obracunski racun i swift)
-			LOG.info("************************");
-			LOG.info("bankaDao : "+bankaDao);
-			LOG.info("rtgsNalog : "+rtgsMT103);
-			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje() : "+rtgsMT103.getOsnovaNalogaZaPlacanje());
-			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca(): "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca());
-			LOG.info("getBrojRacuna() : "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna());
-			LOG.info("**************************");
-	    		
 			Banka bankaPoverioca = bankaDao.findBankaByIDBanke(rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().substring(0, 3));
 			Banka bankaDuznika = bankaDao.findBankaByIDBanke(rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunDuznika().getBrojRacuna().substring(0, 3));
 			
@@ -132,19 +121,35 @@ public class CentralnaBankaImpl implements CentralnaBanka {
 			
 			rtgsMT103.setSWIFTKodBankePoverioca(bankaPoverioca.getSWIFT());
 			rtgsMT103.setSWIFTKodBankeDuznika(bankaDuznika.getSWIFT());
-
 			
-
-			String racunBankeKupca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
-			Banka_BankaPort_Client bankaKupca = new Banka_BankaPort_Client(racunBankeKupca);
-			bankaKupca.primiMT900(mt900);
-
-			// napravi Mt910
-			MT9XXType mt910 = factory.createMT910Type(rtgsMT103);
+			LOG.info("************************");
+			LOG.info("bankaDao : "+bankaDao);
+			LOG.info("rtgsNalog : "+rtgsMT103);
+			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje() : "+rtgsMT103.getOsnovaNalogaZaPlacanje());
+			LOG.info("rtgsNalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca(): "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca());
+			LOG.info("getBrojRacuna() : "+rtgsMT103.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna());
+			LOG.info("**************************");
+			
+			
 			String racunBankeDobavljaca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankePoverioca()).getIDBanke();
 			Banka_BankaPort_Client bankaDobavljaca = new Banka_BankaPort_Client(racunBankeDobavljaca);
+			LOG.info(">>>>>> Prosledjuje se RTGS nalog " + rtgsMT103.getIDPoruke() + " banci dobavljaca sa racunom " + racunBankeDobavljaca);
 			bankaDobavljaca.primiMT103(rtgsMT103);	//prosledi mt103
+
+			soap.tim7.entities.globals.ObjectFactory factory = new soap.tim7.entities.globals.ObjectFactory();
+			
+			// napravi Mt910
+			MT9XXType mt910 = factory.createMT910Type(rtgsMT103);
+			LOG.info(">>>>>> Salje se MT910 nalog " + mt910.getIDPorukeNaloga() + " banci dobavljaca sa racunom " + racunBankeDobavljaca);
 			bankaDobavljaca.primiMT910(mt910);		//prosledi mt910
+			
+			String racunBankeKupca = bankaDao.findBankaByObracunskiRacun(rtgsMT103.getObracunskiRacunBankeDuznika()).getIDBanke();
+			Banka_BankaPort_Client bankaKupca = new Banka_BankaPort_Client(racunBankeKupca);
+			// napravi Mt910
+			MT9XXType mt900 = factory.createMT910Type(rtgsMT103);
+			LOG.info(">>>>>> Salje se MT900 nalog " + mt900.getIDPorukeNaloga() + " banci kupca sa racunom " + racunBankeKupca);
+			bankaKupca.primiMT900(mt900);		//prosledi mt900
+
 
 			_return.setPoruka("[CENTRALNA_BANKA] USPESNO PRIMLJEN MT103");
 			_return.setStatusKod(new BigInteger("200"));
