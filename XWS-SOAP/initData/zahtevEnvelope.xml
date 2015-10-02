@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope 
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:izvod="http://xws/tim7/zahtevZaIzvod">
+  <soap:Body>
+    <izvod:primiZahtevZaIzvod>
+        <izvod:zahtev_za_izvod>
+          <izvod:broj_racuna>111-2222222222222-33</izvod:broj_racuna>
+          <izvod:datum>2015-09-30</izvod:datum>
+          <izvod:redni_broj_preseka>1</izvod:redni_broj_preseka>
+        </izvod:zahtev_za_izvod>
+    </izvod:primiZahtevZaIzvod>
+  </soap:Body>
+</soap:Envelope>
