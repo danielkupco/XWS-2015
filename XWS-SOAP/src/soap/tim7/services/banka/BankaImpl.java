@@ -182,16 +182,20 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 		log.info("Executing operation primiZahtevZaIzvod");
 		System.out.println(zahtevZaIzvod);
 		try {
-			soap.tim7.entities.presek.PresekType _return = null;
 			
 			List<NalogZaPlacanjeType> naloziZaPlacanje = nalogZaPlacanjeDao.findByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
 			List<NalogZaPlacanjeType> naloziZaPlacanjePreTrazenog = nalogZaPlacanjeDao.findOlderByRacunAndDate(zahtevZaIzvod.getBrojRacuna(), zahtevZaIzvod.getDatum());
+			
+			
+			log.info("/-/-/-/-/-/-/-/-/-/-/-Zahtev za izvod/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/");
+			log.info("naloziZaPlacanjeSize: "+naloziZaPlacanje.size());
+			log.info("naloziZaPlacanjePreTrazenog size: "+naloziZaPlacanjePreTrazenog.size());
 			
 			double prethodnoStanje = 0.0;
 			
 			for(NalogZaPlacanjeType nalog : naloziZaPlacanjePreTrazenog){
 				
-				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
+				if(nalog.getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().equals(zahtevZaIzvod.getBrojRacuna())){
 					prethodnoStanje += nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 				}else{
 					prethodnoStanje -= nalog.getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
@@ -200,7 +204,6 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 			}
 			
 			log.info("Prethodno stanje : " + prethodnoStanje);
-			
 			
 			List<PresekType> listaPreseka = new ArrayList<PresekType>();
 			
@@ -228,13 +231,13 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 					
 					PresekType.StavkaPreseka stavkaPreseka = new PresekType.StavkaPreseka();
 					
-					if(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getRacunPoverioca().equals(zahtevZaIzvod.getBrojRacuna())){
+					if(naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getRacunPoverioca().getBrojRacuna().equals(zahtevZaIzvod.getBrojRacuna())){
 						++brojPromenaUKorist;
-						ukupnoUKorist = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						ukupnoUKorist += naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 						stavkaPreseka.setSmer("K");
 					}else{
 						++brojPromenaNaTeret;
-						ukupnoNaTeret = naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
+						ukupnoNaTeret -= naloziZaPlacanje.get(j).getOsnovaNalogaZaPlacanje().getIznos().doubleValue();
 						stavkaPreseka.setSmer("T");
 					}
 					
@@ -257,7 +260,7 @@ public class BankaImpl implements soap.tim7.services.banka.Banka {
 				listaPreseka.add(presek);
 			}
 			
-			
+			log.info("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/");
 			return listaPreseka.get(zahtevZaIzvod.getRedniBrojPreseka().intValue()-1);
 			
 		} catch (java.lang.Exception ex) {
