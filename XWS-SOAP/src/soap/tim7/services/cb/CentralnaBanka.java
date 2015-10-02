@@ -18,14 +18,6 @@ import javax.xml.ws.ResponseWrapper;
 @XmlSeeAlso({soap.tim7.entities.mt102.ObjectFactory.class, soap.tim7.entities.mt910.ObjectFactory.class, soap.tim7.entities.nalogzaplacanje.ObjectFactory.class, soap.tim7.entities.mt900.ObjectFactory.class, soap.tim7.entities.globals.ObjectFactory.class, soap.tim7.entities.mt103.ObjectFactory.class})
 public interface CentralnaBanka {
 
-    @WebMethod
-    @RequestWrapper(localName = "primiMT102", targetNamespace = "http://xws/tim7/mt102", className = "soap.tim7.mt102.PrimiMT102")
-    @ResponseWrapper(localName = "return_status", targetNamespace = "http://xws/tim7/globals", className = "soap.tim7.globals.ReturnStatus")
-    @WebResult(name = "status", targetNamespace = "http://xws/tim7/globals")
-    public soap.tim7.entities.globals.StatusType primiMT102(
-        @WebParam(name = "nalog_za_grupna_placanja", targetNamespace = "http://xws/tim7/mt102")
-        soap.tim7.entities.mt102.MT102Type nalogZaGrupnaPlacanja
-    );
 
     @WebMethod
     @RequestWrapper(localName = "primiMT103", targetNamespace = "http://xws/tim7/mt103", className = "soap.tim7.mt103.PrimiMT103")
@@ -34,5 +26,15 @@ public interface CentralnaBanka {
     public soap.tim7.entities.globals.StatusType primiMT103(
         @WebParam(name = "RTGS_MT103", targetNamespace = "http://xws/tim7/mt103")
         soap.tim7.entities.mt103.MT103Type rtgsMT103
+    );
+    
+    
+    @WebMethod
+    @RequestWrapper(localName = "primiMT102", targetNamespace = "http://xws/tim7/mt102", className = "soap.tim7.mt102.PrimiMT102")
+    @ResponseWrapper(localName = "return_status", targetNamespace = "http://xws/tim7/globals", className = "soap.tim7.globals.ReturnStatus")
+    @WebResult(name = "status", targetNamespace = "http://xws/tim7/globals")
+    public soap.tim7.entities.globals.StatusType primiMT102(
+        @WebParam(name = "nalog_za_grupna_placanja", targetNamespace = "http://xws/tim7/mt102")
+        soap.tim7.entities.mt102.MT102Type nalogZaGrupnaPlacanja
     );
 }

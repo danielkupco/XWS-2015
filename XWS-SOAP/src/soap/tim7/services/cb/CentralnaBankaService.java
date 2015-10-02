@@ -26,7 +26,7 @@ public class CentralnaBankaService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("file:../wsdl/centralnaBanka.wsdl");
+            url = new URL("centralnaBanka.wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(CentralnaBankaService.class.getName())
                 .log(java.util.logging.Level.INFO, 
